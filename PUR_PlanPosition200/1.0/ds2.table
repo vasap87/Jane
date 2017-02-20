@@ -1,0 +1,39 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctabledesc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/table" xsi:schemaLocation="http://www.otr.ru/sufd/document/table http://ufos.otr.ru/schema/document/table/v1/table.xsd">
+  <tables>
+    <tableform id="default">
+      <toolbar actionlist="tableActions"/>
+      <popup actionlist="popupLayout"/>
+      <column default-width="30" field="DOC.IND_CORRECTIONNEEDED" name="!" tooltip="Требует корректировки">
+        <renderer bean-name="enumImageCellRenderer"/>
+      </column>
+      <column default-width="200" field="DOC.BI_IKZ" name="Идентификационный код закупки" tooltip="Идентификационный код закупки"/>
+      <column default-width="70" field="DOC.IND_STATE" name="Состояние" tooltip="Состояние">
+        <renderer bean-name="enumImageCellRenderer"/>
+      </column>
+      <column default-width="400" field="DOC.TEI_CURRENTGUID" name="Наименование объекта закупки (предмет контракта)" tooltip="Наименование объекта закупки (предмет контракта)">
+        <renderer bean-name="documentViewLinkCellRowRenderer">
+          <parameter name="link-text" value="${fields.DOC.BI_PGPOSITIONNAME}"/>
+        </renderer>
+      </column>
+      <column default-width="150" field="DOC.PWAY_NAME" name="Способ определения поставщика" tooltip="Способ определения поставщика"/>
+      <column alignment="RIGHT" default-width="100" field="DOC.BI_APPROXIMAMOUNT" name="ФО всего (НМЦК) (тыс.рублей)" tooltip="ФО всего (НМЦК) (тыс.рублей)" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="100" field="DOC.TFO_SUMFIRST" name="ФО на первый год планового периода (тыс.рублей)" tooltip="ФО на первый год планового периода (тыс.рублей)" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="100" field="DOC.TFO_SUMSEC" name="ФО на второй год планового периода (тыс.рублей)" tooltip="ФО на второй год планового периода (тыс.рублей)" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="100" field="DOC.TFO_SUMSUBSEC" name="ФО на последующие годы (тыс.рублей)" tooltip="ФО на последующие годы (тыс.рублей)" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column default-width="130" field="DOC.BI_PUBLISHTERM" name="Срок размещения заказа" tooltip="Срок размещения заказа" type="DATE" pattern="MM/yyyy"/>
+      <column default-width="130" field="DOC.BI_CONTRACTTERM" name="Срок исполнения контракта" tooltip="Срок исполнения контракта" type="DATE" pattern="MM/yyyy"/>
+      <column default-width="200" field="DOC.BI_DOCNUMBER" name="Номер позиции плана-графика закупок" tooltip="Номер позиции плана-графика закупок"/>
+      <column default-width="100" field="DOC.BI_VERSIONNUM" name="Версия" tooltip="Версия"/>
+      <column default-width="150" field="DOC.TP_PURCHGUID" name="Сведения о закупке" tooltip="Сведения о закупке">
+        <renderer bean-name="documentViewLinkCellRowRenderer">
+          <parameter name="link-text" value="${fields.DOC.IND_PURCHSTATESOP}"/>
+        </renderer>
+      </column>
+      <control-buttons/>
+    </tableform>
+  </tables>
+  <selectconditions>
+    <selectcondition id="alldocs"/>
+  </selectconditions>
+</doctabledesc>

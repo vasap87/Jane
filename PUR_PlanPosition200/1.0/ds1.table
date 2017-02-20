@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctabledesc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/table" xsi:schemaLocation="http://www.otr.ru/sufd/document/table http://ufos.otr.ru/schema/document/table/v1/table.xsd">
+  <tables>
+    <tableform id="default">
+      <toolbar actionlist="tableActions"/>
+      <popup actionlist="popupLayout"/>
+      <column default-width="200" field="DOC.TEI_CURRENTGUID" name="Номер документа" tooltip="Номер документа">
+        <renderer bean-name="documentViewLinkCellRowRenderer">
+          <parameter name="link-text" value="${fields.DOC.CU_DOCNUMBER}"/>
+        </renderer>
+      </column>
+      <column default-width="100" field="DOC.CU_VERSIONNUM" name="Номер версии документа" tooltip="Номер версии документа"/>
+      <column default-width="100" name="Статус документа" tooltip="Статус документа" attrib="docState.name"/>
+      <column default-width="200" field="DOC.CU_VERSCREATEDATE" name="Дата и время создания версии документа" tooltip="Дата и время создания версии документа" pattern="d-MM-yyyy HH:mm:ss"/>
+      <column default-width="200" field="DOC.BI_OBJECTINFO" name="Наименование объекта закупки" tooltip="Наименование объекта закупки"/>
+      <column default-width="100" field="DOC.BI_PUBLISHYEAR" name="Год извещения" tooltip="Год извещения"/>
+      <column default-width="100" field="DOC.IND_WASPUBLISHER" name="Позиция была размещена в ЕИС" tooltip="Позиция была размещена в ЕИС"/>
+      <column default-width="230" field="DOC.CU_BRANCHNAME" name="Структурное подразделение / Филиал" tooltip="Структурное подразделение / Филиал"/>
+      <control-buttons/>
+    </tableform>
+  </tables>
+  <selectconditions>
+    <selectcondition id="alldocs"/>
+  </selectconditions>
+</doctabledesc>

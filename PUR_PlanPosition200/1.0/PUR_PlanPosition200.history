@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<history xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/history" xsi:schemaLocation="http://www.otr.ru/sufd/document/history http://ufos.otr.ru/schema/document/history/v1/history.xsd" enable="false" id="PUR_PlanPosition200">
+  <application>
+    <field column="CU_BRANCHNAME" header="Сокращенное наименование филиала" length="500" name="DOC.CU_BRANCHNAME" type="STRING"/>
+    <field column="CU_BRANCHCODE" header="Код филиала" length="30" name="DOC.CU_BRANCHCODE" type="STRING"/>
+    <field column="ORG_USERORGCODE" header="Код организации пользователя" length="200" name="DOC.ORG_USERORGCODE" type="STRING"/>
+    <field column="ORG_USERORGNAME" header="Полное наименование организации пользователя" length="2000" name="DOC.ORG_USERORGNAME" type="STRING"/>
+    <field column="ORG_USERORGADDRESS" header="Адрес организации пользователя" length="2000" name="DOC.ORG_USERORGADDRESS" type="STRING"/>
+    <field column="ORG_USERORGPHONE" header="Телефон организации пользователя" length="100" name="DOC.ORG_USERORGPHONE" type="STRING"/>
+    <field column="ORG_USERORGEMAIL" header="Емэйл организации пользователя" length="100" name="DOC.ORG_USERORGEMAIL" type="STRING"/>
+    <field column="ORG_SPZ" header="Код СПЗ пользователя" length="11" name="DOC.ORG_SPZ" type="STRING"/>
+    <field column="BI_PUBLISHYEAR" header="Закупка содержит несколько ОКПД2" name="DOC.BI_SEVERALOKPD" type="BOOLEAN"/>
+    <field column="BI_REASONFORCHANGEID" header="Год извещения" length="250" name="DOC.BI_PUBLISHYEAR" type="ENUM"/>
+    <field column="BI_CANCEL" header="Идентификатор обоснования изменений" length="6" name="DOC.BI_REASONFORCHANGEID" type="STRING"/>
+    <field column="BI_STRNUMBERINPP" header="Отменить в рамках размещенного в ЕИС ПГ" name="DOC.BI_CANCEL" type="BOOLEAN"/>
+    <field column="BI_EXTNUMBER" header="Номер строки в таблице плана закупок" length="10" name="DOC.BI_STRNUMBERINPP" type="STRING"/>
+    <field column="BI_EISPUBLISHDATE" header="Внешний номера позиции на ЕИС" length="15" name="DOC.BI_EXTNUMBER" type="STRING"/>
+    <field column="IND_WASPUBLISHER" header="Дата размещения в ЕИС" name="DOC.BI_EISPUBLISHDATE" type="DATETIME"/>
+    <field column="TEI_BASICGUID" header="КВР для ИКЗ" length="3" name="DOC.FP_EXPTYPEIKZ" type="STRING"/>
+    <field column="IND_INCLUDEDP" header="КВР не определен " name="DOC.FP_EXPTYPENOTIDENTIFIED" type="BOOLEAN"/>
+    <field column="TEI_PARENTGUID" header="Включено в план закупок" length="250" name="DOC.IND_INCLUDEDP" type="ENUM"/>
+    <field column="TEI_PLANDOCTYPE" header="Позиция была размещена в ЕИС" name="DOC.IND_WASPUBLISHER" type="BOOLEAN"/>
+    <field column="TEI_NEXTVERSIONNUM" header="ГУИДБазисного документа" length="36" name="DOC.TEI_BASICGUID" type="STRING"/>
+    <field column="TEI_IFFROMKUZ" header="ГУИД Родителя" length="36" name="DOC.TEI_PARENTGUID" type="STRING"/>
+    <field column="TEI_IFFROMKUZCUR" header="Исходная КУЗ утверждена" name="DOC.TEI_KUZAPPROVED" type="BOOLEAN"/>
+    <field column="TEI_IFFROMKUZCURMASS" header="Тип формуляра плана закупок" length="100" name="DOC.TEI_PLANDOCTYPE" type="STRING"/>
+    <field column="TEI_FILLAGRLISTFROMKUZ" header="Номер следующей версии" length="5" name="DOC.TEI_NEXTVERSIONNUM" type="STRING"/>
+    <field column="TEI_UZNUMBER" header="Для заполнения рублевого ФО из КУЗ" length="500" name="DOC.TEI_IFFROMKUZ" type="STRING"/>
+    <field column="TEI_EISPDATETZ" header="Для заполнения валютного ФО из КУЗ" length="500" name="DOC.TEI_IFFROMKUZCUR" type="STRING"/>
+    <field column="AGR_USERFLAG3" header="Для заполнения валютного ФО из КУЗ массовый метод" length="500" name="DOC.TEI_IFFROMKUZCURMASS" type="STRING"/>
+    <field column="AGR_USERFLAG4" header="Заполнить лист согласования из КУЗ" length="10" name="DOC.TEI_FILLAGRLISTFROMKUZ" type="STRING"/>
+    <field column="AGR_APPROVERLOGIN" header="Номер будущего документа КУЗ" length="100" name="DOC.TEI_UZNUMBER" type="STRING"/>
+    <field column="AGR_APPROVERNOTE" header="Дата размещения в ЕИС с тайм зоной" length="500" name="DOC.TEI_EISPDATETZ" type="STRING"/>
+    <field column="AGR_SIGNDATETIME" header="Код ОКОПФ 3 символа" length="3" name="DOC.TEI_CODEOKOPF_3" type="STRING"/>
+    <field column="AGR_APPINCOMEDT" header="ИКЗ сформировано" name="DOC.TEI_IKZISFORMED" type="BOOLEAN"/>
+    <field column="AGR_CURRENTUSERNAME" header="Порядковый номер ИКЗ для особой закупки уже сформирован" name="DOC.TEI_POSNUMBERISFORMED" type="BOOLEAN"/>
+    <field column="AGR_NUMOFAPPROVERS" header="Для процесса согласования флаг 4" length="50" name="DOC.AGR_USERFLAG4" type="STRING"/>
+    <field column="AGR_ISAGREEMENTNEED" header="Системное имя подписанта" length="50" name="DOC.AGR_APPROVERLOGIN" type="STRING"/>
+    <field column="AGR_ARGINCOMEDT" header="Заметка подписанта" length="1000" name="DOC.AGR_APPROVERNOTE" type="STRING"/>
+    <field column="AGR_ARGINCOMEDT" header="Дата и время подписи" name="DOC.AGR_SIGNDATETIME" type="DATETIME"/>
+    <field column="AGR_APPINCOMEDT" header="Дата и время отправки на утверждение" name="DOC.AGR_APPINCOMEDT" type="DATETIME"/>
+    <field column="AGR_CURRENTUSERNAME" header="Имя текущего пользователя" length="100" name="DOC.AGR_CURRENTUSERNAME" type="STRING"/>
+    <field column="AGR_NUMOFAPPROVERS" header="Число согласующих" length="20" name="DOC.AGR_NUMOFAPPROVERS" type="LONG"/>
+    <field column="AGR_ISAGREEMENTNEED" header="Необходимость согласования" name="DOC.AGR_ISAGREEMENTNEED" type="BOOLEAN"/>
+    <field column="AGR_ARGINCOMEDT" header="Дата и время отправки на согласование" name="DOC.AGR_ARGINCOMEDT" type="DATETIME"/>
+    <table name="FS_REG_REGPURCH_LIST" table="HFS_TI_FINBYYEAR200_LIST">
+      <field column="STRGUID" header="Идентификатор НПА в ЕИС" length="2000" name="REGULATIONSIDEIS" type="STRING"/>
+    </table>
+    <table name="FS_TI_FINBYYEAR200_LIST" table="HFS_TI_FINBYYEARCUR_LIST">
+      <field column="STRGUID" header="ГУИД созданной ППЗ на основании строки" length="36" name="STRGUID" type="STRING"/>
+    </table>
+    <table name="FS_TI_FINBYYEARCUR_LIST" table="HFS_AGR_AGRLIST_LIST">
+      <field column="CUREX" header="ГУИД созданной ППЗ на основании строки" length="36" name="STRGUID" type="STRING"/>
+      <field column="USERNOTE" header="Примечание" length="1000" name="USERNOTE" type="STRING"/>
+      <field column="USERGROUP" header="Группа пользователей" length="10" name="USERGROUP" type="STRING"/>
+      <field column="PHASEORDER" header="Этап согласования" length="10" name="PHASEORDER" type="STRING"/>
+      <field column="USERNMINGROUP" header="Код пользователя в группе" length="10" name="USERNMINGROUP" type="STRING"/>
+      <field column="RESOLUTION" header="Решение" length="250" name="RESOLUTION" type="ENUM"/>
+      <field column="ARGDATE" header="Дата согласования" name="ARGDATE" type="DATETIME"/>
+      <field column="LOGIN" header="Логин пользователя" length="50" name="LOGIN" type="STRING"/>
+      <field column="USERFIO" header="ФИО" length="200" name="USERFIO" type="STRING"/>
+      <field column="FWDDATE" header="Дата направления на согласование" name="FWDDATE" type="DATETIME"/>
+      <field column="AGRSTATE" header="Фонарный статус" length="250" name="AGRSTATE" type="ENUM"/>
+      <field column="DEADLINE" header="Срок согласования" name="DEADLINE" type="DATETIME"/>
+      <field column="REQVERSION" header="Версия документа для согласования" length="10" name="REQVERSION" type="STRING"/>
+      <field column="USERPOST" header="Должность согласующего документ" length="2000" name="USERPOST" type="STRING"/>
+    </table>
+    <table name="FS_AGR_AGRLIST_LIST" table="HFS_AGR_AGRLIST_LIST">
+      <field column="CUREX" header="Текущий исполнитель" name="CUREX" type="BOOLEAN"/>
+      <field column="USERNOTE" header="Примечание" length="1000" name="USERNOTE" type="STRING"/>
+      <field column="USERGROUP" header="Группа пользователей" length="10" name="USERGROUP" type="STRING"/>
+      <field column="PHASEORDER" header="Этап согласования" length="10" name="PHASEORDER" type="STRING"/>
+      <field column="USERNMINGROUP" header="Код пользователя в группе" length="10" name="USERNMINGROUP" type="STRING"/>
+      <field column="RESOLUTION" header="Решение" length="250" name="RESOLUTION" type="ENUM"/>
+      <field column="ARGDATE" header="Дата согласования" name="ARGDATE" type="DATETIME"/>
+      <field column="LOGIN" header="Логин пользователя" length="50" name="LOGIN" type="STRING"/>
+      <field column="USERFIO" header="ФИО" length="200" name="USERFIO" type="STRING"/>
+      <field column="FWDDATE" header="Дата направления на согласование" name="FWDDATE" type="DATETIME"/>
+      <field column="AGRSTATE" header="Фонарный статус" length="250" name="AGRSTATE" type="ENUM"/>
+      <field column="DEADLINE" header="Срок согласования" name="DEADLINE" type="DATETIME"/>
+      <field column="REQVERSION" header="Версия документа для согласования" length="10" name="REQVERSION" type="STRING"/>
+      <field column="USERPOST" header="Должность согласующего документ" length="2000" name="USERPOST" type="STRING"/>
+    </table>
+  </application>
+  <other attachment="false" signature="false"/>
+</history>

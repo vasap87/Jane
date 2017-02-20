@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctabledesc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/table" xsi:schemaLocation="http://www.otr.ru/sufd/document/table http://ufos.otr.ru/schema/document/table/v1/table.xsd">
+  <tables>
+    <tableform id="default">
+      <toolbar actionlist="&lt;absent>"/>
+      <popup actionlist="popupLayout"/>
+      <column default-width="42" field="KCR_GRBS" name="Глава" tooltip="Код главы БК"/>
+      <column default-width="23" field="KCR_SECTION" name="Р" tooltip="Раздел"/>
+      <column default-width="34" field="KCR_SUBSECTION" name="ПР" tooltip="Подраздел"/>
+      <column default-width="32" field="KCR_PNDE" name="ПН" tooltip="Программное или непрограммное направление расходов"/>
+      <column default-width="24" field="KCR_PROGRAM" name="П" tooltip="Программа ФЦП"/>
+      <column default-width="35" field="KCR_ACTION" name="ОМ" tooltip="Основное мероприятие"/>
+      <column default-width="33" field="KCR_DIRECTION" name="НР" tooltip="Направление расходов"/>
+      <column default-width="41" field="KCR_EXPTYPE" name="КВР" tooltip="Вид расходов"/>
+      <column default-width="31" field="KCR_DEPARTMENT" name="КД" tooltip="Код департамента"/>
+      <column default-width="100" field="ADDITIONALFEATURECODE" name="Дополнительный аналитический признак" tooltip="Код дополнительного признака"/>
+      <column default-width="182" field="RUR_SUMTOTAL" name="ФО всего" tooltip="Итоговая сумма финансового обеспечения"/>
+      <column default-width="177" field="RUR_SUMNEXT" name="ФО на очередной финансового год" tooltip="ФО на очередной финансового год"/>
+      <column default-width="180" field="RUR_SUMFIRST" name="ФО на первый год планового периода" tooltip="ФО на первый год планового периода"/>
+      <column default-width="182" field="RUR_SUMSEC" name="ФО на второй год планового периода" tooltip="ФО на второй год планового периода"/>
+      <column default-width="181" field="RUR_SUMSUBSEC" name="ФО на последующие годы" tooltip="ФО на последующие годы"/>
+      <control-buttons/>
+    </tableform>
+  </tables>
+  <selectconditions>
+    <selectcondition id="alldocs"/>
+  </selectconditions>
+</doctabledesc>

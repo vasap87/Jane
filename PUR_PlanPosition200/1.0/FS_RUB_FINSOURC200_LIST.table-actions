@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tableActions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/table-actions" xsi:schemaLocation="http://www.otr.ru/sufd/document/table-actions http://ufos.otr.ru/schema/document/table-actions/v1/table-actions.xsd">
+  <actionList id="tableActions">
+    <separator/>
+    <stdactionref id="add"/>
+    <stdactionref id="copy"/>
+    <stdactionref id="delete"/>
+    <stdactionref id="edit"/>
+    <stdactionref id="view"/>
+    <stdactionref id="setColumns"/>
+    <stdactionref id="find"/>
+    <stdactionref id="applyFilter"/>
+    <stdactionref id="resetFilter"/>
+    <stdactionref id="print"/>
+  </actionList>
+  <actionList id="popupLayout">
+    <separator/>
+    <stdactionref id="add"/>
+    <stdactionref id="copy"/>
+    <stdactionref id="delete"/>
+    <stdactionref id="edit"/>
+    <stdactionref id="view"/>
+    <stdactionref id="setColumns"/>
+    <stdactionref id="find"/>
+    <stdactionref id="applyFilter"/>
+    <stdactionref id="resetFilter"/>
+    <stdactionref id="print"/>
+  </actionList>
+  <actionList id="&lt;absent>"/>
+  <actionList id="fs_rub_finsourc200_list">
+    <stdactionref id="moveUp" disabling-action="hide"/>
+    <stdactionref id="moveDown" disabling-action="hide"/>
+  </actionList>
+  <specific-disable-conditions>
+    <disable actionName="copy">
+      <not>
+        <null name="DOC.CU_UZNUMBER"/>
+      </not>
+    </disable>
+    <disable actionName="delete_str_rub_itr">
+      <eq name="DOC.IND_WASPUBLISHER" value="true" type="BOOLEAN"/>
+    </disable>
+  </specific-disable-conditions>
+</tableActions>

@@ -1,0 +1,4 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/filter" xsi:schemaLocation="http://www.otr.ru/sufd/document/filter http://otr-sufd/xmlschema/docfilter.xsd">
+  <filterset id="default"/>
+</filters>

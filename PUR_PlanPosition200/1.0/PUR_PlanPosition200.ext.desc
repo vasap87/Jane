@@ -1,0 +1,771 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<docschema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/desc" xsi:schemaLocation="http://www.otr.ru/sufd/document/desc http://ufos.otr.ru/schema/document/desc/v1/desc.xsd" desc="Позиция плана закупок 200" id="PUR_PlanPosition200" lifeCycle="PUR_PlanPosition_lc" parent-id="DOC_BASE" type="Document">
+  <document-info-list default-ref="default">
+    <document-info id="default">Позиция плана закупок товаров, работ, услуг 200</document-info>
+  </document-info-list>
+  <definitions>
+    <fieldset-def table="FS_PPZ200_REGPURCH_LIST" type="FS_REG_REGPURCH_LIST" desc="Нормативно правовые акты закупок">
+      <field desc="Код вида документа НПА" id="REGULATIONSCODE" length="2000" type="STRING"/>
+      <field desc="Вид документа НПА" id="REGULATIONSVIEW" length="100" type="STRING"/>
+      <field desc="Полное наименование НПА" id="REGULATIONSFULLNAME" length="1000" type="STRING"/>
+      <field desc="Дата принятия НПА" id="REGULATIONSDATE" type="DATETIME"/>
+      <field desc="Номер НПА" id="REGULATIONSNUM" length="100" type="STRING"/>
+      <field desc="Пункты НПА" id="REGULATIONSITEM" length="256" type="STRING"/>
+      <field desc="Идентификатор НПА в ЕИС" id="REGULATIONSIDEIS" length="2000" type="STRING"/>
+    </fieldset-def>
+    <fieldset-def table="FS_RUB_FINSOURC200_LIST" type="FS_RUB_FINSOURC200_LIST" desc="Источники финансирования">
+      <field desc="Планируемый год размещения извещения" id="PUBLISHYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Код главы БК" id="KS_GRBS" length="3" type="STRING"/>
+      <field desc="Раздел" id="KS_SECTION" length="2" type="STRING"/>
+      <field desc="Подраздел" id="KS_SUBSECTION" length="2" type="STRING"/>
+      <field desc="Программное или непрограммное направление расходов" id="KS_PNDE" length="2" type="STRING"/>
+      <field desc="Программа ФЦП" id="KS_PROGRAM" length="1" type="STRING"/>
+      <field desc="Основное мероприятие" id="KS_ACTION" length="2" type="STRING"/>
+      <field desc="Направление расходов" id="KS_DIRECTION" length="5" type="STRING"/>
+      <field desc="Вид расходов" id="KS_EXPTYPE" length="3" type="STRING"/>
+      <field desc="Код департамента" id="KS_DEPARTMENT" length="2" type="STRING"/>
+      <field desc="Косгу" id="KS_KOSGU" length="3" type="STRING"/>
+      <field desc="КБК результирующий" id="KS_KBK" length="50" type="STRING"/>
+      <field desc="Код дополнительного признака" id="ADDITIONALFEATURECODE" length="3" type="STRING"/>
+      <field desc="Сумма текущего года планового периода" id="RUR_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="RUR_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="RUR_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="RUR_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="RUR_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="RUR_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="RUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="RUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="RUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="RUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="RUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="RUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Требуется корректировка финансового обеспечения" id="CORRREQ" type="BOOLEAN"/>
+      <field desc="Сумма текущего года ППЗ требует корректировки" id="CRCT_CURR" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма очередного года ППЗ требует корректировки" id="CRCT_NEXT" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма первого года ППЗ требует корректировки" id="CRCT_FIRST" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма второго года ППЗ требует корректировки" id="CRCT_SEC" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма последующих лет ППЗ требует корректировки" id="CRCT_SUBSEC" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Итоговая корректировка ППЗ" id="CRCT_TOTAL" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма текущего года ППЗ требует корректировки" id="CRUZ_CURR" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма очередного года ППЗ требует корректировки" id="CRUZ_NEXT" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма первого года ППЗ требует корректировки" id="CRUZ_FIRST" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма второго года ППЗ требует корректировки" id="CRUZ_SEC" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма последующих лет ППЗ требует корректировки" id="CRUZ_SUBSEC" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Итоговая корректировка ППЗ" id="CRUZ_TOTAL" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Код мероприятия по информатизации" id="INFORMACTCODE" length="26" type="STRING"/>
+      <field desc="Тип мероприятия по информатизации" id="INFORMACTTYPE" length="100" type="STRING"/>
+      <field desc="Наименование мероприятия по информатизации" id="INFORMACTNAME" length="2000" type="STRING"/>
+      <field desc="Приоритетное направление мероприятия по информатизации" id="INFORMACTPRIORITY" length="2000" type="STRING"/>
+    </fieldset-def>
+    <fieldset-def table="FS_CUR_FINSOURC200_LIST" type="FS_CUR_FINSOURC200_LIST" desc="Источники финансового обеспечения для зарубежного аппарата">
+      <field desc="Планируемый год размещения извещения" id="PUBLISHYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Код главы БК" id="KCR_GRBS" length="3" type="STRING"/>
+      <field desc="Раздел" id="KCR_SECTION" length="2" type="STRING"/>
+      <field desc="Подраздел" id="KCR_SUBSECTION" length="2" type="STRING"/>
+      <field desc="Программное или непрограммное направление расходов" id="KCR_PNDE" length="2" type="STRING"/>
+      <field desc="Программа ФЦП" id="KCR_PROGRAM" length="1" type="STRING"/>
+      <field desc="Основное мероприятие" id="KCR_ACTION" length="2" type="STRING"/>
+      <field desc="Направление расходов" id="KCR_DIRECTION" length="5" type="STRING"/>
+      <field desc="Вид расходов" id="KCR_EXPTYPE" length="3" type="STRING"/>
+      <field desc="Код департамента" id="KCR_DEPARTMENT" length="2" type="STRING"/>
+      <field desc="Косгу" id="KCR_KOSGU" length="3" type="STRING"/>
+      <field desc="КБК результирующий" id="KCR_KBK" length="50" type="STRING"/>
+      <field desc="Код дополнительного признака" id="ADDITIONALFEATURECODE" length="3" type="STRING"/>
+      <field desc="Код  валюты" id="OKV_CODE" length="3" type="STRING"/>
+      <field desc="Наименование валюты" id="OKV_NAME" length="100" type="STRING"/>
+      <field desc="Код валюты буквенный" id="OKV_CODEABC" length="3" type="STRING"/>
+      <field desc="Сумма текущего года планового периода" id="CUR_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="CUR_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="CUR_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="CUR_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="CUR_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="CUR_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="CUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="CUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="CUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="CUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="CUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="CUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="USD_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="USD_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="USD_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="USD_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="USD_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="USD_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="UUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="UUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="UUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="UUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="UUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="UUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="RUR_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="RUR_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="RUR_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="RUR_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="RUR_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="RUR_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="RUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="RUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="RUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="RUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="RUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="RUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Курс текущего года планового периода" id="RR_EXCHRATECURRENT" length="20" scale="6" type="DECIMAL"/>
+      <field desc="Курс очередного года планового периода" id="RR_EXCHRATENEXT" length="20" scale="6" type="DECIMAL"/>
+      <field desc="Курс первого года планового периода" id="RR_EXCHRATEFIRST" length="20" scale="6" type="DECIMAL"/>
+      <field desc="Курс второго года планового периода" id="RR_EXCHRATESEC" length="20" scale="6" type="DECIMAL"/>
+      <field desc="Курс последующих лет планового периода" id="RR_EXCHRATESUBSEC" length="20" scale="6" type="DECIMAL"/>
+      <field desc="Курс текущего года планового периода" id="UR_EXCHRATECURRENT" length="20" scale="6" type="DECIMAL"/>
+      <field desc="Курс очередного года планового периода" id="UR_EXCHRATENEXT" length="20" scale="6" type="DECIMAL"/>
+      <field desc="Курс первого года планового периода" id="UR_EXCHRATEFIRST" length="20" scale="6" type="DECIMAL"/>
+      <field desc="Курс второго года планового периода" id="UR_EXCHRATESEC" length="20" scale="6" type="DECIMAL"/>
+      <field desc="Курс последующих лет планового периода" id="UR_EXCHRATESUBSEC" length="20" scale="6" type="DECIMAL"/>
+      <field desc="Требуется корректировка финансового обеспечения" id="CORRREQ" type="BOOLEAN"/>
+      <field desc="Сумма текущего года ППЗ требует корректировки" id="CRCT_CURR" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма очередного года ППЗ требует корректировки" id="CRCT_NEXT" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма первого года ППЗ требует корректировки" id="CRCT_FIRST" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма второго года ППЗ требует корректировки" id="CRCT_SEC" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма последующих лет ППЗ требует корректировки" id="CRCT_SUBSEC" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Итоговая корректировка ППЗ" id="CRCT_TOTAL" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма текущего года ППЗ требует корректировки" id="CRUZ_CURR" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма очередного года ППЗ требует корректировки" id="CRUZ_NEXT" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма первого года ППЗ требует корректировки" id="CRUZ_FIRST" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма второго года ППЗ требует корректировки" id="CRUZ_SEC" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Сумма последующих лет ППЗ требует корректировки" id="CRUZ_SUBSEC" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+      <field desc="Итоговая корректировка ППЗ" id="CRUZ_TOTAL" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ"/>
+      </field>
+    </fieldset-def>
+    <fieldset-def table="FS_T_FINYEAR200_LIST" type="FS_TI_FINBYYEAR200_LIST" desc="Финансовое обеспечение по годам">
+      <field desc="Планируемый год размещения извещения" id="PUBLISHYEAR2" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Сумма текущего года планового периода" id="RUR_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="RUR_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="RUR_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="RUR_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="RUR_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="RUR_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="ГУИД созданной ППЗ на основании строки" id="STRGUID" length="36" type="UUID"/>
+    </fieldset-def>
+    <fieldset-def table="FS_TI_FINBYYEARCUR_LIST" type="FS_TI_FINBYYEARCUR_LIST" desc="Финансовое обеспечение по годам в валюте">
+      <field desc="Планируемый год размещения извещения" id="PUBLISHYEAR2" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Код  валюты" id="OKV_CODE" length="3" type="STRING"/>
+      <field desc="Наименование валюты" id="OKV_NAME" length="100" type="STRING"/>
+      <field desc="Код валюты буквенный" id="OKV_CODEABC" length="3" type="STRING"/>
+      <field desc="Сумма текущего года планового периода" id="CUR_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="CUR_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="CUR_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="CUR_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="CUR_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="CUR_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="USD_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="USD_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="USD_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="USD_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="USD_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="USD_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="RUR_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="RUR_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="RUR_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="RUR_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="RUR_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="RUR_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="ГУИД созданной ППЗ на основании строки" id="STRGUID" length="36" type="UUID"/>
+    </fieldset-def>
+    <fieldset-def table="FS_T_FINKBK200_LIST" type="FS_TI_FINBYKBK200_LIST" desc="Финансовое обеспечение по КБК">
+      <field desc="Код главы БК" id="KSR_GRBS" length="3" type="STRING"/>
+      <field desc="Раздел" id="KSR_SECTION" length="2" type="STRING"/>
+      <field desc="Подраздел" id="KSR_SUBSECTION" length="2" type="STRING"/>
+      <field desc="Программное или непрограммное направление расходов" id="KSR_PNDE" length="2" type="STRING"/>
+      <field desc="Программа ФЦП" id="KSR_PROGRAM" length="1" type="STRING"/>
+      <field desc="Основное мероприятие" id="KSR_ACTION" length="2" type="STRING"/>
+      <field desc="Направление расходов" id="KSR_DIRECTION" length="5" type="STRING"/>
+      <field desc="Вид расходов" id="KSR_EXPTYPE" length="3" type="STRING"/>
+      <field desc="Код департамента" id="KSR_DEPARTMENT" length="2" type="STRING"/>
+      <field desc="Косгу" id="KSR_KOSGU" length="3" type="STRING"/>
+      <field desc="КБК результирующий" id="KSR_KBK" length="50" type="STRING"/>
+      <field desc="Сумма текущего года планового периода" id="RUR_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="RUR_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="RUR_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="RUR_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="RUR_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="RUR_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+    </fieldset-def>
+    <fieldset-def table="FS_TI_FINKBKCUR_LIST" type="FS_TI_FINBYKBKCUR_LIST" desc="Финансовое обеспечение по КБК в валюте">
+      <field desc="Код главы БК" id="KSC_GRBS" length="3" type="STRING"/>
+      <field desc="Раздел" id="KSC_SECTION" length="2" type="STRING"/>
+      <field desc="Подраздел" id="KSC_SUBSECTION" length="2" type="STRING"/>
+      <field desc="Программное или непрограммное направление расходов" id="KSC_PNDE" length="2" type="STRING"/>
+      <field desc="Программа ФЦП" id="KSC_PROGRAM" length="1" type="STRING"/>
+      <field desc="Основное мероприятие" id="KSC_ACTION" length="2" type="STRING"/>
+      <field desc="Направление расходов" id="KSC_DIRECTION" length="5" type="STRING"/>
+      <field desc="Вид расходов" id="KSC_EXPTYPE" length="3" type="STRING"/>
+      <field desc="Код департамента" id="KSC_DEPARTMENT" length="2" type="STRING"/>
+      <field desc="Косгу" id="KSC_KOSGU" length="3" type="STRING"/>
+      <field desc="КБК результирующий" id="KSC_KBK" length="50" type="STRING"/>
+      <field desc="Код  валюты" id="OKV_CODE" length="3" type="STRING"/>
+      <field desc="Наименование валюты" id="OKV_NAME" length="100" type="STRING"/>
+      <field desc="Код валюты буквенный" id="OKV_CODEABC" length="3" type="STRING"/>
+      <field desc="Сумма текущего года планового периода" id="CUR_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="CUR_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="CUR_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="CUR_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="CUR_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="CUR_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="USD_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="USD_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="USD_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="USD_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="USD_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="USD_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="RUR_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="RUR_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="RUR_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="RUR_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="RUR_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="RUR_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+    </fieldset-def>
+    <fieldset-def table="FS_AGR_AGRLIST200_LIST" type="FS_AGR_AGRLIST_LIST" desc="Согласование">
+      <field desc="Текущий исполнитель" id="CUREX" type="BOOLEAN"/>
+      <field desc="Примечание" id="USERNOTE" length="1000" type="STRING"/>
+      <field desc="Группа пользователей" id="USERGROUP" length="10" type="STRING"/>
+      <field desc="Этап согласования" id="PHASEORDER" length="10" type="STRING"/>
+      <field desc="Код пользователя в группе" id="USERNMINGROUP" length="10" type="STRING"/>
+      <field desc="Решение" id="RESOLUTION" length="250" type="ENUM">
+        <param name="enumeration-id" value="PUR_MatchingState"/>
+      </field>
+      <field desc="Дата согласования" id="ARGDATE" type="DATETIME"/>
+      <field desc="Логин пользователя" id="LOGIN" length="50" type="STRING"/>
+      <field desc="ФИО" id="USERFIO" length="200" type="STRING"/>
+      <field desc="Дата направления на согласование" id="FWDDATE" type="DATETIME"/>
+      <field desc="Фонарный статус" id="AGRSTATE" length="250" type="ENUM">
+        <param name="enumeration-id" value="PUR_Agreement"/>
+      </field>
+      <field desc="Срок согласования" id="DEADLINE" type="DATETIME"/>
+      <field desc="Версия документа для согласования" id="REQVERSION" length="10" type="STRING"/>
+      <field desc="Должность согласующего документ" id="USERPOST" length="2000" type="STRING"/>
+    </fieldset-def>
+  </definitions>
+  <content table="DC_PUR_PlanPosition200">
+    <table desc="Нормативно правовые акты закупок" id="FS_REG_REGPURCH_LIST" type="FS_REG_REGPURCH_LIST"/>
+    <table desc="Источники финансирования" id="FS_RUB_FINSOURC200_LIST" type="FS_RUB_FINSOURC200_LIST"/>
+    <table desc="Источники финансового обеспечения для зарубежного аппарата" id="FS_CUR_FINSOURC200_LIST" type="FS_CUR_FINSOURC200_LIST"/>
+    <table desc="Финансовое обеспечение по годам" id="FS_TI_FINBYYEAR200_LIST" type="FS_TI_FINBYYEAR200_LIST"/>
+    <table desc="Финансовое обеспечение по годам в валюте" id="FS_TI_FINBYYEARCUR_LIST" type="FS_TI_FINBYYEARCUR_LIST"/>
+    <table desc="Финансовое обеспечение по КБК" id="FS_TI_FINBYKBK200_LIST" type="FS_TI_FINBYKBK200_LIST"/>
+    <table desc="Финансовое обеспечение по КБК в валюте" id="FS_TI_FINBYKBKCUR_LIST" type="FS_TI_FINBYKBKCUR_LIST"/>
+    <table desc="Согласование" id="FS_AGR_AGRLIST_LIST" type="FS_AGR_AGRLIST_LIST"/>
+    <nested-fieldset desc="Документ" id="DOC">
+      <field desc="Номер документа" id="CU_DOCNUMBER" length="100" type="STRING">
+        <common ref-id="Pur_PlanPositions" field-id="CU_DOCNUMBER"/>
+      </field>
+      <field desc="Дата укрупненной закупки" id="CU_CREATEDATE" type="DATE">
+        <common ref-id="Pur_PlanPositions" field-id="CU_CREATEDATE"/>
+      </field>
+      <field desc="Плановый период" id="CU_PLANPERIOD" length="2000" type="STRING">
+        <common ref-id="Pur_PlanPositions" field-id="CU_PLANPERIOD"/>
+      </field>
+      <field desc="Актуальный плановый период" id="CU_ACTUALPLANPERIOD" type="BOOLEAN"/>
+      <field desc="Тип укрупненной закупки" id="CU_TYPEPURCHASE" length="250" type="ENUM">
+        <param name="enumeration-id" value="PUR_TypePurchase"/>
+      </field>
+      <field desc="Номер версии укрупненной закупки" id="CU_VERSIONNUM" length="100" type="STRING">
+        <common ref-id="Pur_PlanPositions" field-id="CU_VERSIONNUM"/>
+      </field>
+      <field desc="Дата и время создания версии документа" id="CU_VERSCREATEDATE" type="DATETIME"/>
+      <field desc="Код организации" id="ORG_ORGCODE" length="200" type="STRING"/>
+      <field desc="ОГРН" id="ORG_OGRN" length="13" type="STRING"/>
+      <field desc="ИНН" id="ORG_INN" length="10" type="STRING"/>
+      <field desc="КПП" id="ORG_KPP" length="9" type="STRING"/>
+      <field desc="Краткое наименование организации" id="ORG_SHORTORGNAME" length="2000" type="STRING"/>
+      <field desc="Полное наименование организации" id="ORG_FULLORGNAME" length="2000" type="STRING"/>
+      <field desc="Дата постановки на учет в налоговом органе" id="ORG_REGISTRYDATE" type="DATETIME"/>
+      <field desc="Код ОКОПФ" id="LFO_CODEOKPF" length="5" type="STRING"/>
+      <field desc="Наименование ОКОПФ" id="LFO_SNAME" length="2000" type="STRING"/>
+      <field desc="Код по ОКФС" id="ORG_OKFSREF_CODEOKFS" length="11" type="STRING"/>
+      <field desc="Наименвоание ОКФС" id="ORG_OKFSREF_OKFS" length="1000" type="STRING"/>
+      <field desc="Адрес" id="ORG_ADRESS" length="2000" type="STRING"/>
+      <field desc="Код ОКПО" id="ORG_OKPOCODE" length="10" type="STRING"/>
+      <field desc="Код главы по БК" id="SC_GLAVACODE" length="3" type="STRING"/>
+      <field desc="Наименование ГРБС" id="SC_GRBSNAME" length="2000" type="STRING"/>
+      <field desc="Код по ОКТМО" id="TMO_CODOKTMO" length="11" type="STRING"/>
+      <field desc="Полное наименование" id="TMO_OKTMO" length="1000" type="STRING"/>
+      <field desc="Наименование вида документа" id="CU_DOCTYPE_TYPENAME" length="250" type="ENUM">
+        <param name="enumeration-id" value="DocTypeName"/>
+      </field>
+      <field desc="Код вида документа" id="CU_DOCTYPE_TYPECODE" length="250" type="ENUM">
+        <param name="enumeration-id" value="DocTypeCode"/>
+      </field>
+      <field desc="Номер документаУкрупненной закупки" id="CU_UZNUMBER" length="100" type="STRING"/>
+      <field desc="Сокращенное наименование филиала" id="CU_BRANCHNAME" length="500" type="STRING"/>
+      <field desc="Код филиала" id="CU_BRANCHCODE" length="30" type="STRING"/>
+      <field desc="Код типа учереждения" id="CU_UCHREZHTYPECODE" length="1" type="STRING"/>
+      <field desc="Код типа организации" id="CU_ORGTYPECODE" length="2" type="STRING"/>
+      <field desc="Код организации пользователя" id="ORG_USERORGCODE" length="200" type="STRING"/>
+      <field desc="Полное наименование организации пользователя" id="ORG_USERORGNAME" length="2000" type="STRING"/>
+      <field desc="Адрес организации пользователя" id="ORG_USERORGADDRESS" length="2000" type="STRING"/>
+      <field desc="Телефон организации пользователя" id="ORG_USERORGPHONE" length="100" type="STRING"/>
+      <field desc="Емэйл организации пользователя" id="ORG_USERORGEMAIL" length="100" type="STRING"/>
+      <field desc="Код СПЗ пользователя" id="ORG_SPZ" length="11" type="STRING"/>
+      <field desc="Наименование объекта закупки" id="BI_OBJECTINFO" length="2000" type="STRING">
+        <common ref-id="Pur_PlanPositions" field-id="BI_OBJECTINFO"/>
+      </field>
+      <field desc="Код товара работы или услуги" id="OKPD_CODOKPD" length="20" type="STRING"/>
+      <field desc="Наименование товара работы или услуги" id="OKPD_OKPD" length="1000" type="STRING"/>
+      <field desc="Закупка содержит несколько ОКПД2" id="BI_SEVERALOKPD" type="BOOLEAN"/>
+      <field desc="Описание закупки " id="BI_DESCRIPTION" length="2000" type="STRING"/>
+      <field desc="Есть техническая сложность" id="BI_HASCOMPLEXITY" type="BOOLEAN"/>
+      <field desc="Специальный характер укрупненной закупки" id="BI_COMPLEXITY" length="2000" type="STRING"/>
+      <field desc="Сведения об обязательном общественном обсуждении" id="BI_PUBLICDISCUSSION" type="BOOLEAN"/>
+      <field desc="Периодичность" id="BI_PERIODICITY" length="256" type="STRING"/>
+      <field desc="Код периодичности" id="BI_CODEPERIODICITY" length="5" type="STRING"/>
+      <field desc="Наименование государственной программы" id="BI_NAMESTATEPROGRAM" length="2000" type="STRING"/>
+      <field desc="Наименование мероприятия государственной программы" id="BI_PURPOSE" length="2000" type="STRING"/>
+      <field desc="Ожидаемый результат реализации мероприятия" id="BI_EXPECTEDRESULT" length="2000" type="STRING"/>
+      <field desc="Обоснование соответствия" id="BI_FOUNDATION" type="TEXT"/>
+      <field desc="Текущий финансовый год" id="BI_PLANPERIOD_CURYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+        <common ref-id="Pur_PlanPositions" field-id="BI_PLANPERIOD_NEXTYEAR"/>
+      </field>
+      <field desc="Очередной финансовый год" id="BI_PLANPERIOD_NEXTYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Первый плановый год" id="BI_PLANPERIOD_FIRSTYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Второй плановый год" id="BI_PLANPERIOD_SECONDYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Наименование показателя" id="BI_NAMEINDEX" length="2000" type="STRING"/>
+      <field desc="Код показателя" id="BI_INDCODE" length="10" type="STRING"/>
+      <field desc="Срок осуществления закупок (от)" id="BI_TERM" type="DATE"/>
+      <field desc="Срок осуществления закупок (до)" id="BI_TERMTO" type="DATE"/>
+      <field desc="Срок" id="BI_TERMSTR" length="30" type="STRING"/>
+      <field desc="Источник" id="BI_SOURCE" length="250" type="ENUM">
+        <param name="enumeration-id" value="PUR_Source"/>
+      </field>
+      <field desc="Год извещения" id="BI_PUBLISHYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Обоснование изменения" id="BI_REASONFORCHANGE" length="2000" type="STRING"/>
+      <field desc="Идентификатор обоснования изменений" id="BI_REASONFORCHANGEID" length="6" type="STRING"/>
+      <field desc="Отменить в рамках размещенного в ЕИС ПГ" id="BI_CANCEL" type="BOOLEAN"/>
+      <field desc="Дополнительная информация" id="BI_INFOABOUTCHANGE" length="2000" type="STRING"/>
+      <field desc="ТипЗакупки" id="BI_PURTYPE" length="250" type="ENUM">
+        <param name="enumeration-id" value="PUR_PurchType"/>
+      </field>
+      <field desc="Идентификационный код укрупненной закупки" id="BI_IDENTIFCODEPUR" length="36" type="STRING"/>
+      <field desc="Порядковы номер позиции" id="BI_POSNUMBER" length="5" type="STRING"/>
+      <field desc="Номер строки в таблице плана закупок" id="BI_STRNUMBERINPP" length="10" type="STRING"/>
+      <field desc="Внешний номера позиции на ЕИС" id="BI_EXTNUMBER" length="15" type="STRING"/>
+      <field desc="Код  валюты" id="CCUR_CODE" length="3" type="STRING"/>
+      <field desc="Наименование валюты" id="CCUR_NAME" length="100" type="STRING"/>
+      <field desc="Код валюты буквенный" id="CCUR_CODEABC" length="3" type="STRING"/>
+      <field desc="Сортировка по статье" id="BI_SORTFORPURTYPE" length="3" type="STRING"/>
+      <field desc="Дата размещения в ЕИС" id="BI_EISPUBLISHDATE" type="DATETIME"/>
+      <field desc="Порядковы номер позиции в ЕИС" id="BI_EISPOSNUMBER" length="50" type="STRING"/>
+      <field desc="Признак необходимости обновления" id="BI_SENTONEIS" type="BOOLEAN"/>
+      <field desc="Закупки зарубежного аппарата" id="FP_FOREIGNSTAFFPURCHASES" type="BOOLEAN"/>
+      <field desc="Тип закупки зарубежного или отечественного аппарата" id="FP_STAFFPURCHASESTYPE" length="6" type="STRING"/>
+      <field desc="Сумма текущего года планового периода" id="T_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="T_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="T_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="T_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="T_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="T_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TUSD_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TUSD_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TUSD_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TUSD_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TUSD_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TUSD_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TUUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TUUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TUUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TUUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TUUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TUUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TRUR_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TRUR_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TRUR_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TRUR_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TRUR_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TRUR_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TRUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TRUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TRUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TRUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TRUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TRUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TOT_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TOT_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TOT_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TOT_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TOT_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TOT_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TOUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TOUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TOUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TOUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TOUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TOUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="КВР для ИКЗ" id="FP_EXPTYPEIKZ" length="3" type="STRING"/>
+      <field desc="КВР не определен " id="FP_EXPTYPENOTIDENTIFIED" type="BOOLEAN"/>
+      <field desc="Включено в план закупок" id="IND_INCLUDEDP" length="250" type="ENUM">
+        <param name="enumeration-id" value="PUR_PosStateInPP"/>
+      </field>
+      <field desc="Состояние связанного плана графика" id="IND_PLANSTATUS" length="250" type="ENUM">
+        <param name="enumeration-id" value="offerStatus"/>
+      </field>
+      <field desc="Состояние требует корректировки" id="IND_CORRECTIONNEEDED" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ_SF"/>
+      </field>
+      <field desc="Является актуальной версией" id="IND_ISACTUAL" type="BOOLEAN"/>
+      <field desc="Позиция была размещена в ЕИС" id="IND_WASPUBLISHER" type="BOOLEAN"/>
+      <field desc="Позиция была включена в ПЗ" id="IND_WASINCLUDEINPZ" type="BOOLEAN"/>
+      <field desc="Невозможность удаления из ПЗ" id="IND_INABILITYTODELETE" type="BOOLEAN"/>
+      <field desc="Создана ППГ" id="IND_CREATEDPPG" type="BOOLEAN"/>
+      <field desc="ГУИДБазисного документа" id="TEI_BASICGUID" length="36" type="UUID"/>
+      <field desc="ГУИД Родителя" id="TEI_PARENTGUID" length="36" type="UUID"/>
+      <field desc="ГУИД текущего документа" id="TEI_CURRENTGUID" length="36" type="UUID"/>
+      <field desc="ГУИД технической ППЗ" id="TEI_TECHPPZGUID" length="36" type="UUID"/>
+      <field desc="ГУИД документа основы" id="TEI_FOUNDATIONGUID" length="36" type="UUID"/>
+      <field desc="ГУИД плана закупок" id="TEI_PLANGUID" length="36" type="UUID"/>
+      <field desc="ГУИД плановой укрупненной закупки" id="TEI_KUZGUID" length="36" type="UUID"/>
+      <field desc="Исходная КУЗ утверждена" id="TEI_KUZAPPROVED" type="BOOLEAN"/>
+      <field desc="Регистрационный номер плана закупок" id="TEI_PLANREGNUM" length="100" type="STRING"/>
+      <field desc="ГУИД версии УЗ, включенного в предложение" id="TEI_INCLUDEDUZGUID" length="36" type="UUID"/>
+      <field desc="Тип формуляра плана закупок" id="TEI_PLANDOCTYPE" length="100" type="STRING"/>
+      <field desc="Код ОКПД для расчета ИКЗ" id="TEI_OKPDFORIKZ" length="20" type="STRING"/>
+      <field desc="Признак удаления" id="TEI_DELETEDFORCHECK" type="BOOLEAN"/>
+      <field desc="Длинный текст" id="TF_LONGTEXTFIELD" length="2000" type="STRING"/>
+      <field desc="Текст 50 символов" id="TF_TEXT50FIELD" length="50" type="STRING"/>
+      <field desc="Целое число" id="TF_INTEGERFIELD" length="20" type="LONG"/>
+      <field desc="Вещественное число" id="TF_DECIMALFIELD" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Логическое поле" id="TF_BOOLEANFIELD" type="BOOLEAN"/>
+      <field desc="Поле даты" id="TF_DATEFIELD" type="DATE"/>
+      <field desc="Поле даты и времени" id="TF_DATETIMEFIELD" type="DATETIME"/>
+      <field desc="Вид расходов" id="TEI_EXPENSETYPE" length="3" type="STRING"/>
+      <field desc="Длина ОКПД" id="TEI_UZSETTINGS_OKPDLEN" length="2" type="STRING"/>
+      <field desc="Номер следующей версии" id="TEI_NEXTVERSIONNUM" length="5" type="STRING"/>
+      <field desc="Для заполнения рублевого ФО из КУЗ" id="TEI_IFFROMKUZ" length="500" type="STRING"/>
+      <field desc="Для заполнения валютного ФО из КУЗ" id="TEI_IFFROMKUZCUR" length="500" type="STRING"/>
+      <field desc="Для заполнения валютного ФО из КУЗ массовый метод" id="TEI_IFFROMKUZCURMASS" length="500" type="STRING"/>
+      <field desc="Признак создания по интеграции" id="TEI_ISFROMINTEGRATION" type="BOOLEAN"/>
+      <field desc="Система-источник" id="TEI_INTEGRATIONSYSTEM" length="50" type="STRING"/>
+      <field desc="Заполнить лист согласования из КУЗ" id="TEI_FILLAGRLISTFROMKUZ" length="10" type="STRING"/>
+      <field desc="Дополнительная информация в соответстии с пунктом 7 части 2 статьи 17 Закона 44-ФЗ" id="TEI_ADDINFOP7CH7" length="2000" type="STRING"/>
+      <field desc="Доступен только импорт документов" id="TEI_JUSTIMPORT" length="50" type="STRING"/>
+      <field desc="Номер будущего документа КУЗ" id="TEI_UZNUMBER" length="100" type="STRING"/>
+      <field desc="Код связки " id="TZ_IDTIMEZONE" length="10" type="STRING"/>
+      <field desc="Описание тайм зоны" id="TZ_TIMEZONEDESC" length="2000" type="STRING"/>
+      <field desc="Дельта к МСК" id="TZ_MSKDELTA" length="10" type="STRING"/>
+      <field desc="Дельта к ЮТС" id="TZ_UTCDELTA" length="10" type="STRING"/>
+      <field desc="АнглТаймЗона" id="TZ_TIMEZONEENAME" length="500" type="STRING"/>
+      <field desc="Дата размещения в ЕИС с тайм зоной" id="TEI_EISPDATETZ" length="500" type="STRING"/>
+      <field desc="Признак импорта из ЕИС" id="TEI_ISFROMEIS" type="BOOLEAN"/>
+      <field desc="Признак процесса загрузки из ЕИС" id="TEI_EISIMPORTTEMP" type="BOOLEAN"/>
+      <field desc="Код ОКОПФ 3 символа" id="TEI_CODEOKOPF_3" length="3" type="STRING"/>
+      <field desc="ИКЗ сформировано" id="TEI_IKZISFORMED" type="BOOLEAN"/>
+      <field desc="Порядковый номер ИКЗ для особой закупки уже сформирован" id="TEI_POSNUMBERISFORMED" type="BOOLEAN"/>
+      <field desc="Для процесса согласования флаг 3" id="AGR_USERFLAG3" length="50" type="STRING"/>
+      <field desc="Для процесса согласования флаг 4" id="AGR_USERFLAG4" length="50" type="STRING"/>
+      <field desc="Системное имя подписанта" id="AGR_APPROVERLOGIN" length="50" type="STRING"/>
+      <field desc="Заметка подписанта" id="AGR_APPROVERNOTE" length="1000" type="STRING"/>
+      <field desc="Дата и время подписи" id="AGR_SIGNDATETIME" type="DATETIME"/>
+      <field desc="Дата и время отправки на утверждение" id="AGR_APPINCOMEDT" type="DATETIME"/>
+      <field desc="Имя текущего пользователя" id="AGR_CURRENTUSERNAME" length="100" type="STRING"/>
+      <field desc="Число согласующих" id="AGR_NUMOFAPPROVERS" length="20" type="LONG"/>
+      <field desc="Необходимость согласования" id="AGR_ISAGREEMENTNEED" type="BOOLEAN"/>
+      <field desc="Дата и время отправки на согласование" id="AGR_ARGINCOMEDT" type="DATETIME"/>
+      <field desc="ФИО автора документа" id="OI_AUTHORNAME" length="2000" type="STRING"/>
+      <field desc="Должность автора документа" id="OI_AUTHORPOST" length="2000" type="STRING"/>
+      <field desc="Телефон автора документа" id="OI_AUTHORPHONE" length="2000" type="STRING"/>
+      <field desc="ФИО утверждающего документ" id="OI_APPROVERNAME" length="2000" type="STRING"/>
+      <field desc="Должность утверждающего документ" id="OI_APPROVERPOST" length="2000" type="STRING"/>
+      <field desc="Телефон утверждающего документ" id="OI_APPROVERPHONE" length="2000" type="STRING"/>
+    </nested-fieldset>
+  </content>
+  <virtual>
+    <virtual-field desc="Номер версии документа на вкладке ФО" id="VIRT_VERSIONNUM" type="STRING" unbound="true"/>
+    <virtual-field desc="Наименование объекта закупки на вкладке ФО" id="VIRT_OBJECTINFO" type="STRING" unbound="true"/>
+    <virtual-field desc="Номер документа на вкладке ФО" id="VIRT_DOCNUMBER" type="STRING" unbound="true"/>
+    <virtual-field desc="Статус документа на вкладке ФО" id="VIRT_DOCSTATE" type="STRING" unbound="true"/>
+    <virtual-field desc="Дата документа на вкладке ФО" id="VIRT_PURCHASE_DATE" type="DATE" unbound="true"/>
+    <virtual-field desc="Виртуальный код текущей организации" id="virt_orgCode" type="STRING" unbound="true"/>
+    <virtual-field desc="является КО" id="virt_isKO" type="BOOLEAN" unbound="true"/>
+    <virtual-field desc="выставление итоговой суммы" id="virt_TotSum" type="DECIMAL" unbound="true"/>
+    <virtual-field desc="Заполнение ППЗ из КУЗ - для заполнения ФО " id="virt_fromKuz" type="STRING" unbound="true"/>
+    <virtual-field desc="Заполнение ППЗ из КУЗ c зарубежн - для заполнения ФО " id="virt_fromKuzCUR" type="STRING" unbound="true"/>
+    <virtual-field desc="Поле для проверки возможности создания ППЗ" id="virt_CheckCreate" type="STRING" unbound="true"/>
+    <virtual-field desc="Дата утверждения" id="virt_DateApproval" type="DATE" unbound="true"/>
+    <virtual-field desc="Идентификационный код закупки позиции плана-графика для отображения с форматом" id="virt_IKZ" type="STRING" unbound="true"/>
+    <virtual-field desc="Тип организации" id="virt_Authority" type="STRING" unbound="true"/>
+    <virtual-field desc="Логин текущего пользователя" id="VIRT_userLogin" type="STRING" unbound="true"/>
+    <virtual-field desc="Код филиала" id="VIRT_BRANCHCODE" type="STRING" unbound="true"/>
+    <virtual-field desc="Код уполномоченного" id="virt_UOcode" type="STRING" unbound="true"/>
+  </virtual>
+  <attachments limitedNumber="0" limitedSize="0">
+    <attachment desc="Допустимые файлы" ext="pdf, docx, doc, rtf, xls, xlsx, jpeg, jpg, bmp, tif, tiff, txt, zip, rar, gif, csv, odp, odf, ods, odt, sxc, sxw, htm, html, xml" maxOccurs="10" minOccurs="0" type="Valid files"/>
+  </attachments>
+  <parent-doc-types>
+    <parent-doc-type>
+      <filling bean="fillFromParent" method="fillFieldsFromParent" many="false">
+        <params>
+          <param name="fieldAssigns">DOC.AGR_APPINCOMEDT=DOC.AGR_APPINCOMEDT;DOC.AGR_APPROVERLOGIN=DOC.AGR_APPROVERLOGIN;DOC.AGR_ISAGREEMENTNEED=DOC.AGR_ISAGREEMENTNEED;DOC.AGR_NUMOFAPPROVERS=DOC.AGR_NUMOFAPPROVERS;DOC.AGR_USERFLAG4=DOC.AGR_USERFLAG4;DOC.BI_COMPLEXITY=DOC.BI_COMPLEXITY;DOC.BI_DESCRIPTION=DOC.BI_DESCRIPTION;DOC.BI_EXPECTEDRESULT=DOC.BI_EXPECTEDRESULT;DOC.BI_FOUNDATION=DOC.BI_FOUNDATION;DOC.BI_HASCOMPLEXITY=DOC.BI_HASCOMPLEXITY;DOC.BI_INDCODE=DOC.BI_INDCODE;DOC.BI_NAMEINDEX=DOC.BI_NAMEINDEX;DOC.BI_OBJECTINFO=DOC.BI_OBJECTINFO;DOC.BI_PERIODICITY=DOC.BI_PERIODICITY;DOC.BI_PLANPERIOD_CURYEAR=DOC.BI_PLANPERIOD_CURYEAR;DOC.BI_PLANPERIOD_FIRSTYEAR=DOC.BI_PLANPERIOD_FIRSTYEAR;DOC.BI_PLANPERIOD_NEXTYEAR=DOC.BI_PLANPERIOD_NEXTYEAR;DOC.BI_PLANPERIOD_SECONDYEAR=DOC.BI_PLANPERIOD_SECONDYEAR;DOC.BI_PUBLICDISCUSSION=DOC.BI_PUBLICDISCUSSION;DOC.BI_PUBLISHYEAR=DOC.BI_PUBLISHYEAR;DOC.BI_PURPOSE=DOC.BI_PURPOSE;DOC.BI_SOURCE=DOC.BI_SOURCE;DOC.BI_TERM=DOC.BI_TERM;DOC.CU_ACTUALPLANPERIOD=DOC.CU_ACTUALPLANPERIOD;DOC.CU_CREATEDATE=DOC.CU_CREATEDATE;DOC.CU_DOCNUMBER=DOC.CU_DOCNUMBER;DOC.CU_DOCTYPE_TYPECODE=DOC.CU_DOCTYPE_TYPECODE;DOC.CU_DOCTYPE_TYPENAME=DOC.CU_DOCTYPE_TYPENAME;DOC.CU_PLANPERIOD=DOC.CU_PLANPERIOD;DOC.CU_TYPEPURCHASE=DOC.CU_TYPEPURCHASE;DOC.CU_VERSCREATEDATE=DOC.CU_VERSCREATEDATE;DOC.CU_VERSIONNUM=DOC.CU_VERSIONNUM;DOC.FP_FOREIGNSTAFFPURCHASES=DOC.FP_FOREIGNSTAFFPURCHASES;DOC.IND_CORRECTIONNEEDED=DOC.IND_CORRECTIONNEEDED;DOC.LFO_CODEOKPF=DOC.LFO_CODEOKPF;DOC.LFO_SNAME=DOC.LFO_SNAME;DOC.OI_APPROVERNAME=DOC.OI_APPROVERNAME;DOC.OI_APPROVERPHONE=DOC.OI_APPROVERPHONE;DOC.OI_APPROVERPOST=DOC.OI_APPROVERPOST;DOC.OKPD_CODOKPD=DOC.OKPD_CODOKPD;DOC.OKPD_OKPD=DOC.OKPD_OKPD;DOC.ORG_ADRESS=DOC.ORG_ADRESS;DOC.ORG_FULLORGNAME=DOC.ORG_FULLORGNAME;DOC.ORG_INN=DOC.ORG_INN;DOC.ORG_KPP=DOC.ORG_KPP;DOC.ORG_OGRN=DOC.ORG_OGRN;DOC.ORG_OKFSREF_CODEOKFS=DOC.ORG_OKFSREF_CODEOKFS;DOC.ORG_OKFSREF_OKFS=DOC.ORG_OKFSREF_OKFS;DOC.ORG_OKPOCODE=DOC.ORG_OKPOCODE;DOC.ORG_ORGCODE=DOC.ORG_ORGCODE;DOC.ORG_REGISTRYDATE=DOC.ORG_REGISTRYDATE;DOC.ORG_SHORTORGNAME=DOC.ORG_SHORTORGNAME;DOC.SC_GLAVACODE=DOC.SC_GLAVACODE;DOC.SC_GRBSNAME=DOC.SC_GRBSNAME;DOC.TEI_INCLUDEDUZGUID=DOC.TEI_INCLUDEDUZGUID;DOC.TEI_KUZGUID=DOC.TEI_KUZGUID;DOC.TEI_OKPDFORIKZ=DOC.TEI_OKPDFORIKZ;DOC.TEI_PLANDOCTYPE=DOC.TEI_PLANDOCTYPE;DOC.TMO_CODOKTMO=DOC.TMO_CODOKTMO;DOC.TMO_OKTMO=DOC.TMO_OKTMO;DOC.TOT_SUMCURRENT=DOC.TOT_SUMCURRENT;DOC.TOT_SUMFIRST=DOC.TOT_SUMFIRST;DOC.TOT_SUMNEXT=DOC.TOT_SUMNEXT;DOC.TOT_SUMSEC=DOC.TOT_SUMSEC;DOC.TOT_SUMSUBSEC=DOC.TOT_SUMSUBSEC;DOC.TOT_SUMTOTAL=DOC.TOT_SUMTOTAL;DOC.TRUR_SUMCURRENT=DOC.TRUR_SUMCURRENT;DOC.TRUR_SUMFIRST=DOC.TRUR_SUMFIRST;DOC.TRUR_SUMNEXT=DOC.TRUR_SUMNEXT;DOC.TRUR_SUMSEC=DOC.TRUR_SUMSEC;DOC.TRUR_SUMSUBSEC=DOC.TRUR_SUMSUBSEC;DOC.TRUR_SUMTOTAL=DOC.TRUR_SUMTOTAL;DOC.TUSD_SUMCURRENT=DOC.TUSD_SUMCURRENT;DOC.TUSD_SUMFIRST=DOC.TUSD_SUMFIRST;DOC.TUSD_SUMNEXT=DOC.TUSD_SUMNEXT;DOC.TUSD_SUMSEC=DOC.TUSD_SUMSEC;DOC.TUSD_SUMSUBSEC=DOC.TUSD_SUMSUBSEC;DOC.TUSD_SUMTOTAL=DOC.TUSD_SUMTOTAL;DOC.T_SUMCURRENT=DOC.T_SUMCURRENT;DOC.T_SUMFIRST=DOC.T_SUMFIRST;DOC.T_SUMNEXT=DOC.T_SUMNEXT;DOC.T_SUMSEC=DOC.T_SUMSEC;DOC.T_SUMSUBSEC=DOC.T_SUMSUBSEC;DOC.T_SUMTOTAL=DOC.T_SUMTOTAL;DOCBASE.DOC_DATE=DOCBASE.DOC_DATE;DOCBASE.ENDDATEACTIVE=DOCBASE.ENDDATEACTIVE;DOCBASE.NUM=DOCBASE.NUM;DOCBASE.STARTDATEACTIVE=DOCBASE.STARTDATEACTIVE;DOCBASE.UBP=DOCBASE.UBP;DOC.IND_WASPUBLISHER=DOC.IND_WASPUBLISHER;DOC.BI_REASONFORCHANGE=DOC.BI_REASONFORCHANGE;DOC.BI_INFOABOUTCHANGE=DOC.BI_INFOABOUTCHANGE;DOC.BI_PURTYPE=DOC.BI_PURTYPE;DOC.BI_POSNUMBER=DOC.BI_POSNUMBER;DOC.CU_UZNUMBER=DOC.CU_UZNUMBER;DOC.TEI_BASICGUID=DOC.TEI_BASICGUID;DOC.TEI_NEXTVERSIONNUM=DOC.TEI_NEXTVERSIONNUM;DOC.BI_CANCEL=DOC.BI_CANCEL;DOC.BI_IDENTIFCODEPUR=DOC.BI_IDENTIFCODEPUR;DOC.BI_REASONFORCHANGEID=DOC.BI_REASONFORCHANGEID;DOC.CCUR_CODE=DOC.CCUR_CODE;DOC.CCUR_CODEABC=DOC.CCUR_CODEABC;DOC.CCUR_NAME=DOC.CCUR_NAME;DOC.BI_CODEPERIODICITY=DOC.BI_CODEPERIODICITY;DOC.TEI_PLANREGNUM=DOC.TEI_PLANREGNUM</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_AGR_AGRLIST_LIST</param>
+          <param name="tableName1">FS_AGR_AGRLIST_LIST</param>
+          <param name="listColumns">AGRSTATE::=AGRSTATE;LOGIN::=LOGIN;PHASEORDER::=PHASEORDER;USERFIO::=USERFIO;USERGROUP::=USERGROUP;USERNMINGROUP::=USERNMINGROUP;USERPOST::=USERPOST</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_RUB_FINSOURC200_LIST</param>
+          <param name="tableName1">FS_RUB_FINSOURC200_LIST</param>
+          <param name="listColumns">ADDITIONALFEATURECODE::=ADDITIONALFEATURECODE;CORRREQ::=CORRREQ;CRCT_CURR::=CRCT_CURR;CRCT_FIRST::=CRCT_FIRST;CRCT_NEXT::=CRCT_NEXT;CRCT_SEC::=CRCT_SEC;CRCT_SUBSEC::=CRCT_SUBSEC;CRCT_TOTAL::=CRCT_TOTAL;KS_ACTION::=KS_ACTION;KS_DEPARTMENT::=KS_DEPARTMENT;KS_DIRECTION::=KS_DIRECTION;KS_EXPTYPE::=KS_EXPTYPE;KS_GRBS::=KS_GRBS;KS_KBK::=KS_KBK;KS_PNDE::=KS_PNDE;KS_PROGRAM::=KS_PROGRAM;KS_SECTION::=KS_SECTION;KS_SUBSECTION::=KS_SUBSECTION;PUBLISHYEAR::=PUBLISHYEAR;RUR_SUMCURRENT::=RUR_SUMCURRENT;RUR_SUMFIRST::=RUR_SUMFIRST;RUR_SUMNEXT::=RUR_SUMNEXT;RUR_SUMSEC::=RUR_SUMSEC;RUR_SUMSUBSEC::=RUR_SUMSUBSEC;RUR_SUMTOTAL::=RUR_SUMTOTAL;RUZ_SUMCURRENT::=RUZ_SUMCURRENT;RUZ_SUMFIRST::=RUZ_SUMFIRST;RUZ_SUMNEXT::=RUZ_SUMNEXT;RUZ_SUMSEC::=RUZ_SUMSEC;RUZ_SUMSUBSEC::=RUZ_SUMSUBSEC;RUZ_SUMTOTAL::=RUZ_SUMTOTAL;INFORMACTCODE::=INFORMACTCODE;INFORMACTNAME::=INFORMACTNAME;INFORMACTPRIORITY::=INFORMACTPRIORITY;INFORMACTTYPE::=INFORMACTTYPE</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_CUR_FINSOURC200_LIST</param>
+          <param name="tableName1">FS_CUR_FINSOURC200_LIST</param>
+          <param name="listColumns">ADDITIONALFEATURECODE::=ADDITIONALFEATURECODE;CORRREQ::=CORRREQ;CRCT_CURR::=CRCT_CURR;CRCT_FIRST::=CRCT_FIRST;CRCT_NEXT::=CRCT_NEXT;CRCT_SEC::=CRCT_SEC;CRCT_SUBSEC::=CRCT_SUBSEC;CRCT_TOTAL::=CRCT_TOTAL;CUR_SUMCURRENT::=CUR_SUMCURRENT;CUR_SUMFIRST::=CUR_SUMFIRST;CUR_SUMNEXT::=CUR_SUMNEXT;CUR_SUMSEC::=CUR_SUMSEC;CUR_SUMSUBSEC::=CUR_SUMSUBSEC;CUR_SUMTOTAL::=CUR_SUMTOTAL;CUZ_SUMCURRENT::=CUZ_SUMCURRENT;CUZ_SUMFIRST::=CUZ_SUMFIRST;CUZ_SUMNEXT::=CUZ_SUMNEXT;CUZ_SUMSEC::=CUZ_SUMSEC;CUZ_SUMSUBSEC::=CUZ_SUMSUBSEC;CUZ_SUMTOTAL::=CUZ_SUMTOTAL;KCR_ACTION::=KCR_ACTION;KCR_DEPARTMENT::=KCR_DEPARTMENT;KCR_DIRECTION::=KCR_DIRECTION;KCR_EXPTYPE::=KCR_EXPTYPE;KCR_GRBS::=KCR_GRBS;KCR_KBK::=KCR_KBK;KCR_PNDE::=KCR_PNDE;KCR_PROGRAM::=KCR_PROGRAM;KCR_SECTION::=KCR_SECTION;KCR_SUBSECTION::=KCR_SUBSECTION;OKV_CODE::=OKV_CODE;OKV_NAME::=OKV_NAME;PUBLISHYEAR::=PUBLISHYEAR;RR_EXCHRATECURRENT::=RR_EXCHRATECURRENT;RR_EXCHRATEFIRST::=RR_EXCHRATEFIRST;RR_EXCHRATENEXT::=RR_EXCHRATENEXT;RR_EXCHRATESEC::=RR_EXCHRATESEC;RR_EXCHRATESUBSEC::=RR_EXCHRATESUBSEC;RUR_SUMCURRENT::=RUR_SUMCURRENT;RUR_SUMFIRST::=RUR_SUMFIRST;RUR_SUMNEXT::=RUR_SUMNEXT;RUR_SUMSEC::=RUR_SUMSEC;RUR_SUMSUBSEC::=RUR_SUMSUBSEC;RUR_SUMTOTAL::=RUR_SUMTOTAL;RUZ_SUMCURRENT::=RUZ_SUMCURRENT;RUZ_SUMFIRST::=RUZ_SUMFIRST;RUZ_SUMNEXT::=RUZ_SUMNEXT;RUZ_SUMSEC::=RUZ_SUMSEC;RUZ_SUMSUBSEC::=RUZ_SUMSUBSEC;RUZ_SUMTOTAL::=RUZ_SUMTOTAL;UR_EXCHRATECURRENT::=UR_EXCHRATECURRENT;UR_EXCHRATEFIRST::=UR_EXCHRATEFIRST;UR_EXCHRATENEXT::=UR_EXCHRATENEXT;UR_EXCHRATESEC::=UR_EXCHRATESEC;UR_EXCHRATESUBSEC::=UR_EXCHRATESUBSEC;USD_SUMCURRENT::=USD_SUMCURRENT;USD_SUMFIRST::=USD_SUMFIRST;USD_SUMNEXT::=USD_SUMNEXT;USD_SUMSEC::=USD_SUMSEC;USD_SUMSUBSEC::=USD_SUMSUBSEC;USD_SUMTOTAL::=USD_SUMTOTAL;UUZ_SUMCURRENT::=UUZ_SUMCURRENT;UUZ_SUMFIRST::=UUZ_SUMFIRST;UUZ_SUMNEXT::=UUZ_SUMNEXT;UUZ_SUMSEC::=UUZ_SUMSEC;UUZ_SUMSUBSEC::=UUZ_SUMSUBSEC;UUZ_SUMTOTAL::=UUZ_SUMTOTAL;OKV_CODEABC::=OKV_CODEABC</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_TI_FINBYYEAR200_LIST</param>
+          <param name="tableName1">FS_TI_FINBYYEAR200_LIST</param>
+          <param name="listColumns">PUBLISHYEAR2::=PUBLISHYEAR2;RUR_SUMCURRENT::=RUR_SUMCURRENT;RUR_SUMFIRST::=RUR_SUMFIRST;RUR_SUMNEXT::=RUR_SUMNEXT;RUR_SUMSEC::=RUR_SUMSEC;RUR_SUMSUBSEC::=RUR_SUMSUBSEC;RUR_SUMTOTAL::=RUR_SUMTOTAL;STRGUID::=STRGUID</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_TI_FINBYYEARCUR_LIST</param>
+          <param name="tableName1">FS_TI_FINBYYEARCUR_LIST</param>
+          <param name="listColumns">CUR_SUMCURRENT::=CUR_SUMCURRENT;CUR_SUMFIRST::=CUR_SUMFIRST;CUR_SUMNEXT::=CUR_SUMNEXT;CUR_SUMSEC::=CUR_SUMSEC;CUR_SUMSUBSEC::=CUR_SUMSUBSEC;CUR_SUMTOTAL::=CUR_SUMTOTAL;OKV_CODE::=OKV_CODE;OKV_NAME::=OKV_NAME;PUBLISHYEAR2::=PUBLISHYEAR2;RUR_SUMCURRENT::=RUR_SUMCURRENT;RUR_SUMFIRST::=RUR_SUMFIRST;RUR_SUMNEXT::=RUR_SUMNEXT;RUR_SUMSEC::=RUR_SUMSEC;RUR_SUMSUBSEC::=RUR_SUMSUBSEC;RUR_SUMTOTAL::=RUR_SUMTOTAL;STRGUID::=STRGUID;USD_SUMCURRENT::=USD_SUMCURRENT;USD_SUMFIRST::=USD_SUMFIRST;USD_SUMNEXT::=USD_SUMNEXT;USD_SUMSEC::=USD_SUMSEC;USD_SUMSUBSEC::=USD_SUMSUBSEC;USD_SUMTOTAL::=USD_SUMTOTAL;OKV_CODEABC::=OKV_CODEABC</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_TI_FINBYKBK200_LIST</param>
+          <param name="tableName1">FS_TI_FINBYKBK200_LIST</param>
+          <param name="listColumns">KSR_ACTION::=KSR_ACTION;KSR_DEPARTMENT::=KSR_DEPARTMENT;KSR_DIRECTION::=KSR_DIRECTION;KSR_EXPTYPE::=KSR_EXPTYPE;KSR_GRBS::=KSR_GRBS;KSR_KBK::=KSR_KBK;KSR_PNDE::=KSR_PNDE;KSR_PROGRAM::=KSR_PROGRAM;KSR_SECTION::=KSR_SECTION;KSR_SUBSECTION::=KSR_SUBSECTION;RUR_SUMCURRENT::=RUR_SUMCURRENT;RUR_SUMFIRST::=RUR_SUMFIRST;RUR_SUMNEXT::=RUR_SUMNEXT;RUR_SUMSEC::=RUR_SUMSEC;RUR_SUMSUBSEC::=RUR_SUMSUBSEC;RUR_SUMTOTAL::=RUR_SUMTOTAL</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_TI_FINBYKBKCUR_LIST</param>
+          <param name="tableName1">FS_TI_FINBYKBKCUR_LIST</param>
+          <param name="listColumns">CUR_SUMCURRENT::=CUR_SUMCURRENT;CUR_SUMFIRST::=CUR_SUMFIRST;CUR_SUMNEXT::=CUR_SUMNEXT;CUR_SUMSEC::=CUR_SUMSEC;CUR_SUMSUBSEC::=CUR_SUMSUBSEC;CUR_SUMTOTAL::=CUR_SUMTOTAL;KSC_ACTION::=KSC_ACTION;KSC_DEPARTMENT::=KSC_DEPARTMENT;KSC_DIRECTION::=KSC_DIRECTION;KSC_EXPTYPE::=KSC_EXPTYPE;KSC_GRBS::=KSC_GRBS;KSC_KBK::=KSC_KBK;KSC_PNDE::=KSC_PNDE;KSC_PROGRAM::=KSC_PROGRAM;KSC_SECTION::=KSC_SECTION;KSC_SUBSECTION::=KSC_SUBSECTION;OKV_CODE::=OKV_CODE;OKV_NAME::=OKV_NAME;RUR_SUMCURRENT::=RUR_SUMCURRENT;RUR_SUMFIRST::=RUR_SUMFIRST;RUR_SUMNEXT::=RUR_SUMNEXT;RUR_SUMSEC::=RUR_SUMSEC;RUR_SUMSUBSEC::=RUR_SUMSUBSEC;RUR_SUMTOTAL::=RUR_SUMTOTAL;USD_SUMCURRENT::=USD_SUMCURRENT;USD_SUMFIRST::=USD_SUMFIRST;USD_SUMNEXT::=USD_SUMNEXT;USD_SUMSEC::=USD_SUMSEC;USD_SUMSUBSEC::=USD_SUMSUBSEC;USD_SUMTOTAL::=USD_SUMTOTAL;OKV_CODEABC::=OKV_CODEABC</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillFieldsFromParent" many="false">
+        <params>
+          <param name="fieldAssigns">DOC.BI_EISPOSNUMBER=DOC.BI_EISPOSNUMBER;DOC.BI_EISPUBLISHDATE=DOC.BI_EISPUBLISHDATE;DOC.TZ_IDTIMEZONE=DOC.TZ_IDTIMEZONE;DOC.TZ_MSKDELTA=DOC.TZ_MSKDELTA;DOC.TZ_TIMEZONEDESC=DOC.TZ_TIMEZONEDESC;DOC.TZ_TIMEZONEENAME=DOC.TZ_TIMEZONEENAME;DOC.TZ_UTCDELTA=DOC.TZ_UTCDELTA;DOC.TEI_EISPDATETZ=DOC.TEI_EISPDATETZ;DOC.BI_EXTNUMBER=DOC.BI_EXTNUMBER;DOC.BI_TERMSTR=DOC.BI_TERMSTR;DOC.BI_TERMTO=DOC.BI_TERMTO;DOC.BI_NAMESTATEPROGRAM=DOC.BI_NAMESTATEPROGRAM;DOC.FP_STAFFPURCHASESTYPE=DOC.FP_STAFFPURCHASESTYPE;DOC.CU_BRANCHCODE=DOC.CU_BRANCHCODE;DOC.CU_BRANCHNAME=DOC.CU_BRANCHNAME;DOC.CCUR_CODE=DOC.CCUR_CODE;DOC.CCUR_CODEABC=DOC.CCUR_CODEABC;DOC.CCUR_NAME=DOC.CCUR_NAME;DOC.BI_TERM=DOC.BI_TERM;DOC.BI_CODEPERIODICITY=DOC.BI_CODEPERIODICITY;DOC.BI_PERIODICITY=DOC.BI_PERIODICITY;DOC.BI_PURPOSE=DOC.BI_PURPOSE;DOC.BI_EXPECTEDRESULT=DOC.BI_EXPECTEDRESULT;DOC.BI_FOUNDATION=DOC.BI_FOUNDATION;DOC.FP_EXPTYPEIKZ=DOC.FP_EXPTYPEIKZ;DOC.CU_UCHREZHTYPECODE=DOC.CU_UCHREZHTYPECODE;DOC.CU_ORGTYPECODE=DOC.CU_ORGTYPECODE;DOC.TEI_CODEOKOPF_3=DOC.TEI_CODEOKOPF_3;DOC.BI_SEVERALOKPD=DOC.BI_SEVERALOKPD;DOC.TEI_IKZISFORMED=DOC.TEI_IKZISFORMED;DOC.FP_EXPTYPENOTIDENTIFIED=DOC.FP_EXPTYPENOTIDENTIFIED;DOC.TEI_KUZAPPROVED=DOC.TEI_KUZAPPROVED;DOC.TEI_POSNUMBERISFORMED=DOC.TEI_POSNUMBERISFORMED;DOC.IND_INABILITYTODELETE=DOC.IND_INABILITYTODELETE</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_REG_REGPURCH_LIST</param>
+          <param name="tableName1">FS_REG_REGPURCH_LIST</param>
+          <param name="listColumns">REGULATIONSDATE::=REGULATIONSDATE;REGULATIONSFULLNAME::=REGULATIONSFULLNAME;REGULATIONSITEM::=REGULATIONSITEM;REGULATIONSNUM::=REGULATIONSNUM;REGULATIONSVIEW::=REGULATIONSVIEW;REGULATIONSCODE::=REGULATIONSCODE;REGULATIONSIDEIS::=REGULATIONSIDEIS</param>
+          <param name="saveExistingDstTableData">false</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillAttachmentsAndLinkTablesWithFilerFromParent" many="false">
+        <params/>
+      </filling>
+      <document-type system-name="PUR_PlanPosition200"/>
+      <variant id="createNewEmptyVersion" name="Создание версии пустой"/>
+    </parent-doc-type>
+    <parent-doc-type>
+      <filling bean="fillFromParent" method="fillFieldsFromParent" many="false">
+        <params>
+          <param name="fieldAssigns">DOC.BI_COMPLEXITY=DOC.BI_COMPLEXITY;DOC.BI_DESCRIPTION=DOC.BI_DESCRIPTION;DOC.BI_FOUNDATION=DOC.BI_FOUNDATION;DOC.BI_HASCOMPLEXITY=DOC.BI_HASCOMPLEXITY;DOC.BI_INDCODE=DOC.BI_INDCODE;DOC.BI_NAMEINDEX=DOC.BI_NAMEINDEX;DOC.BI_OBJECTINFO=DOC.BI_OBJECTINFO;DOC.BI_PERIODICITY=DOC.BI_PERIODICITY;DOC.BI_PLANPERIOD_CURYEAR=DOC.BI_PLANPERIOD_CURYEAR;DOC.BI_PLANPERIOD_FIRSTYEAR=DOC.BI_PLANPERIOD_FIRSTYEAR;DOC.BI_PLANPERIOD_NEXTYEAR=DOC.BI_PLANPERIOD_NEXTYEAR;DOC.BI_PLANPERIOD_SECONDYEAR=DOC.BI_PLANPERIOD_SECONDYEAR;DOC.BI_PUBLICDISCUSSION=DOC.BI_PUBLICDISCUSSION;DOC.BI_PURPOSE=DOC.BI_PURPOSE;DOC.BI_SOURCE=DOC.BI_SOURCE;DOC.BI_TERM=DOC.BI_TERM;DOC.CU_ACTUALPLANPERIOD=DOC.CU_ACTUALPLANPERIOD;DOC.CU_DOCTYPE_TYPECODE=DOC.CU_DOCTYPE_TYPECODE;DOC.CU_DOCTYPE_TYPENAME=DOC.CU_DOCTYPE_TYPENAME;DOC.CU_PLANPERIOD=DOC.CU_PLANPERIOD;DOC.CU_TYPEPURCHASE=DOC.CU_TYPEPURCHASE;DOC.FP_FOREIGNSTAFFPURCHASES=DOC.FP_FOREIGNSTAFFPURCHASES;DOC.LFO_CODEOKPF=DOC.LFO_CODEOKPF;DOC.LFO_SNAME=DOC.LFO_SNAME;DOC.OKPD_CODOKPD=DOC.OKPD_CODOKPD;DOC.OKPD_OKPD=DOC.OKPD_OKPD;DOC.ORG_ADRESS=DOC.ORG_ADRESS;DOC.ORG_FULLORGNAME=DOC.ORG_FULLORGNAME;DOC.ORG_INN=DOC.ORG_INN;DOC.ORG_KPP=DOC.ORG_KPP;DOC.ORG_OGRN=DOC.ORG_OGRN;DOC.ORG_OKFSREF_CODEOKFS=DOC.ORG_OKFSREF_CODEOKFS;DOC.ORG_OKFSREF_OKFS=DOC.ORG_OKFSREF_OKFS;DOC.ORG_OKPOCODE=DOC.ORG_OKPOCODE;DOC.ORG_ORGCODE=DOC.ORG_ORGCODE;DOC.ORG_REGISTRYDATE=DOC.ORG_REGISTRYDATE;DOC.ORG_SHORTORGNAME=DOC.ORG_SHORTORGNAME;DOC.SC_GLAVACODE=DOC.SC_GLAVACODE;DOC.SC_GRBSNAME=DOC.SC_GRBSNAME;DOC.TEI_INCLUDEDUZGUID=DOC.TEI_INCLUDEDUZGUID;DOC.TEI_OKPDFORIKZ=DOC.TEI_OKPDFORIKZ;DOC.TMO_CODOKTMO=DOC.TMO_CODOKTMO;DOC.TMO_OKTMO=DOC.TMO_OKTMO;DOC.TOT_SUMFIRST=DOC.TOT_SUMFIRST;DOC.TOT_SUMSEC=DOC.TOT_SUMSEC;DOC.TOT_SUMSUBSEC=DOC.TOT_SUMSUBSEC;DOC.TOT_SUMTOTAL=DOC.TOT_SUMTOTAL;DOC.TRUR_SUMFIRST=DOC.TRUR_SUMFIRST;DOC.TRUR_SUMSEC=DOC.TRUR_SUMSEC;DOC.TRUR_SUMSUBSEC=DOC.TRUR_SUMSUBSEC;DOC.TRUR_SUMTOTAL=DOC.TRUR_SUMTOTAL;DOC.TUSD_SUMFIRST=DOC.TUSD_SUMFIRST;DOC.TUSD_SUMSEC=DOC.TUSD_SUMSEC;DOC.TUSD_SUMSUBSEC=DOC.TUSD_SUMSUBSEC;DOC.TUSD_SUMTOTAL=DOC.TUSD_SUMTOTAL;DOC.T_SUMFIRST=DOC.T_SUMFIRST;DOC.T_SUMSEC=DOC.T_SUMSEC;DOC.T_SUMSUBSEC=DOC.T_SUMSUBSEC;DOC.T_SUMTOTAL=DOC.T_SUMTOTAL;DOC.TEI_KUZGUID=DOC.TEI_CURRENTGUID;DOC.TOT_SUMCURRENT=DOC.TOT_SUMCURRENT;DOC.TOT_SUMNEXT=DOC.TOT_SUMNEXT;DOC.TRUR_SUMCURRENT=DOC.TRUR_SUMCURRENT;DOC.TRUR_SUMNEXT=DOC.TRUR_SUMNEXT;DOC.TUSD_SUMCURRENT=DOC.TUSD_SUMCURRENT;DOC.TUSD_SUMNEXT=DOC.TUSD_SUMNEXT;DOC.T_SUMCURRENT=DOC.T_SUMCURRENT;DOC.T_SUMNEXT=DOC.T_SUMNEXT;DOC.CU_UZNUMBER=DOC.CU_DOCNUMBER;DOC.OI_APPROVERNAME=DOC.OFIN_APPROVERNAME;DOC.OI_APPROVERPHONE=DOC.OFIN_APPROVERPHONE;DOC.OI_APPROVERPOST=DOC.OFIN_APPROVERPOST;DOC.AGR_APPROVERLOGIN=DOC.UZ_APPROVERLOGIN;DOC.AGR_ISAGREEMENTNEED=DOC.UZ_ISAGREEMENTNEED;DOC.AGR_NUMOFAPPROVERS=DOC.UZ_NUMOFAPPROVERS;DOC.BI_CODEPERIODICITY=DOC.BI_CODEPERIODICITY;DOC.BI_NAMESTATEPROGRAM=DOC.BI_NAMESTATEPROGRAM;DOC.BI_EXPECTEDRESULT=DOC.BI_EXPECTEDRESULT</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillFieldsFromParent" many="false">
+        <params>
+          <param name="fieldAssigns">DOC.TOUZ_SUMFIRST=DOC.TOT_SUMFIRST;DOC.TOUZ_SUMSEC=DOC.TOT_SUMSEC;DOC.TOUZ_SUMSUBSEC=DOC.TOT_SUMSUBSEC;DOC.TOUZ_SUMTOTAL=DOC.TOT_SUMTOTAL;DOC.TRUZ_SUMFIRST=DOC.TRUR_SUMFIRST;DOC.TRUZ_SUMSEC=DOC.TRUR_SUMSEC;DOC.TRUZ_SUMSUBSEC=DOC.TRUR_SUMSUBSEC;DOC.TRUZ_SUMTOTAL=DOC.TRUR_SUMTOTAL;DOC.TUUZ_SUMFIRST=DOC.TUSD_SUMFIRST;DOC.TUUZ_SUMSEC=DOC.TUSD_SUMSEC;DOC.TUUZ_SUMSUBSEC=DOC.TUSD_SUMSUBSEC;DOC.TUUZ_SUMTOTAL=DOC.TUSD_SUMTOTAL;DOC.TUZ_SUMFIRST=DOC.T_SUMFIRST;DOC.TUZ_SUMSEC=DOC.T_SUMSEC;DOC.TUZ_SUMSUBSEC=DOC.T_SUMSUBSEC;DOC.TUZ_SUMTOTAL=DOC.T_SUMTOTAL;DOC.TOUZ_SUMCURRENT=DOC.TOT_SUMCURRENT;DOC.TOUZ_SUMNEXT=DOC.TOT_SUMNEXT;DOC.TRUZ_SUMCURRENT=DOC.TRUR_SUMCURRENT;DOC.TRUZ_SUMNEXT=DOC.TRUR_SUMNEXT;DOC.TUUZ_SUMCURRENT=DOC.TUSD_SUMCURRENT;DOC.TUUZ_SUMNEXT=DOC.TUSD_SUMNEXT;DOC.TUZ_SUMCURRENT=DOC.T_SUMCURRENT;DOC.TUZ_SUMNEXT=DOC.T_SUMNEXT;DOC.BI_TERMSTR=DOC.BI_TERMSTR;DOC.BI_TERMTO=DOC.BI_TERMTO;DOC.BI_NAMESTATEPROGRAM=DOC.BI_NAMESTATEPROGRAM;DOC.BI_EXPECTEDRESULT=DOC.BI_EXPECTEDRESULT;DOC.FP_STAFFPURCHASESTYPE=DOC.FP_STAFFPURCHASESTYPE;DOC.CU_BRANCHCODE=DOC.CU_BRANCHCODE;DOC.CU_BRANCHNAME=DOC.CU_BRANCHNAME;DOC.CU_UCHREZHTYPECODE=DOC.CU_UCHREZHTYPECODE;DOC.CU_ORGTYPECODE=DOC.CU_ORGTYPECODE;DOC.TEI_CODEOKOPF_3=DOC.TEI_CODEOKOPF_3</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_TI_FINBYYEAR200_LIST</param>
+          <param name="tableName1">FS_TI_FINANCEBYYEARS_LIST</param>
+          <param name="listColumns">PUBLISHYEAR2::=PUBLISHYEAR2;RUR_SUMFIRST::=RUR_SUMFIRST;RUR_SUMSEC::=RUR_SUMSEC;RUR_SUMSUBSEC::=RUR_SUMSUBSEC;RUR_SUMCURRENT::=RUR_SUMCURRENT;RUR_SUMNEXT::=RUR_SUMNEXT</param>
+          <param name="criteria">fields.PUBLISHYEAR2 = :BI_PUBLISHYEAR</param>
+          <param name=":BI_PUBLISHYEAR">DOC.BI_PUBLISHYEAR</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_AGR_AGRLIST_LIST</param>
+          <param name="tableName1">FS_UZ_AGRLIST_LIST</param>
+          <param name="listColumns">USERNMINGROUP::=USERNMINGROUP;USERFIO::=USERFIO;PHASEORDER::=PHASEORDER;USERGROUP::=USERGROUP;USERPOST::=USERPOST;LOGIN::=LOGIN;AGRSTATE::=AGRSTATE</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsWithAggregation" many="false">
+        <params>
+          <param name="tableName">FS_RUB_FINSOURC200_LIST</param>
+          <param name="tableName1">FS_RUB_FINSOURC_LIST</param>
+          <param name="KEY_FIELDS">PUBLISHYEAR;KS_DEPARTMENT;ADDITIONALFEATURECODE;KS_GRBS;KS_SECTION;KS_SUBSECTION;KS_PNDE;KS_PROGRAM;KS_ACTION;KS_DIRECTION;KS_EXPTYPE</param>
+          <param name="FIELDS_TO_SUM">RUR_SUMCURRENT;RUR_SUMNEXT;RUR_SUMFIRST;RUR_SUMSEC;RUR_SUMSUBSEC;RUR_SUMTOTAL</param>
+          <param name="listColumns">KS_ACTION::=KS_ACTION;KS_DIRECTION::=KS_DIRECTION;KS_EXPTYPE::=KS_EXPTYPE;KS_GRBS::=KS_GRBS;KS_KBK::=KS_KBK;KS_KOSGU::=KS_KOSGU;KS_PNDE::=KS_PNDE;KS_PROGRAM::=KS_PROGRAM;KS_SECTION::=KS_SECTION;KS_SUBSECTION::=KS_SUBSECTION;PUBLISHYEAR::=PUBLISHYEAR;RUZ_SUMCURRENT::=RUR_SUMCURRENT;RUZ_SUMFIRST::=RUR_SUMFIRST;RUZ_SUMNEXT::=RUR_SUMNEXT;RUZ_SUMSEC::=RUR_SUMSEC;RUZ_SUMSUBSEC::=RUR_SUMSUBSEC;RUZ_SUMTOTAL::=RUR_SUMTOTAL;KS_DEPARTMENT::=KS_DEPARTMENT;ADDITIONALFEATURECODE::=ADDITIONALFEATURECODE;INFORMACTCODE::=INFORMACTCODE;INFORMACTNAME::=INFORMACTNAME;INFORMACTPRIORITY::=INFORMACTPRIORITY;INFORMACTTYPE::=INFORMACTTYPE</param>
+          <param name="criteria">fields.PUBLISHYEAR = :BI_PUBLISHYEAR</param>
+          <param name=":BI_PUBLISHYEAR">DOC.BI_PUBLISHYEAR</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_REG_REGPURCH_LIST</param>
+          <param name="tableName1">FS_REG_REGPURCH_LIST</param>
+          <param name="listColumns">REGULATIONSDATE::=REGULATIONSDATE;REGULATIONSFULLNAME::=REGULATIONSFULLNAME;REGULATIONSITEM::=REGULATIONSITEM;REGULATIONSNUM::=REGULATIONSNUM;REGULATIONSVIEW::=REGULATIONSVIEW;REGULATIONSCODE::=REGULATIONSCODE;REGULATIONSIDEIS::=REGULATIONSIDEIS</param>
+          <param name="saveExistingDstTableData">false</param>
+        </params>
+      </filling>
+      <document-type system-name="PUR_PurchaseObject200"/>
+      <variant id="fillByParent"/>
+    </parent-doc-type>
+    <parent-doc-type>
+      <filling bean="fillFromParent" method="fillTableColumnsWithAggregation" many="false">
+        <params>
+          <param name="tableName">FS_CUR_FINSOURC200_LIST</param>
+          <param name="tableName1">FS_CUR_FINSOURCESCUR_LIST</param>
+          <param name="KEY_FIELDS">ADDITIONALFEATURECODE;KCR_ACTION;KCR_DEPARTMENT;KCR_DIRECTION;KCR_EXPTYPE;KCR_GRBS;KCR_PNDE;KCR_PROGRAM;KCR_SECTION;KCR_SUBSECTION;OKV_CODE;OKV_NAME;RR_EXCHRATECURRENT;RR_EXCHRATEFIRST;RR_EXCHRATENEXT;RR_EXCHRATESEC;RR_EXCHRATESUBSEC;UR_EXCHRATECURRENT;UR_EXCHRATEFIRST;UR_EXCHRATENEXT;UR_EXCHRATESEC;UR_EXCHRATESUBSEC;PUBLISHYEAR</param>
+          <param name="FIELDS_TO_SUM">CUR_SUMCURRENT;RR_SUMCURRENT;RR_SUMFIRST;RR_SUMNEXT;RR_SUMSEC;RR_SUMSUBSEC;RR_SUMTOTAL;USD_SUMCURRENT;USD_SUMFIRST;USD_SUMNEXT;USD_SUMSEC;USD_SUMSUBSEC;USD_SUMTOTAL;RUR_SUMCURRENT;RUR_SUMFIRST;RUR_SUMNEXT;RUR_SUMSEC;RUR_SUMSUBSEC;RUR_SUMTOTAL;CUR_SUMFIRST;CUR_SUMNEXT;CUR_SUMSEC;CUR_SUMSUBSEC;CUR_SUMTOTAL</param>
+          <param name="listColumns">ADDITIONALFEATURECODE::=ADDITIONALFEATURECODE;KCR_ACTION::=KCR_ACTION;KCR_DEPARTMENT::=KCR_DEPARTMENT;KCR_DIRECTION::=KCR_DIRECTION;KCR_EXPTYPE::=KCR_EXPTYPE;KCR_GRBS::=KCR_GRBS;KCR_PNDE::=KCR_PNDE;KCR_PROGRAM::=KCR_PROGRAM;KCR_SECTION::=KCR_SECTION;KCR_SUBSECTION::=KCR_SUBSECTION;OKV_CODE::=OKV_CODE;OKV_NAME::=OKV_NAME;PUBLISHYEAR::=PUBLISHYEAR;RR_EXCHRATECURRENT::=RR_EXCHRATECURRENT;RR_EXCHRATEFIRST::=RR_EXCHRATEFIRST;RR_EXCHRATENEXT::=RR_EXCHRATENEXT;RR_EXCHRATESEC::=RR_EXCHRATESEC;RR_EXCHRATESUBSEC::=RR_EXCHRATESUBSEC;UR_EXCHRATECURRENT::=UR_EXCHRATECURRENT;UR_EXCHRATEFIRST::=UR_EXCHRATEFIRST;UR_EXCHRATENEXT::=UR_EXCHRATENEXT;UR_EXCHRATESEC::=UR_EXCHRATESEC;UR_EXCHRATESUBSEC::=UR_EXCHRATESUBSEC;UUZ_SUMCURRENT::=USD_SUMCURRENT;UUZ_SUMFIRST::=USD_SUMFIRST;UUZ_SUMNEXT::=USD_SUMNEXT;UUZ_SUMSEC::=USD_SUMSEC;UUZ_SUMSUBSEC::=USD_SUMSUBSEC;UUZ_SUMTOTAL::=USD_SUMTOTAL;RUZ_SUMCURRENT::=RUR_SUMCURRENT;RUZ_SUMFIRST::=RUR_SUMFIRST;RUZ_SUMNEXT::=RUR_SUMNEXT;RUZ_SUMSEC::=RUR_SUMSEC;RUZ_SUMSUBSEC::=RUR_SUMSUBSEC;RUZ_SUMTOTAL::=RUR_SUMTOTAL;CUZ_SUMCURRENT::=CUR_SUMCURRENT;CUZ_SUMFIRST::=CUR_SUMFIRST;CUZ_SUMNEXT::=CUR_SUMNEXT;CUZ_SUMSEC::=CUR_SUMSEC;CUZ_SUMSUBSEC::=CUR_SUMSUBSEC;CUZ_SUMTOTAL::=CUR_SUMTOTAL;OKV_CODEABC::=OKV_CODEABC</param>
+          <param name="criteria">fields.PUBLISHYEAR = :BI_PUBLISHYEAR and fields.OKV_CODE = :CCUR_CODE</param>
+          <param name=":BI_PUBLISHYEAR">DOC.BI_PUBLISHYEAR</param>
+          <param name=":TF_TEXT50FIELD">DOC.TF_TEXT50FIELD</param>
+          <param name=":CCUR_CODE">DOC.CCUR_CODE</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsWithAggregation" many="false">
+        <params>
+          <param name="tableName">FS_TI_FINBYYEARCUR_LIST</param>
+          <param name="tableName1">FS_TI_FINANCEBYYEARSCUR_LIST</param>
+          <param name="KEY_FIELDS">PUBLISHYEAR2;OKV_CODE;OKV_NAME</param>
+          <param name="FIELDS_TO_SUM">CUR_SUMCURRENT;CUR_SUMNEXT;CUR_SUMFIRST;CUR_SUMSEC;CUR_SUMSUBSEC;CUR_SUMTOTAL;USD_SUMCURRENT;USD_SUMNEXT;USD_SUMFIRST;USD_SUMSEC;USD_SUMSUBSEC;USD_SUMTOTAL;RUR_SUMCURRENT;RUR_SUMNEXT;RUR_SUMFIRST;RUR_SUMSEC;RUR_SUMSUBSEC;RUR_SUMTOTAL</param>
+          <param name="listColumns">CUR_SUMCURRENT::=CUR_SUMCURRENT;CUR_SUMFIRST::=CUR_SUMFIRST;CUR_SUMNEXT::=CUR_SUMNEXT;CUR_SUMSEC::=CUR_SUMSEC;CUR_SUMSUBSEC::=CUR_SUMSUBSEC;CUR_SUMTOTAL::=CUR_SUMTOTAL;OKV_CODE::=OKV_CODE;OKV_NAME::=OKV_NAME;PUBLISHYEAR2::=PUBLISHYEAR2;RUR_SUMCURRENT::=RUR_SUMCURRENT;RUR_SUMFIRST::=RUR_SUMFIRST;RUR_SUMNEXT::=RUR_SUMNEXT;RUR_SUMSEC::=RUR_SUMSEC;RUR_SUMSUBSEC::=RUR_SUMSUBSEC;RUR_SUMTOTAL::=RUR_SUMTOTAL;USD_SUMCURRENT::=USD_SUMCURRENT;USD_SUMFIRST::=USD_SUMFIRST;USD_SUMNEXT::=USD_SUMNEXT;USD_SUMSEC::=USD_SUMSEC;USD_SUMSUBSEC::=USD_SUMSUBSEC;USD_SUMTOTAL::=USD_SUMTOTAL;OKV_CODEABC::=OKV_CODEABC</param>
+          <param name="criteria">fields.PUBLISHYEAR2 = :BI_PUBLISHYEAR and fields.OKV_CODE = :CCUR_CODE</param>
+          <param name=":BI_PUBLISHYEAR">DOC.BI_PUBLISHYEAR</param>
+          <param name=":TF_TEXT50FIELD">DOC.TF_TEXT50FIELD</param>
+          <param name=":CCUR_CODE">DOC.CCUR_CODE</param>
+        </params>
+      </filling>
+      <document-type system-name="PUR_PurchaseObject200"/>
+      <variant id="fillByParent_cur" name="Заполнение из родительского для валют"/>
+    </parent-doc-type>
+    <parent-doc-type>
+      <filling bean="fillFromParent" method="fillFieldsFromParent" many="false">
+        <params>
+          <param name="fieldAssigns">DOC.AGR_APPROVERLOGIN=DOC.AGR_APPROVERLOGIN;DOC.AGR_ISAGREEMENTNEED=DOC.AGR_ISAGREEMENTNEED;DOC.CU_DOCNUMBER=DOC.PPZ_DOCNUMBER;DOC.TEI_EXPENSETYPE=DOC.PPZ_EXPENSETYPE;DOC.FP_FOREIGNSTAFFPURCHASES=DOC.PPZ_FRGNSTAFFPURCHASES;DOC.BI_IDENTIFCODEPUR=DOC.PPZ_IKZ;DOC.BI_PURTYPE=DOC.PPZ_PURTYPE;DOC.BI_POSNUMBER=DOC.PPZ_NUMBERINPP;DOC.OKPD_CODOKPD=DOC.OKPD_CODOKPD;DOC.BI_OBJECTINFO=DOC.BI_PGPOSITIONNAME;DOC.BI_PUBLISHYEAR=DOC.BI_PUBLISHYEAR;DOC.TEI_PLANREGNUM=DOC.PLAN_DOCNUMBER;DOC.CU_PLANPERIOD=DOC.BI_PLANPERIOD;DOC.BI_PUBLICDISCUSSION=DOC.DISC_REQUIRED;DOC.BI_PLANPERIOD_CURYEAR=DOC.PP_CURYEAR;DOC.BI_PLANPERIOD_FIRSTYEAR=DOC.PP_FIRSTYEAR;DOC.BI_PLANPERIOD_NEXTYEAR=DOC.PP_NEXTYEAR;DOC.BI_PLANPERIOD_SECONDYEAR=DOC.PP_SECONDYEAR;DOC.TOT_SUMTOTAL=DOC.BI_APPROXIMAMOUNT;DOC.OI_APPROVERNAME=DOC.OI_APPROVERNAME;DOC.OI_APPROVERPHONE=DOC.OI_APPROVERPHONE;DOC.OI_APPROVERPOST=DOC.OI_APPROVERPOST;DOC.AGR_NUMOFAPPROVERS=DOC.AGR_NUMOFAPPROVERS;DOC.TOT_SUMNEXT=DOC.BI_PAYMENTAMOUNT;DOC.BI_SORTFORPURTYPE=DOC.PPZ_SORTFORPURTYPE;DOC.CCUR_CODE=DOC.CCUR_CODE;DOC.CCUR_CODEABC=DOC.CCUR_CODEABC;DOC.CCUR_NAME=DOC.CCUR_NAME;DOC.ORG_ORGCODE=DOC.ORG_ORGCODE;DOC.BI_TERM=DOC.BI_CONTRACTTERM;DOC.BI_PERIODICITY=DOC.SHED_PERIODICITY;DOC.CU_BRANCHCODE=DOC.CUST_BRANCHCODE;DOC.CU_BRANCHNAME=DOC.CUST_BRANCHNAME;DOC.OKPD_OKPD=DOC.OKPD_OKPD</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_RUB_FINSOURC200_LIST</param>
+          <param name="tableName1">FS_FO_FROMPURCHASE_LIST</param>
+          <param name="listColumns">KS_ACTION::=KS_ACTION;KS_DEPARTMENT::=KS_DEPARTMENT;KS_DIRECTION::=KS_DIRECTION;KS_EXPTYPE::=KS_EXPTYPE;KS_GRBS::=KS_GRBS;KS_KBK::=KS_KBK;KS_KOSGU::=KS_KOSGU;KS_PNDE::=KS_PNDE;KS_PROGRAM::=KS_PROGRAM;KS_SECTION::=KS_SECTION;KS_SUBSECTION::=KS_SUBSECTION;RUR_SUMSEC::=RUR_SUMSEC;RUR_SUMSUBSEC::=RUR_SUMSUBSEC;RUR_SUMTOTAL::=RUR_SUMTOTAL;RUR_SUMNEXT::=RUR_SUMNEXT;RUR_SUMFIRST::=RUR_SUMFIRST;RUR_SUMCURRENT::=RUR_SUMCURRENT</param>
+        </params>
+      </filling>
+      <filling bean="fillFromParent" method="fillTableColumnsFromParentDiffNamesWorking" many="false">
+        <params>
+          <param name="tableName">FS_AGR_AGRLIST_LIST</param>
+          <param name="tableName1">FS_AGR_AGRLIST_LIST</param>
+          <param name="listColumns">LOGIN::=LOGIN;PHASEORDER::=PHASEORDER;USERFIO::=USERFIO;USERGROUP::=USERGROUP;USERNMINGROUP::=USERNMINGROUP;USERPOST::=USERPOST</param>
+        </params>
+      </filling>
+      <document-type system-name="PUR_Purchase"/>
+      <variant id="createFromEIS" name="создание на основе ППГ из ЕИС"/>
+    </parent-doc-type>
+  </parent-doc-types>
+  <dataSources>
+    <dataSource docType="PUR_PlanPosition200" id="ds1" type="DOC">
+      <conditions>
+        <eqCondition field="DOC.TEI_BASICGUID" fieldRef="DOC.TEI_BASICGUID"/>
+      </conditions>
+    </dataSource>
+    <dataSource docType="PUR_Purchase" id="ds2" type="DOC">
+      <conditions>
+        <andCondition>
+          <eqCondition field="DOC.CU_DOCNUMBER" fieldRef="DOC.PPZ_DOCNUMBER"/>
+          <eqCondition fieldRef="DOC.IND_ISACTUAL" type="BOOLEAN" value="true"/>
+        </andCondition>
+      </conditions>
+    </dataSource>
+    <dataSource docType="PUR_Purchase17" id="ds3" type="DOC">
+      <conditions>
+        <andCondition>
+          <eqCondition field="DOC.CU_DOCNUMBER" fieldRef="DOC.PPZ_DOCNUMBER"/>
+          <eqCondition fieldRef="DOC.IND_ISACTUAL" type="BOOLEAN" value="true"/>
+        </andCondition>
+      </conditions>
+    </dataSource>
+  </dataSources>
+</docschema>

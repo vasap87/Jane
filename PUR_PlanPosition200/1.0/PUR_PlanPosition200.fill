@@ -1,0 +1,93 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filling xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/filling" xsi:schemaLocation="http://www.otr.ru/sufd/document/filling http://ufos.otr.ru/schema/document/filling/v1/filling.xsd">
+  <defaultvalue field="DOC.TEI_DELETEDFORCHECK" startValue="false" desc="false"/>
+  <defaultvalue field="DOC.TEI_EXPENSETYPE" startValue="200"/>
+  <defaultvalue field="DOC.CU_ACTUALPLANPERIOD" startValue="true"/>
+  <procedure bean="onOpenFill" field="DOC.TF_TEXT50FIELD" method="fillUserInfo" desc="Заполняет в поле документа &quot;DOC.TF_TEXT50FIELD&quot; LOGIN текущего пользователя">
+    <param name="targetParam">targetUserLogin</param>
+  </procedure>
+  <procedure bean="docFillFromDictByMapping" field="DOC.CU_PLANPERIOD" method="fill" desc="Заполнение поля &quot;Плановый период&quot; [DOC.CU_PLANPERIOD] из справочника &quot;ПлановыеПериодыПользователя&quot;">
+    <param name="dictionaryName">PUR_PlanPeriodsUser</param>
+    <param name="dictFilterQuery">DICT.LOGIN::=DOC.TF_TEXT50FIELD</param>
+    <param name="fillMapping">DICT.CURRRENTFINYEAR::=DOC.BI_PLANPERIOD_CURYEAR;DICT.FINYEAR::=DOC.BI_PLANPERIOD_NEXTYEAR;DICT.FIRSTPLANYEAR::=DOC.BI_PLANPERIOD_FIRSTYEAR;DICT.SECONDPLANYEAR::=DOC.BI_PLANPERIOD_SECONDYEAR;DICT.CODE::=DOC.CU_PLANPERIOD</param>
+  </procedure>
+  <procedure bean="onOpenFill" field="DOC.ORG_ORGCODE" method="fillCurrentOrgSystemName"/>
+  <defaultvalue field="DOC.BI_PURTYPE" startValue="P"/>
+  <procedure bean="onOpenFill" field="DOC.OI_AUTHORNAME" method="fillCurrentUserName"/>
+  <procedure bean="onOpenFill" field="DOC.OI_AUTHORPOST" method="fillUserInfo">
+    <param name="targetParam">targetUserPosition</param>
+  </procedure>
+  <defaultvalue field="DOC.IND_ISACTUAL" startValue="true" desc="Признак актуальной версии"/>
+  <defaultvalue field="DOC.IND_WASPUBLISHER" startValue="false" desc="Признак размещения в ЕИС"/>
+  <currentdate field="DOC.CU_CREATEDATE"/>
+  <defaultvalue field="DOC.CU_VERSIONNUM" startValue="1"/>
+  <defaultvalue field="DOC.BI_CANCEL" startValue="false" desc="признак отмены ППЗ в размещенном в ЕИС ПЗ"/>
+  <defaultvalue field="DOC.CU_TYPEPURCHASE" startValue="Basic"/>
+  <procedure bean="onOpenFill" field="DOC.ORG_USERORGCODE" method="fillCurrentOrgSystemName" desc="Заполнение кода организации пользователя"/>
+  <procedure bean="docFillWithDictFieldsConcat" field="DOC.ORG_USERORGADDRESS" method="fillDocFromDict" desc="Адрес пользователя &#xD;&#xA;">
+    <param name="dictionaryName">REF_UBPandNUBP</param>
+    <param name="dictFilterQuery">DICT.ORGCODE::=DOC.ORG_USERORGCODE;DICT.STATUS::='ACTIVE'</param>
+    <param name="concatDelimiter">,</param>
+    <param name="resultFieldName">DOC.ORG_USERORGADDRESS</param>
+    <param name="dictFieldsForConcat">DICT.AD_POSTINDEX;DICT.AD_REGIONNAME;DICT.AD_AREANAME;DICT.AD_CITYNAME;DICT.AD_STREETNAME;DICT.AD_HOUSE;DICT.AD_APARTMENT</param>
+  </procedure>
+  <procedure bean="docFillWithDictFieldsConcat" field="DOC.ORG_ADRESS" method="fillDocFromDict" desc="Адрес организации">
+    <param name="dictionaryName">REF_UBPandNUBP</param>
+    <param name="dictFilterQuery">DICT.ORGCODE::=DOC.ORG_ORGCODE;DICT.STATUS::='ACTIVE'</param>
+    <param name="concatDelimiter">,</param>
+    <param name="resultFieldName">DOC.ORG_ADRESS</param>
+    <param name="dictFieldsForConcat">DICT.AD_POSTINDEX;DICT.AD_REGIONNAME;DICT.AD_AREANAME;DICT.AD_CITYNAME;DICT.AD_STREETNAME;DICT.AD_HOUSE;DICT.AD_APARTMENT</param>
+  </procedure>
+  <procedure bean="docFillFromDictByMapping" field="DOC.ORG_FULLORGNAME" method="fill">
+    <param name="dictionaryName">REF_UBPandNUBP</param>
+    <param name="dictFilterQuery">DICT.ORGCODE::=DOC.ORG_ORGCODE;DICT.STATUS::='ACTIVE'</param>
+    <param name="fillMapping">DICT.ORGFULLNAME::=DOC.ORG_FULLORGNAME;DICT.ORGINN::=DOC.ORG_INN;DICT.ORGKPP::=DOC.ORG_KPP;DICT.ORGOGRN::=DOC.ORG_OGRN;DICT.OKFSCODE_CODE::=DOC.ORG_OKFSREF_CODEOKFS;DICT.OKFSNAME::=DOC.ORG_OKFSREF_OKFS;DICT.CD_OKPOCODE::=DOC.ORG_OKPOCODE;DICT.CC_SPZCODE::=DOC.ORG_SPZ;DICT.ORGSHORTNAME::=DOC.ORG_SHORTORGNAME;DICT.PO_KBKGLAVACODE_CODE::=DOC.SC_GLAVACODE;DICT.PO_KBKGLAVANAME::=DOC.SC_GRBSNAME;DICT.OKOPFCODE_CODE::=DOC.LFO_CODEOKPF;DICT.OKOPFNAME::=DOC.LFO_SNAME;DICT.TO_UCHREZHTYPECODE_CODE::=DOC.CU_UCHREZHTYPECODE;DICT.TO_ORGTYPECODE_CODE::=DOC.CU_ORGTYPECODE</param>
+  </procedure>
+  <procedure bean="docFillFromDictByMapping" field="DOC.ORG_USERORGNAME" method="fill">
+    <param name="dictionaryName">REF_UBPandNUBP</param>
+    <param name="dictFilterQuery">DICT.ORGCODE::=DOC.ORG_USERORGCODE;DICT.STATUS::='ACTIVE'</param>
+    <param name="fillMapping">DICT.ORGFULLNAME::=DOC.ORG_USERORGNAME;DICT.CT_ORGPHONE::=DOC.ORG_USERORGPHONE;DICT.CT_ORGEMAIL::=DOC.ORG_USERORGEMAIL</param>
+  </procedure>
+  <procedure bean="docFillFromDictByMapping" field="DOC.TEI_JUSTIMPORT" method="fill" desc="Признак загрузки только через интеграцию">
+    <param name="dictionaryName">PUR_UZSettings</param>
+    <param name="dictFilterQuery">DICT.PARAMETR::='Импорт данных';DICT.ORGCODE::=DOC.ORG_USERORGCODE</param>
+    <param name="fillMapping">DICT.VALUE::=DOC.TEI_JUSTIMPORT</param>
+  </procedure>
+  <currentdate field="DOC.CU_VERSCREATEDATE"/>
+  <defaultvalue field="DOC.CCUR_CODEABC" startValue="RUB" desc="Проставление валюты RUB"/>
+  <procedure bean="docFillFromDictByMapping" field="DOC.CCUR_NAME" method="fill" desc="Заполнение наименования и буквенного кода валюты">
+    <param name="dictionaryName">REF_OKV</param>
+    <param name="dictFilterQuery">DICT.ALFACODE::=DOC.CCUR_CODEABC;DICT.STATUS::='ACTIVE'</param>
+    <param name="fillMapping">DICT.NAME::=DOC.CCUR_NAME;DICT.DIGITALCODE::=DOC.CCUR_CODE</param>
+  </procedure>
+  <defaultvalue field="DOC.IND_INABILITYTODELETE" startValue="false" desc="Признак =false (Можно удалить из ПЗ )"/>
+  <procedure bean="docFillFromDictByMapping" field="DOC.STNG_OKPDLEN" method="fill" desc="Заполнение минимальной длинной ОКПД по главе">
+    <param name="dictionaryName">PUR_UZSettings</param>
+    <param name="dictFilterQuery">DICT.PARAMETR::='ОКПД';DICT.GRBSCODE::=DOC.SC_GLAVACODE</param>
+    <param name="fillMapping">DICT.VALUE::=DOC.TEI_UZSETTINGS_OKPDLEN</param>
+  </procedure>
+  <defaultvalue field="DOC.TEI_ISFROMINTEGRATION" startValue="false"/>
+  <procedure bean="docFillFromDictByMappingWithMultipleFilters" field="DOC.ORG_ORGCODE" method="invoke" desc="Заполняет ревизиты таймзон по связки СвР, справочника тайм зон">
+    <param name="dictForQueryType">REF_UBPandNUBP</param>
+    <param name="fillDictType">PUR_TimeZoneKLADR</param>
+    <param name="fillDictFilter1">DICT.ISACTUAL::='true';DICT.SUBJECTKLADR::=DICT.AD_REGIONKLADRCODE_CODE</param>
+    <param name="fillDictFilter2">DICT.ISACTUAL::='true';DICT.AREANEEDED::='true';DICT.SUBJECTKLADR::=DICT.AD_REGIONKLADRCODE_CODE</param>
+    <param name="fillDictFilter3">DICT.ISACTUAL::='true';DICT.SUBJECTKLADR::=DICT.AD_REGIONKLADRCODE_CODE;DICT.AREAKLADR::=DICT.AD_AREACODE_CODE;DICT.AREANEEDED::='true'</param>
+    <param name="fillDictToDocMapping">DICT.MSKDELTA::=DOC.TZ_MSKDELTA;DICT.UTCDELTA::=DOC.TZ_UTCDELTA;DICT.TIMEZONEDESC::=DOC.TZ_TIMEZONEDESC;DICT.TIMEZONEENAME::=DOC.TZ_TIMEZONEENAME;DICT.IDTIMEZONE::=DOC.TZ_IDTIMEZONE</param>
+    <param name="dictForQueryFilter">DICT.STATUS::='ACTIVE';DICT.ORGCODE::=DOC.ORG_ORGCODE</param>
+  </procedure>
+  <defaultvalue field="DOC.BI_SENTONEIS" startValue="false" desc="false"/>
+  <defaultvalue field="DOC.FP_STAFFPURCHASESTYPE" startValue="RUB"/>
+  <defaultvalue field="DOC.TEI_EISIMPORTTEMP" startValue="false" desc="По умолчанию процесс импорта не запущен"/>
+  <procedure bean="docFillFromDictByMapping" field="DOC.CU_BRANCHCODE" method="fill">
+    <param name="dictionaryName">PUR_OrgBranches</param>
+    <param name="dictFilterQuery">DICT.ORGCODE::=DOC.ORG_ORGCODE</param>
+    <param name="fillMapping">DICT.CODE::=DOC.CU_BRANCHCODE;DICT.SHORTNAME::=DOC.CU_BRANCHNAME</param>
+    <param name="additinalOqlFilter">tables.FS_USERS_LIST.fields.LOGIN = '%USERNAME%'</param>
+  </procedure>
+  <defaultvalue field="DOC.TEI_KUZAPPROVED" startValue="false" desc="false"/>
+  <defaultvalue field="DOC.BI_SEVERALOKPD" startValue="false" desc="false"/>
+  <defaultvalue field="DOC.FP_EXPTYPENOTIDENTIFIED" startValue="false" desc="false"/>
+  <defaultvalue field="DOC.TEI_IKZISFORMED" startValue="false" desc="false"/>
+  <defaultvalue field="DOC.TEI_POSNUMBERISFORMED" startValue="false" desc="false"/>
+</filling>

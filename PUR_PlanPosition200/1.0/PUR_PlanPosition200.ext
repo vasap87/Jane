@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<counter:Counters xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:counter="http://otr.ru/tomato/counter" uuid="_F-aGMFkfEeWvDuGJim-vCQ">
+  <counters uuid="_G_0MIFlcEeWa2Z8t4R_FpQ" field="DOC.CU_VERSIONNUM">
+    <parts xsi:type="counter:IncrementerCounterPart" uuid="_G_0MIllcEeWa2Z8t4R_FpQ">
+      <fixedGroupingParts>organization</fixedGroupingParts>
+      <fieldGroupingParts uuid="_G_0MI1lcEeWa2Z8t4R_FpQ" field="DOC.CU_DOCNUMBER"/>
+    </parts>
+    <parts xsi:type="counter:IncrementerCounterPart" uuid="_G_0MIVlcEeWa2Z8t4R_FpQ" start="2" counterGroupingParts="_G_0MIllcEeWa2Z8t4R_FpQ _G_0MIllcEeWa2Z8t4R_FpQ"/>
+  </counters>
+  <counters uuid="_FpfF4H-9EeW_te1LS0EKhQ" field="DOC.CU_DOCNUMBER" overridable="true">
+    <parts xsi:type="counter:IncrementerCounterPart" uuid="_FpfF4X-9EeW_te1LS0EKhQ">
+      <fixedGroupingParts>organization</fixedGroupingParts>
+      <fieldGroupingParts uuid="_FpfF4n-9EeW_te1LS0EKhQ" field="DOC.BI_PUBLISHYEAR"/>
+    </parts>
+    <parts xsi:type="counter:IncrementerCounterPart" uuid="_FpfF43-9EeW_te1LS0EKhQ" counterGroupingParts="_FpfF4X-9EeW_te1LS0EKhQ _FpfF4X-9EeW_te1LS0EKhQ" format="%07d"/>
+  </counters>
+  <counters uuid="_FpfF5H-9EeW_te1LS0EKhQ" field="DOC.CU_UZNUMBER" overridable="true">
+    <parts xsi:type="counter:IncrementerCounterPart" uuid="_FpfF5n-9EeW_te1LS0EKhQ">
+      <fixedGroupingParts>organization</fixedGroupingParts>
+      <fieldGroupingParts uuid="_Fpfs8H-9EeW_te1LS0EKhQ" field="DOC.CU_UZNUMBER"/>
+      <fieldGroupingParts uuid="_Fpfs8X-9EeW_te1LS0EKhQ" field="DOC.BI_PUBLISHYEAR"/>
+    </parts>
+    <parts xsi:type="counter:IncrementerCounterPart" uuid="_FpfF5X-9EeW_te1LS0EKhQ" counterGroupingParts="_FpfF5n-9EeW_te1LS0EKhQ _FpfF5n-9EeW_te1LS0EKhQ" format="%02d"/>
+  </counters>
+  <counters uuid="_-MrFEaKlEeWI9tE00tCZGA" field="DOC.TEI_UZNUMBER" overridable="true">
+    <parts xsi:type="counter:IncrementerCounterPart" uuid="_-MrFEqKlEeWI9tE00tCZGA">
+      <fixedGroupingParts>organization</fixedGroupingParts>
+      <fieldGroupingParts uuid="_-MrFE6KlEeWI9tE00tCZGA" field="DOC.BI_PLANPERIOD_NEXTYEAR"/>
+    </parts>
+    <parts xsi:type="counter:IncrementerCounterPart" uuid="_-MrFFKKlEeWI9tE00tCZGA" counterGroupingParts="_-MrFEqKlEeWI9tE00tCZGA _-MrFEqKlEeWI9tE00tCZGA" format="%05d"/>
+  </counters>
+</counter:Counters>

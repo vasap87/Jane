@@ -1,0 +1,640 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filters xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/filter" xsi:schemaLocation="http://www.otr.ru/sufd/document/filter http://ufos.otr.ru/schema/document/filter/v1/filter.xsd">
+  <filterset id="default"/>
+  <filterset id="forAgreement">
+    <filterdef desc="Согласование" id="agree">
+      <and>
+        <filter proc="TableFieldCompareFilter">
+          <filterField docName="fields.LOGIN" id="tableField"/>
+          <attribute name="tableName">FS_AGR_AGRLIST_LIST</attribute>
+          <attribute name="restriction">contains</attribute>
+          <attribute name="innerTableFilter">fields.RESOLUTION = 'sentForAgreement'</attribute>
+          <attribute name="docType">PUR_PlanPosition200</attribute>
+          <formfield formName="currentUser" id="formField"/>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="fields.DOC.AGR_ISAGREEMENTNEED" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">true</attribute>
+          <attribute name="type">BOOLEAN</attribute>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="docState.systemName" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">onApproval</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">true</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="fields.DOC.TEI_EISIMPORTTEMP" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">false</attribute>
+          <attribute name="type">BOOLEAN</attribute>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="currentUser" type="STRING"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+    <filterdef desc="Утверждение" id="approve">
+      <and>
+        <or>
+          <and>
+            <filter proc="FieldCompareValue">
+              <filterField docName="docState.systemName" id="docField"/>
+              <attribute name="restriction">eq</attribute>
+              <attribute name="value">onApproval</attribute>
+              <attribute name="type">STRING</attribute>
+            </filter>
+            <filter proc="FieldCompareValue">
+              <filterField docName="fields.DOC.AGR_ISAGREEMENTNEED" id="docField"/>
+              <attribute name="restriction">eq</attribute>
+              <attribute name="value">false</attribute>
+              <attribute name="type">BOOLEAN</attribute>
+            </filter>
+          </and>
+          <filter proc="FieldCompareValue">
+            <filterField docName="docState.systemName" id="docField"/>
+            <attribute name="restriction">eq</attribute>
+            <attribute name="value">agreed</attribute>
+            <attribute name="type">STRING</attribute>
+          </filter>
+        </or>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.AGR_APPROVERLOGIN" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">true</attribute>
+          <formfield formName="p_currentUser" id="formField"/>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">false</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="fields.DOC.TEI_EISIMPORTTEMP" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">false</attribute>
+          <attribute name="type">BOOLEAN</attribute>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="p_currentUser" type="STRING"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+  </filterset>
+  <filterset id="states">
+    <filterdef desc="Черновики ППЗ" id="PUR_PlanPosition200_crt">
+      <and>
+        <filter proc="FieldCompareValue">
+          <filterField docName="docState.systemName" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">draft</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">false</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="q" type="STRING"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+    <filterdef desc="На согласовании" id="PUR_PlanPosition200_onapp">
+      <and>
+        <filter proc="FieldCompareValue">
+          <filterField docName="docState.systemName" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">onApproval</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">false</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="q" type="STRING"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+    <filterdef desc="Утвержденные ППЗ" id="PUR_PlanPosition200_apd">
+      <and>
+        <filter proc="FieldCompareValue">
+          <filterField docName="docState.systemName" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">approved</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">false</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="q" type="STRING"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+    <filterdef desc="Согласованные ППЗ" id="PUR_PlanPosition200_agrd">
+      <and>
+        <filter proc="FieldCompareValue">
+          <filterField docName="docState.systemName" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">agreed</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">false</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="q" type="STRING"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+    <filterdef desc="Отклоненные ППЗ" id="PUR_PlanPosition200_nagr">
+      <and>
+        <filter proc="FieldCompareValue">
+          <filterField docName="docState.systemName" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">notAgreed</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">false</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="q" type="STRING"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+    <filterdef desc="Не актуальные ППЗ" id="PUR_PlanPosition200_nact">
+      <and>
+        <filter proc="FieldCompareValue">
+          <filterField docName="docState.systemName" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">notApproved</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="q" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+    <filterdef desc="Удаленные карточки УЗ" id="PUR_PlanPosition200_del">
+      <and>
+        <filter proc="FieldCompareValue">
+          <filterField docName="docState.systemName" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">DELETED</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">false</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="q" type="STRING"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+  </filterset>
+  <filterset id="inclusion">
+    <filterdef desc="Позиции планов закупок, включенные в утвержденные планы закупок" id="PUR_PlanPosition200_act">
+      <and>
+        <filter proc="docExistsForCurrentUserFilter">
+          <attribute name="dictFilteredByUserNameType">PUR_PlanPeriodsUser</attribute>
+          <attribute name="dictUsernameFilter">fields.DICT.LOGIN = '%USERNAME%'</attribute>
+          <attribute name="mappingIfExists">DOC.CU_PLANPERIOD::=DICT.CODE</attribute>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="fields.DOC.IND_INCLUDEDP" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">IncludedIntoApproved</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="docState.systemName" id="docField"/>
+          <attribute name="restriction">ne</attribute>
+          <attribute name="value">almostImported</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">false</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+        <filter proc="orgBranchesFilter">
+          <attribute name="curDocType">PUR_PlanPosition200</attribute>
+          <attribute name="branchCodeFieldName">DOC.CU_BRANCHCODE</attribute>
+          <attribute name="showDocsIfNoUserIsFoundInDict">false</attribute>
+          <attribute name="showDocsIfUserIsNull">true</attribute>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="q" type="STRING"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+    <filterdef desc="Позиции планов закупок, включенные в планы закупки, размещенные в ЕИС" id="PUR_PlanPosition200_eis">
+      <and>
+        <filter proc="docExistsForCurrentUserFilter">
+          <attribute name="dictFilteredByUserNameType">PUR_PlanPeriodsUser</attribute>
+          <attribute name="dictUsernameFilter">fields.DICT.LOGIN = '%USERNAME%'</attribute>
+          <attribute name="mappingIfExists">DOC.CU_PLANPERIOD::=DICT.CODE</attribute>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="fields.DOC.IND_INCLUDEDP" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">IncludedEIS</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="docState.systemName" id="docField"/>
+          <attribute name="restriction">ne</attribute>
+          <attribute name="value">almostImported</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">false</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+        <filter proc="orgBranchesFilter">
+          <attribute name="curDocType">PUR_PlanPosition200</attribute>
+          <attribute name="branchCodeFieldName">DOC.CU_BRANCHCODE</attribute>
+          <attribute name="showDocsIfNoUserIsFoundInDict">false</attribute>
+          <attribute name="showDocsIfUserIsNull">true</attribute>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="q" type="STRING"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+  </filterset>
+  <filterset id="actual">
+    <filterdef desc="Актуальные версии" id="actual">
+      <and>
+        <filter proc="docExistsForCurrentUserFilter">
+          <attribute name="dictFilteredByUserNameType">PUR_PlanPeriodsUser</attribute>
+          <attribute name="dictUsernameFilter">fields.DICT.LOGIN = '%USERNAME%'</attribute>
+          <attribute name="mappingIfExists">DOC.CU_PLANPERIOD::=DICT.CODE</attribute>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="fields.DOC.IND_ISACTUAL" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">true</attribute>
+          <attribute name="type">BOOLEAN</attribute>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">false</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="fields.DOC.TEI_EISIMPORTTEMP" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">false</attribute>
+          <attribute name="type">BOOLEAN</attribute>
+        </filter>
+        <filter proc="orgBranchesFilter">
+          <attribute name="curDocType">PUR_PlanPosition200</attribute>
+          <attribute name="branchCodeFieldName">DOC.CU_BRANCHCODE</attribute>
+          <attribute name="showDocsIfNoUserIsFoundInDict">false</attribute>
+          <attribute name="showDocsIfUserIsNull">true</attribute>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="true" type="BOOLEAN"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+    <filterdef desc="Не актуальные версии" id="notActual">
+      <and>
+        <filter proc="docExistsForCurrentUserFilter">
+          <attribute name="dictFilteredByUserNameType">PUR_PlanPeriodsUser</attribute>
+          <attribute name="dictUsernameFilter">fields.DICT.LOGIN = '%USERNAME%'</attribute>
+          <attribute name="mappingIfExists">DOC.CU_PLANPERIOD::=DICT.CODE</attribute>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="fields.DOC.IND_ISACTUAL" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">false</attribute>
+          <attribute name="type">BOOLEAN</attribute>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="docState.systemName" id="docField"/>
+          <attribute name="restriction">ne</attribute>
+          <attribute name="value">almostImported</attribute>
+          <attribute name="type">STRING</attribute>
+        </filter>
+        <filter proc="FieldCompareFilter">
+          <filterField docName="fields.DOC.ORG_ORGCODE" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="empty">false</attribute>
+          <formfield formName="p_currOrg" id="formField"/>
+        </filter>
+        <filter proc="orgBranchesFilter">
+          <attribute name="curDocType">PUR_PlanPosition200</attribute>
+          <attribute name="branchCodeFieldName">DOC.CU_BRANCHCODE</attribute>
+          <attribute name="showDocsIfNoUserIsFoundInDict">false</attribute>
+          <attribute name="showDocsIfUserIsNull">true</attribute>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="true" type="BOOLEAN"/>
+        <field id="p_currOrg" type="STRING"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+    <filterdef desc="Актуальные версии - просмотр" id="actual_view">
+      <and>
+        <filter proc="docExistsForCurrentUserFilter">
+          <attribute name="dictFilteredByUserNameType">PUR_PlanPeriodsUser</attribute>
+          <attribute name="dictUsernameFilter">fields.DICT.LOGIN = '%USERNAME%'</attribute>
+          <attribute name="mappingIfExists">DOC.CU_PLANPERIOD::=DICT.CODE</attribute>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="fields.DOC.IND_ISACTUAL" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">true</attribute>
+          <attribute name="type">BOOLEAN</attribute>
+        </filter>
+        <filter proc="FieldCompareValue">
+          <filterField docName="fields.DOC.TEI_EISIMPORTTEMP" id="docField"/>
+          <attribute name="restriction">eq</attribute>
+          <attribute name="value">false</attribute>
+          <attribute name="type">BOOLEAN</attribute>
+        </filter>
+      </and>
+      <fieldset>
+        <field id="true" type="BOOLEAN"/>
+      </fieldset>
+      <form popup="true">
+        <panel>
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+        </panel>
+      </form>
+    </filterdef>
+  </filterset>
+  <filter-folder-set>
+    <filter-folder-def filter-def-id="agree" filter-set-id="forAgreement" id="PUR_PlanPosition200_agree">
+      <field-values>
+        <expression-value name="currentUser" expression="@systemAuthenticationService.getCurrentUserInfo().getSystemName()"/>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="approve" filter-set-id="forAgreement" id="PUR_PlanPosition200_approve">
+      <field-values>
+        <expression-value name="p_currentUser" expression="@systemAuthenticationService.getCurrentUserInfo().getSystemName()"/>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="PUR_PlanPosition200_crt" filter-set-id="states" id="PUR_PlanPosition200_crt">
+      <field-values>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="PUR_PlanPosition200_onapp" filter-set-id="states" id="PUR_PlanPosition200_onapp">
+      <field-values>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="PUR_PlanPosition200_apd" filter-set-id="states" id="PUR_PlanPosition200_apd">
+      <field-values>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="PUR_PlanPosition200_agrd" filter-set-id="states" id="PUR_PlanPosition200_agrd">
+      <field-values>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="PUR_PlanPosition200_nagr" filter-set-id="states" id="PUR_PlanPosition200_nagr">
+      <field-values>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="PUR_PlanPosition200_del" filter-set-id="states" id="PUR_PlanPosition200_del">
+      <field-values>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="PUR_PlanPosition200_act" filter-set-id="inclusion" id="PUR_PlanPosition200_act">
+      <field-values>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="PUR_PlanPosition200_eis" filter-set-id="inclusion" id="PUR_PlanPosition200_eis">
+      <field-values>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="actual" filter-set-id="actual" id="PUR_PlanPosition200_actual">
+      <field-values>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="notActual" filter-set-id="actual" id="PUR_PlanPosition200_notActual">
+      <field-values>
+        <expression-value name="p_currOrg" expression="@orgPropertiesAccessor.getCurrentOrg()"/>
+      </field-values>
+    </filter-folder-def>
+    <filter-folder-def filter-def-id="actual_view" filter-set-id="actual" id="PUR_PlanPosition200_actual_view">
+      <field-values/>
+    </filter-folder-def>
+  </filter-folder-set>
+</filters>

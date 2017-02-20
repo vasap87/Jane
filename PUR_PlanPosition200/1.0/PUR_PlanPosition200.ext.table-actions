@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tableActions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/table-actions" xsi:schemaLocation="http://www.otr.ru/sufd/document/table-actions http://ufos.otr.ru/schema/document/table-actions/v1/table-actions.xsd">
+  <action icon="document_check.png" id="requestAndSignBeforeLCAction_agr" text="Согласовать позицию плана закупок 200" tooltip="Согласовать" enabled-states="browse.selected" disabling-action="hide">
+    <proc method="invoke" object="requestAndSignBeforeLCAction">
+      <param name="title">Согласовать позицию плана закупок 200</param>
+      <param name="commentText">Комментарий</param>
+      <param name="paramName">resultAgree</param>
+      <param name="commentParamName">resultAgreeComment</param>
+      <param name="buttons">Согласовать;Отклонить</param>
+      <param name="resolutions">agreed;notAgreed</param>
+      <param name="transitions">agree;notAgree</param>
+      <param name="checkOnPress">false;true</param>
+      <param name="signBefore">false</param>
+    </proc>
+    <comment>Согласовать позицию плана закупок 200</comment>
+  </action>
+  <action icon="document_check.png" id="requestAndSignBeforeLCAction_app" text="Утвердить позицию плана закупок 200" tooltip="Утвердить" enabled-states="browse.selected" disabling-action="hide">
+    <proc method="invoke" object="requestAndSignBeforeLCAction">
+      <param name="title">Утвердить позицию плана закупок 200</param>
+      <param name="commentText">Комментарий</param>
+      <param name="paramName">resultApprove</param>
+      <param name="commentParamName">resultApproveComment</param>
+      <param name="buttons">Утвердить;Отклонить</param>
+      <param name="resolutions">approved;notApproved</param>
+      <param name="transitions">approve;notApprove</param>
+      <param name="checkOnPress">false;true</param>
+      <param name="signBefore">false</param>
+    </proc>
+    <comment>Утвердить позицию плана закупок 200</comment>
+  </action>
+  <action icon="ico_dollar.png" id="checkLCAction.check" text="Отправить на согласование" tooltip="Отправить на согласование" enabled-states="browse.selected" disabling-action="hide">
+    <proc method="check" object="checkLCAction">
+      <param name="title">Отправить на согласование</param>
+      <param name="transitions">sendToApproval</param>
+      <param name="operation">PUR_SendToApprove</param>
+    </proc>
+  </action>
+  <action icon="ico_dollar.png" id="checkLCAction.check" text="Отправить на согласование" tooltip="Отправить на согласование">
+    <proc method="check" object="checkLCAction">
+      <param name="title">Отправить на согласование</param>
+      <param name="transitions">sendToApproval</param>
+      <param name="operation">PUR_SendToApprove</param>
+    </proc>
+  </action>
+  <action icon="ico_dollar.png" id="checkLCAction.check" text="Отправить на согласование" tooltip="Отправить на согласование">
+    <proc method="check" object="checkLCAction">
+      <param name="title">Отправить на согласование</param>
+      <param name="transitions">sendToApproval</param>
+      <param name="operation">PUR_SendToApprove</param>
+    </proc>
+  </action>
+  <action icon="add_line.png" id="selectKUZ" text="Создание ППЗ из его СФ с выбором КУЗ" tooltip="Создать позицию плана закупок на основе КУЗ">
+    <proc method="invoke" object="createPurchasePlanPosition">
+      <param name="type">PUR_PurchaseObject200</param>
+      <param name="searchResultFilter">docState.systemName != 'DELETED' and fields.DOC.TEI_ISFROMINTEGRATION = false and fields.DOC.TEI_LASTAPPROVEDVERSION = true</param>
+      <param name="sourceTable">FS_TI_FINANCEBYYEARS_LIST</param>
+      <param name="fillValues">DOC.CU_UZNUMBER::=DOC.CU_DOCNUMBER;DOC.TEI_KUZGUID::=DOC.TEI_CURRENTGUID;DOC.CU_TYPEPURCHASE::=DOC.CU_TYPEPURCHASE;DOC.CU_DOCTYPE_TYPENAME::=DOC.CU_DOCTYPE_TYPENAME;DOC.CU_DOCTYPE_TYPECODE::=DOC.CU_DOCTYPE_TYPECODE;DOC.BI_OBJECTINFO::=DOC.BI_OBJECTINFO;DOC.OKPD_CODOKPD::=DOC.OKPD_CODOKPD;DOC.OKPD_OKPD::=DOC.OKPD_OKPD;DOC.BI_DESCRIPTION::=DOC.BI_DESCRIPTION;DOC.BI_HASCOMPLEXITY::=DOC.BI_HASCOMPLEXITY;DOC.BI_COMPLEXITY::=DOC.BI_COMPLEXITY;DOC.BI_PUBLICDISCUSSION::=DOC.BI_PUBLICDISCUSSION;DOC.BI_PERIODICITY::=DOC.BI_PERIODICITY;DOC.BI_INDCODE::=DOC.BI_INDCODE;DOC.BI_TERM::=DOC.BI_TERM;DOC.BI_FOUNDATION::=DOC.BI_FOUNDATION;DOC.BI_PURPOSE::=DOC.BI_PURPOSE;DOC.BI_NAMEINDEX::=DOC.BI_NAMEINDEX;DOC.ORG_INN::=DOC.ORG_INN;DOC.ORG_KPP::=DOC.ORG_KPP;DOC.ORG_OGRN::=DOC.ORG_OGRN;DOC.ORG_ORGCODE::=DOC.ORG_ORGCODE;DOC.ORG_SHORTORGNAME::=DOC.ORG_SHORTORGNAME;DOC.ORG_FULLORGNAME::=DOC.ORG_FULLORGNAME;DOC.LFO_CODEOKPF::=DOC.LFO_CODEOKPF;DOC.LFO_SNAME::=DOC.LFO_SNAME;DOC.ORG_OKFSREF_CODEOKFS::=DOC.ORG_OKFSREF_CODEOKFS;DOC.ORG_OKFSREF_OKFS::=DOC.ORG_OKFSREF_OKFS;DOC.ORG_ADRESS::=DOC.ORG_ADRESS;DOC.ORG_OKPOCODE::=DOC.ORG_OKPOCODE;DOC.SC_GLAVACODE::=DOC.SC_GLAVACODE;DOC.SC_GRBSNAME::=DOC.SC_GRBSNAME;DOC.TMO_CODOKTMO::=DOC.TMO_CODOKTMO;DOC.TMO_OKTMO::=DOC.TMO_OKTMO;DOC.BI_FOUNDATION::=DOC.BI_FOUNDATION;DOC.CU_ACTUALPLANPERIOD::=DOC.CU_ACTUALPLANPERIOD;DOC.BI_PLANPERIOD_FIRSTYEAR::=DOC.BI_PLANPERIOD_FIRSTYEAR;DOC.BI_PLANPERIOD_SECONDYEAR::=DOC.BI_PLANPERIOD_SECONDYEAR;DOC.BI_PLANPERIOD_NEXTYEAR::=DOC.BI_PLANPERIOD_NEXTYEAR;DOC.BI_PLANPERIOD_CURYEAR::=DOC.BI_PLANPERIOD_CURYEAR;DOC.FP_FOREIGNSTAFFPURCHASES::=DOC.FP_FOREIGNSTAFFPURCHASES;DOC.CU_PLANPERIOD::=DOC.CU_PLANPERIOD;DOC.BI_SOURCE::=DOC.BI_SOURCE;DOC.CU_DOCTYPE_TYPECODE::=DOC.CU_DOCTYPE_TYPECODE;DOC.CU_DOCTYPE_TYPENAME::=DOC.CU_DOCTYPE_TYPENAME;DOC.OI_APPROVERNAME::=DOC.OFIN_APPROVERNAME;DOC.OI_APPROVERPOST::=DOC.OFIN_APPROVERPOST;DOC.OI_APPROVERPHONE::=DOC.OFIN_APPROVERPHONE;DOC.AGR_APPROVERLOGIN::=DOC.UZ_APPROVERLOGIN;DOC.AGR_ISAGREEMENTNEED::=DOC.UZ_ISAGREEMENTNEED;DOC.BI_CODEPERIODICITY::=DOC.BI_CODEPERIODICITY;DOC.BI_TERMTO::=DOC.BI_TERMTO;DOC.BI_TERMSTR::=DOC.BI_TERMSTR;DOC.BI_NAMESTATEPROGRAM::=DOC.BI_NAMESTATEPROGRAM;DOC.BI_EXPECTEDRESULT::=DOC.BI_EXPECTEDRESULT;DOC.FP_STAFFPURCHASESTYPE::=DOC.FP_STAFFPURCHASESTYPE;DOC.CU_BRANCHNAME::=DOC.CU_BRANCHNAME;DOC.CU_BRANCHCODE::=DOC.CU_BRANCHCODE</param>
+      <param name="tableFormId">custom</param>
+      <param name="filterField">PUBLISHYEAR2</param>
+      <param name="sourceTable2">FS_TI_FINANCEBYYEARSCUR_LIST</param>
+      <param name="filterField2">PUBLISHYEAR2</param>
+      <param name="guidField">DOC.TEI_CURRENTGUID</param>
+      <param name="publishYearPrefillField">DOC.BI_PUBLISHYEAR</param>
+      <param name="searchDoc">PURplannedPeriods</param>
+      <param name="isActualSearchDoc">DICT.OPERATIONALPERIOD</param>
+      <param name="yearsList">DICT.FINYEAR;DICT.FIRSTPLANYEAR;DICT.SECONDPLANYEAR</param>
+      <param name="branchCodeFieldName">DOC.CU_BRANCHCODE</param>
+      <param name="showDocsIfNoUserIsFoundInDict">false</param>
+      <param name="showDocsIfUserIsNull">true</param>
+      <param name=":CU_BRANCHCODE">DOC.CU_BRANCHCODE</param>
+      <param name="additionalDocToSelectFilter">fields.DOC.ORG_ORGCODE = '%ORGSYSTEMNAME%'</param>
+    </proc>
+  </action>
+  <action icon="book_open2.png" id="massCreateDoc.invoke" text="Массовое создание ППЗ из его СФ с выбором КУЗ" tooltip="Массовое создание ППЗ из его СФ с выбором КУЗ">
+    <proc method="invoke" object="massCreateDoc">
+      <param name="docType">PUR_PurchaseObject200</param>
+      <param name="action">toCancel</param>
+      <param name="filter">docState.systemName = 'approved'</param>
+      <param name="tableFormId">default</param>
+      <param name="confirmText">Подтвердите создание позиций плана закупок на основе выбранных карточек</param>
+      <param name="confirmHeaderText">Подтверждение создания ППЗ</param>
+      <param name="lifeCycleDialogTitle">Выполнение действия ЖЦ</param>
+    </proc>
+  </action>
+  <action icon="shape.png" id="massCreatePPPFromPO" text="Массовое формирование ППЗ из КУЗ" tooltip="Массовое формирование ППЗ из КУЗ">
+    <proc method="invoke" object="massCreateDoc">
+      <param name="sf_docType">PUR_PurchaseObject200</param>
+      <param name="sf_action">createdPPZ</param>
+      <param name="sf_filter">fields.DOC.TEI_CREATEDPPZ = false and docState.systemName != 'DELETED'and fields.DOC.TEI_ISFROMINTEGRATION = false and fields.DOC.TEI_LASTAPPROVEDVERSION = true and fields.DOC.ORG_ORGCODE = '%ORGSYSTEMNAME%'</param>
+      <param name="sf_tableFormId">custom</param>
+      <param name="sf_confirmText">Подтвердите создание позиций плана закупок на основе выбранных карточек</param>
+      <param name="sf_confirmHeaderText">Подтверждение создания ППЗ</param>
+      <param name="sf_lifeCycleDialogTitle">Массовое формирование позиций ПЗ</param>
+      <param name="sf_branchCodeFieldName">DOC.CU_BRANCHCODE</param>
+      <param name="sf_showDocsIfNoUserIsFoundInDict">false</param>
+      <param name="sf_showDocsIfUserIsNull">true</param>
+    </proc>
+  </action>
+  <action icon="copy.png" id="copyPPP200" text="Создать копию документа" tooltip="Выделить часть финансового обеспечения позиции плана закупок в отдельную закупку" enabled-states="browse.selected.single" disabling-action="disable">
+    <proc method="invoke" object="copyDocAndFill">
+      <param name="FILL_DOC_FIELDS">DOC.CU_VERSIONNUM::='1';DOC.TEI_FOUNDATIONGUID::=DOC.TEI_CURRENTGUID</param>
+    </proc>
+  </action>
+  <actionList id="custom">
+    <stdactionref id="newDoc"/>
+    <actionref id="selectKUZ"/>
+    <actionref id="massCreatePPPFromPO"/>
+    <actionref id="copyPPP200"/>
+    <actionref id="wipeDocument"/>
+    <stdactionref id="refresh"/>
+    <stdactionref id="printDoc"/>
+    <stdactionref id="print_scroller"/>
+    <stdactionref id="editDoc" disabling-action="hide"/>
+    <stdactionref id="viewDoc"/>
+    <actionref id="sendToApproval"/>
+    <actionref id="toWork"/>
+    <actionref id="changeApprovedVersion"/>
+  </actionList>
+  <actionList id="cust"/>
+  <actionList id="Agreement">
+    <stdactionref id="viewDoc"/>
+    <stdactionref id="refresh"/>
+    <stdactionref id="printDoc"/>
+    <stdactionref id="print_scroller"/>
+    <actionref id="requestAndSignBeforeLCAction_agr"/>
+  </actionList>
+  <actionList id="plAgreement">
+    <stdactionref id="viewAttach"/>
+    <stdactionref id="refresh"/>
+  </actionList>
+  <actionList id="Approve">
+    <stdactionref id="viewDoc"/>
+    <stdactionref id="refresh"/>
+    <stdactionref id="printDoc"/>
+    <stdactionref id="print_scroller"/>
+    <actionref id="requestAndSignBeforeLCAction_app"/>
+  </actionList>
+  <actionList id="plApprove">
+    <stdactionref id="viewAttach"/>
+    <stdactionref id="refresh"/>
+  </actionList>
+  <actionList id="PUR_PlanPosition200"/>
+  <lifeCycleAction icon="approve2.png" id="toWork" text="Взять в работу  (без изменения версии)" tooltip="Взять в работу  (без изменения версии)" enabled-states="browse.selected" disabling-action="hide" transition="toWork"/>
+  <lifeCycleAction icon="annul.png" id="changeApprovedVersion" text="Внести изменения в утверженную версию" tooltip="Внести изменения в утвержденную версию" enabled-states="browse.selected" disabling-action="hide" transition="changeApprovedVersion"/>
+  <lifeCycleAction icon="ico_dollar.png" id="sendToApproval" text="Отправить на согласование" tooltip="Отправить на согласование" enabled-states="browse.selected" disabling-action="hide" transition="sendToApproval"/>
+  <lifeCycleAction icon="deleteDoc.png" id="wipeDocument" text="Удаление документа из БД" tooltip="Удалить документ" enabled-states="browse.selected" disabling-action="disable" transition="wipeDocument"/>
+  <specific-disable-conditions>
+    <disable actionName="editDoc">
+      <not>
+        <eq name="docState.systemName" value="draft"/>
+      </not>
+    </disable>
+    <disable actionName="checkLCAction.check">
+      <not>
+        <eq name="docState.systemName" value="draft"/>
+      </not>
+    </disable>
+    <disable actionName="copyPPP200">
+      <not>
+        <eq name="docState.systemName" value="draft"/>
+      </not>
+    </disable>
+  </specific-disable-conditions>
+</tableActions>

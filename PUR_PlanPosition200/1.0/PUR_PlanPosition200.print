@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<print xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/print" xsi:schemaLocation="http://www.otr.ru/sufd/document/print http://ufos.otr.ru/schema/document/print/v1/print.xsd">
+  <variant printer-bean="mappingPrinter" default-description="PPZ200_CUR" many="true" default-template="template/PPZ200_CUR.xls" source-type="Document">
+    <file-name>
+      <pattern>PPZ200_CUR</pattern>
+    </file-name>
+    <templates/>
+    <formats>
+      <format type="EXL" description="Закупки зарубежного аппарата ФОИВ и ОГВ"/>
+    </formats>
+  </variant>
+  <variant printer-bean="mappingPrinter" default-description="PPZ200_RUB" many="true" default-template="template/PPZ200_RUB_150217.xls" source-type="Document">
+    <file-name>
+      <pattern>PPZ200_RUB</pattern>
+    </file-name>
+    <templates/>
+    <formats>
+      <format type="EXL" description="Закупки на обеспечение федеральных нужд"/>
+    </formats>
+  </variant>
+  <variant printer-bean="mappingPrinter" default-description="PPZ200_RUB242" many="true" default-template="template/PPZ200_RUB242_08022017.xls" source-type="Document">
+    <file-name>
+      <pattern>PPZ200_RUB242</pattern>
+    </file-name>
+    <templates/>
+    <formats>
+      <format type="EXL" description="Закупки в сфере информационно-коммуникационных технологий"/>
+    </formats>
+  </variant>
+  <variant printer-bean="scrollerPrinter" default-description="PrintScrollerPPZ200" many="true" default-template="template/PrintScrollerPPZ200.xls" source-type="DocumentList">
+    <file-name>
+      <pattern>PrintScrollerPPZ200</pattern>
+    </file-name>
+    <formats>
+      <format type="EXL" description="Документ Excel"/>
+    </formats>
+  </variant>
+</print>

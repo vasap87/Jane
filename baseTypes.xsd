@@ -1,0 +1,1058 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:cm="http://www.roskazna.ru/eb/domain/common" xmlns:eb="http://www.roskazna.ru/eb/domain/appinfo" xmlns:self="http://www.roskazna.ru/eb/domain/common/base" targetNamespace="http://www.roskazna.ru/eb/domain/common/base">
+  <import namespace="http://www.roskazna.ru/eb/domain/common" schemaLocation="common.xsd"/>
+  <simpleType name="tzfcs_moneyType">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="21"/>
+      <pattern value="\d+(\.\d{1,2})?"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTdateType">
+    <restriction base="date"/>
+  </simpleType>
+  <simpleType name="tTdateTimeType">
+    <restriction base="dateTime"/>
+  </simpleType>
+  <simpleType name="tTstring1">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="1"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring1E_HighRussian_Dig">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="1"/>
+      <pattern value="[А-ЯЁ0-9]{1}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring5">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="5"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring1Dig">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="1"/>
+      <pattern value="[0-9]{1}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring2">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="2"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring2E">
+    <restriction base="string">
+      <minLength fixed="true" value="2"/>
+      <maxLength fixed="true" value="2"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring2E_HighRussian_Dig">
+    <restriction base="string">
+      <minLength fixed="true" value="2"/>
+      <maxLength fixed="true" value="2"/>
+      <pattern value="[А-ЯЁ0-9]{2}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring3">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="3"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring3DigE">
+    <restriction base="string">
+      <minLength fixed="true" value="3"/>
+      <maxLength fixed="true" value="3"/>
+      <pattern value="[0-9]{3}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring3E_HighRussian_Dig">
+    <restriction base="string">
+      <minLength fixed="true" value="3"/>
+      <maxLength fixed="true" value="3"/>
+      <pattern value="[А-ЯЁ0-9]{3}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring4">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="4"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring4DigE">
+    <restriction base="string">
+      <minLength fixed="true" value="4"/>
+      <maxLength fixed="true" value="4"/>
+      <pattern value="[0-9]{4}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring4E_HighRussian_Dig">
+    <restriction base="string">
+      <minLength fixed="true" value="4"/>
+      <maxLength fixed="true" value="4"/>
+      <pattern value="^[а-яА-ЯёЁ\w]+$"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring5Dig">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="5"/>
+      <pattern value="[0-9]{1,5}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring5E_HighRussian_Dig">
+    <restriction base="string">
+      <minLength fixed="true" value="5"/>
+      <maxLength fixed="true" value="5"/>
+      <pattern value="[А-ЯЁ0-9]{5}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring6">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="6"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString6Dig">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="6"/>
+      <pattern value="[0-9]{1,6}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString6DigE">
+    <restriction base="string">
+      <minLength fixed="true" value="6"/>
+      <maxLength fixed="true" value="6"/>
+      <pattern value="[0-9]{6}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring7">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="7"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring7DigE">
+    <restriction base="string">
+      <minLength fixed="true" value="7"/>
+      <maxLength fixed="true" value="7"/>
+      <pattern value="[0-9]{7}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring8">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="8"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring8E">
+    <restriction base="string">
+      <minLength fixed="true" value="8"/>
+      <maxLength fixed="true" value="8"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring2_8">
+    <restriction base="string">
+      <minLength fixed="true" value="2"/>
+      <maxLength fixed="true" value="8"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring8_10">
+    <restriction base="string">
+      <minLength fixed="true" value="8"/>
+      <maxLength fixed="true" value="10"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString8_11">
+    <restriction base="string">
+      <minLength fixed="true" value="8"/>
+      <maxLength fixed="true" value="11"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring9E">
+    <restriction base="string">
+      <minLength fixed="true" value="9"/>
+      <maxLength fixed="true" value="9"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring9DigE">
+    <restriction base="string">
+      <minLength fixed="true" value="9"/>
+      <maxLength fixed="true" value="9"/>
+      <pattern value="\d{9}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring10">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="10"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring10E">
+    <restriction base="string">
+      <minLength fixed="true" value="10"/>
+      <maxLength fixed="true" value="10"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring10_12">
+    <restriction base="string">
+      <minLength fixed="true" value="10"/>
+      <maxLength fixed="true" value="12"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring11">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="11"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring11E">
+    <restriction base="string">
+      <minLength fixed="true" value="11"/>
+      <maxLength fixed="true" value="11"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring13E">
+    <restriction base="string">
+      <minLength fixed="true" value="13"/>
+      <maxLength fixed="true" value="13"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString15Dig">
+    <restriction base="string">
+      <maxLength fixed="true" value="15"/>
+      <pattern value="[0-9]{0,15}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring16E">
+    <restriction base="string">
+      <minLength fixed="true" value="16"/>
+      <maxLength fixed="true" value="16"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring17">
+    <restriction base="string">
+      <maxLength fixed="true" value="17"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring18">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="18"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring19">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="19"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring19E">
+    <restriction base="string">
+      <minLength fixed="true" value="19"/>
+      <maxLength fixed="true" value="19"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring20">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="20"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring20E">
+    <restriction base="string">
+      <minLength fixed="true" value="20"/>
+      <maxLength fixed="true" value="20"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring20DigE">
+    <restriction base="string">
+      <minLength fixed="true" value="20"/>
+      <maxLength fixed="true" value="20"/>
+      <pattern value="[0-9]{20}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring21">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="21"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring22">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="22"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring25">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="25"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring27">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="27"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring30">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="30"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring36">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="36"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring44">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="44"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring46">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="46"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring50">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="50"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring100">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="100"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString160">
+    <restriction base="string">
+      <maxLength fixed="true" value="160"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring200">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="200"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring250">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="250"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring256">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="256"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring500">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="500"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring1000">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="1000"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring2000">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="2000"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tUUIDTypeBT">
+    <restriction base="string">
+      <minLength fixed="true" value="36"/>
+      <maxLength fixed="true" value="36"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tzfcs_intType">
+    <restriction base="long">
+      <totalDigits fixed="true" value="20"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tzfcs_monthType">
+    <restriction base="int">
+      <totalDigits fixed="true" value="2"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tzfcs_yearType">
+    <restriction base="int">
+      <totalDigits fixed="true" value="4"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTReal20_2">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="20"/>
+      <fractionDigits fixed="true" value="2"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tzfcs_RealType">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="16"/>
+      <fractionDigits fixed="true" value="6"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tboolean">
+    <restriction base="boolean"/>
+  </simpleType>
+  <simpleType name="tyearOnly">
+    <restriction base="gYear"/>
+  </simpleType>
+  <simpleType name="tdateType_MM_YYYY">
+    <restriction base="gYearMonth"/>
+  </simpleType>
+  <simpleType name="tDoubleType20_1">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="20"/>
+      <fractionDigits fixed="true" value="1"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tstring20000">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="20000"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTReal20_5">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="20"/>
+      <fractionDigits fixed="true" value="5"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring12DigE">
+    <restriction base="string">
+      <minLength fixed="true" value="12"/>
+      <maxLength fixed="true" value="12"/>
+      <pattern value="[0-9]{12}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring11DigE">
+    <restriction base="string">
+      <minLength fixed="true" value="11"/>
+      <maxLength fixed="true" value="11"/>
+      <pattern value="[0-9]{11}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTReal20_6">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="20"/>
+      <fractionDigits fixed="true" value="6"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString7Dig">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="7"/>
+      <pattern value="[0-9]{1,7}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString4Dig">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="4"/>
+      <pattern value="[0-9]{1,4}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString10Dig">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="10"/>
+      <pattern value="[0-9]{1,10}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring12">
+    <restriction base="string">
+      <maxLength fixed="true" value="12"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring16">
+    <restriction base="string">
+      <maxLength fixed="true" value="16"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTStringExactly2Digits">
+    <restriction base="string">
+      <minLength fixed="true" value="2"/>
+      <maxLength fixed="true" value="2"/>
+      <pattern value="[0-9]{2}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString1250">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="1250"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tstring13">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="13"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString35">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="35"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTStringStereotype255">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="255"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString4000">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="4000"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring14E">
+    <restriction base="string">
+      <minLength fixed="true" value="14"/>
+      <maxLength fixed="true" value="14"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString254">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="254"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString45">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="45"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTstring7E">
+    <restriction base="string">
+      <minLength fixed="true" value="7"/>
+      <maxLength fixed="true" value="7"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString15">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="15"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString1024">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="1024"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString23">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="23"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString9">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="9"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString24">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="24"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString6000">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="6000"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString26">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="26"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString12000">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="12000"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString350">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="350"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString20Dig">
+    <restriction base="string">
+      <maxLength fixed="true" value="20"/>
+      <pattern value="[0-9]{0,20}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTString28">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="28"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax1Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="1"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax2Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="2"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax3Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="3"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax4Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="4"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax5Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="5"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax6Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="6"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax7Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="7"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax8Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="8"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax10Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="10"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax11Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="11"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax14Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="14"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax15Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="15"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax16Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="16"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax17Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="17"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax20Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="20"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax30Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="30"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax32Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="32"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax34Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="34"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax40Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="40"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax45Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="45"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax50Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="50"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax100Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="100"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax160Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="160"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax210Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="210"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax250Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="250"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax254Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="254"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax300Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="300"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax500Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="500"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax512Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="512"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax1000Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="1000"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax2000Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="2000"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax2500Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="2500"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax3000Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="3000"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax9Number">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="9"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax12Number">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="12"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax26Number">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="26"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax4000Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="4000"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax255Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="255"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax36Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="36"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tAmnt">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="20"/>
+      <fractionDigits fixed="true" value="2"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tLgcl">
+    <restriction base="boolean"/>
+  </simpleType>
+  <simpleType name="tDocDate">
+    <restriction base="date"/>
+  </simpleType>
+  <simpleType name="tDateTime">
+    <restriction base="dateTime"/>
+  </simpleType>
+  <simpleType name="tNmbr">
+    <restriction base="long">
+      <totalDigits fixed="true" value="20"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax13Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="13"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax50TextNumbers">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="50"/>
+      <pattern value="[0-9]"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tThedatatypefordescribingINIPA">
+    <restriction base="string">
+      <minLength fixed="true" value="14"/>
+      <maxLength fixed="true" value="14"/>
+      <pattern value="[0-9]{3}-[0-9]{3}-[0-9]{3} [0-9]{2}"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax10TextNumbers">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="10"/>
+      <pattern value="[0-9]"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tAmnt4DP">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="20"/>
+      <fractionDigits fixed="true" value="4"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax2Latin">
+    <restriction base="string">
+      <minLength fixed="true" value="2"/>
+      <maxLength fixed="true" value="2"/>
+      <pattern value="A,B,C,D,E,F,Z,H,I,K,L,M,N,O,P,Q,R,S,T,V,X"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax3Latin">
+    <restriction base="string">
+      <minLength fixed="true" value="3"/>
+      <maxLength fixed="true" value="3"/>
+      <pattern value="A,B,C,D,E,F,Z,H,I,K,L,M,N,O,P,Q,R,S,T,V,X"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tNmbrIntgr">
+    <restriction base="int">
+      <totalDigits fixed="true" value="3"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tRt">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="6"/>
+      <fractionDigits fixed="true" value="4"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tNmbr26">
+    <restriction base="integer">
+      <totalDigits fixed="true" value="26"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tText36">
+    <restriction base="string">
+      <minLength fixed="true" value="36"/>
+      <maxLength fixed="true" value="36"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tText20">
+    <restriction base="string">
+      <minLength fixed="true" value="20"/>
+      <maxLength fixed="true" value="20"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tText8">
+    <restriction base="string">
+      <minLength fixed="true" value="8"/>
+      <maxLength fixed="true" value="8"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tText9">
+    <restriction base="string">
+      <minLength fixed="true" value="9"/>
+      <maxLength fixed="true" value="9"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tText5">
+    <restriction base="string">
+      <minLength fixed="true" value="5"/>
+      <maxLength fixed="true" value="5"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tText4">
+    <restriction base="string">
+      <minLength fixed="true" value="4"/>
+      <maxLength fixed="true" value="4"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tText13">
+    <restriction base="string">
+      <minLength fixed="true" value="13"/>
+      <maxLength fixed="true" value="13"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tNumber10">
+    <restriction base="string">
+      <minLength fixed="true" value="10"/>
+      <maxLength fixed="true" value="10"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax6Text1">
+    <restriction base="string">
+      <minLength fixed="true" value="6"/>
+      <maxLength fixed="true" value="6"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax60">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="60"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tMax200Text">
+    <restriction base="string">
+      <minLength fixed="true" value="1"/>
+      <maxLength fixed="true" value="200"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tGuid">
+    <restriction base="string">
+      <minLength fixed="true" value="36"/>
+      <maxLength fixed="true" value="36"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tSUM">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="20"/>
+      <fractionDigits fixed="true" value="2"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tLOGICAL">
+    <restriction base="boolean"/>
+  </simpleType>
+  <simpleType name="tDATE_">
+    <restriction base="date"/>
+  </simpleType>
+  <simpleType name="tDATE_TIME">
+    <restriction base="dateTime"/>
+  </simpleType>
+  <simpleType name="tMax36">
+    <restriction base="string">
+      <minLength fixed="true" value="36"/>
+      <maxLength fixed="true" value="36"/>
+      <pattern value="текст"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTAmount_30_2">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="35"/>
+      <fractionDigits fixed="true" value="2"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTReal25_5">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="30"/>
+      <fractionDigits fixed="true" value="5"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTReal20_2_GE_0">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="20"/>
+      <fractionDigits fixed="true" value="2"/>
+      <minExclusive fixed="true" value="0"/>
+    </restriction>
+  </simpleType>
+  <simpleType name="tTReal10_2_GE_0">
+    <restriction base="decimal">
+      <totalDigits fixed="true" value="10"/>
+      <fractionDigits fixed="true" value="2"/>
+      <minExclusive fixed="true" value="0"/>
+    </restriction>
+  </simpleType>
+</schema>

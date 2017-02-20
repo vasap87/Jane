@@ -1,0 +1,129 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editform xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/viewform" xsi:schemaLocation="http://www.otr.ru/sufd/document/viewform http://ufos.otr.ru/schema/document/edit/v1/edit.xsd" version="1">
+  <docinfo resizable="true" showTab="false" tabPlacement="TOP"/>
+  <conditions>
+    <condition>
+      <not>
+        <null name="REGULATIONSIDEIS"/>
+      </not>
+      <actions>
+        <disable component="dtf_regulationsdate"/>
+        <disable component="tf_regulationsnum"/>
+        <disable component="ta_regulationsfullname"/>
+      </actions>
+    </condition>
+    <condition>
+      <null name="REGULATIONSIDEIS"/>
+      <actions>
+        <enable component="dtf_regulationsdate"/>
+        <enable component="tf_regulationsnum"/>
+        <enable component="ta_regulationsfullname"/>
+      </actions>
+    </condition>
+    <condition>
+      <or>
+        <null name="REGULATIONSFULLNAME"/>
+        <not>
+          <null name="REGULATIONSFULLNAME"/>
+        </not>
+      </or>
+      <comment>Скрыто в рамках задачи https://jira.lanit.ru/browse/UZ-14183</comment>
+      <actions>
+        <hide component="tf_regulationsview"/>
+        <hide component="btn_selectReguolations"/>
+        <hide component="lbl_regulationsview"/>
+      </actions>
+    </condition>
+  </conditions>
+  <actions/>
+  <events/>
+  <content>
+    <panel>
+      <table-layout>
+        <columns>
+          <fixed-line size="678"/>
+        </columns>
+        <rows>
+          <component-line grow="true"/>
+        </rows>
+      </table-layout>
+      <titled-border title="Нормативно-правовые (правовые) акты, устанавливающие требования к отдельным видам товаров, работ и услуг (в том числе предельные цены товаров, работ и услуг) и (или) к определению нормативных затрат (ст.19 Закона №44-ФЗ)"/>
+      <panel>
+        <table-layout>
+          <columns>
+            <fixed-line size="249"/>
+            <fixed-line size="149"/>
+            <fixed-line size="237"/>
+            <component-line/>
+          </columns>
+          <rows>
+            <component-line/>
+            <component-line/>
+            <component-line/>
+            <component-line/>
+            <component-line/>
+            <component-line/>
+          </rows>
+        </table-layout>
+        <table-position x="0" y="0"/>
+        <label name="lbl_regulationsview">
+          <table-position x="0" y="0"/>
+          <text>Вид *</text>
+        </label>
+        <text-field enabled="false" name="tf_regulationsview" docField="REGULATIONSVIEW" columns="30" max-length="100">
+          <table-position width="2" x="1" y="0"/>
+        </text-field>
+        <button name="btn_selectReguolations">
+          <table-position x="3" y="0"/>
+          <events>
+            <event action="selectReguolations"/>
+          </events>
+        </button>
+        <label visible="false">
+          <table-position x="0" y="1"/>
+          <text>*код</text>
+        </label>
+        <text-field enabled="false" name="tf_regulationscode" visible="false" docField="REGULATIONSCODE" columns="30" max-length="2000">
+          <table-position x="1" y="1"/>
+        </text-field>
+        <label>
+          <table-position x="0" y="2"/>
+          <text>Полное наименование нормативно-правового (правового) акта *</text>
+        </label>
+        <text-area name="ta_regulationsfullname" docField="REGULATIONSFULLNAME" columns="30" max-length="1000" rows="4">
+          <table-position width="2" x="1" y="2"/>
+        </text-area>
+        <button name="btn_selectReguolationRules">
+          <table-position x="3" y="2"/>
+          <events>
+            <event action="selectReguolationRules"/>
+          </events>
+        </button>
+        <label>
+          <table-position x="0" y="3"/>
+          <text>Дата принятия *</text>
+        </label>
+        <date-field name="dtf_regulationsdate" docField="REGULATIONSDATE">
+          <table-position x="1" y="3"/>
+        </date-field>
+        <text-field name="tf_regulationsideis" visible="false" docField="REGULATIONSIDEIS" columns="30" max-length="2000">
+          <table-position x="3" y="3"/>
+        </text-field>
+        <label>
+          <table-position x="0" y="4"/>
+          <text>Номер *</text>
+        </label>
+        <text-field name="tf_regulationsnum" docField="REGULATIONSNUM" columns="30" max-length="100">
+          <table-position width="2" x="1" y="4"/>
+        </text-field>
+        <label>
+          <table-position x="0" y="5"/>
+          <text>Пункт (-ы) НПА</text>
+        </label>
+        <text-area name="ta_regulationsitem" docField="REGULATIONSITEM" columns="30" max-length="256" rows="2">
+          <table-position width="2" x="1" y="5"/>
+        </text-area>
+      </panel>
+    </panel>
+  </content>
+</editform>

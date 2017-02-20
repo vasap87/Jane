@@ -1,0 +1,264 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:app="http://www.roskazna.ru/eb/domain/common/applied" xmlns:base="http://www.roskazna.ru/eb/domain/common/base" xmlns:cm="http://www.roskazna.ru/eb/domain/common" xmlns:eb="http://www.roskazna.ru/eb/domain/appinfo" xmlns:en="http://www.roskazna.ru/eb/domain/common/entity" xmlns:self="http://www.roskazna.ru/eb/domain/PUR_PlanPosition200/formular" targetNamespace="http://www.roskazna.ru/eb/domain/PUR_PlanPosition200/formular">
+  <import namespace="http://www.roskazna.ru/eb/domain/common/base" schemaLocation="baseTypes.xsd"/>
+  <import namespace="http://www.roskazna.ru/eb/domain/common/applied" schemaLocation="appliedTypes.xsd"/>
+  <import namespace="http://www.roskazna.ru/eb/domain/common/entity" schemaLocation="entities.xsd"/>
+  <import namespace="http://www.roskazna.ru/eb/domain/common" schemaLocation="common.xsd"/>
+  <element name="PUR_PlanPosition200" type="self:tPUR_PlanPosition200"/>
+  <complexType name="tRegulations_RegPurch_ITEM">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="RegulationsCode" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="RegulationsView" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="RegulationsFullName" type="app:tstring1000Type"/>
+      <element maxOccurs="1" minOccurs="0" name="RegulationsDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="RegulationsNum" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="RegulationsItem" type="app:tname256"/>
+      <element maxOccurs="1" minOccurs="0" name="RegulationsIdEIS" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinProvision_domestic_FinSourc200_ITEM">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="publishYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="additionalFeatureCode" type="app:tkosguCode"/>
+      <element maxOccurs="1" minOccurs="0" name="corrReq" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="InformActCode" type="app:tstring26"/>
+      <element maxOccurs="1" minOccurs="0" name="InformActType" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="InformActName" type="app:tstring2000Type"/>
+      <element maxOccurs="1" minOccurs="0" name="InformActPriority" type="app:tstring2000Type"/>
+      <element maxOccurs="1" minOccurs="0" name="KBK" type="en:tPUR_KBK_BP_formulars"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResourcesRUR" type="en:tfinResources5"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResourcesRURUZ" type="en:tfinancialResources"/>
+      <element maxOccurs="1" minOccurs="0" name="PUR_corrReq" type="en:tPUR_corrReqPPZ"/>
+      <element maxOccurs="1" minOccurs="0" name="corrReqKUZ" type="en:tPUR_corrReqPPZ"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinProvision_foreign_FinSourc200_ITEM">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="publishYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="additionalFeatureCode" type="app:tkosguCode"/>
+      <element maxOccurs="1" minOccurs="0" name="corrReq" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="KBK" type="en:tPUR_KBK_BP_formulars"/>
+      <element maxOccurs="1" minOccurs="0" name="currency" type="en:tPUR_OKVRefABC"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResourcesCur" type="en:tfinResources5"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResourcesCurUZ" type="en:tfinancialResources"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResourcesUSD" type="en:tfinResources5"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResourcesUSDUZ" type="en:tfinancialResources"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResourcesRUB" type="en:tfinResources5"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResourcesRUBUZ" type="en:tfinancialResources"/>
+      <element maxOccurs="1" minOccurs="0" name="rurRates" type="en:tfinancialResourcesCurExchRateNew"/>
+      <element maxOccurs="1" minOccurs="0" name="usdRates" type="en:tfinancialResourcesCurExchRateNew"/>
+      <element maxOccurs="1" minOccurs="0" name="PUR_corrReqGRBS" type="en:tPUR_corrReqPPZ"/>
+      <element maxOccurs="1" minOccurs="0" name="corrReqKUZ" type="en:tPUR_corrReqPPZ"/>
+    </sequence>
+  </complexType>
+  <complexType name="ttotalInfo_finByYear200_ITEM">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="publishYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="strGUID" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="rurAmounts" type="en:tfinResources5"/>
+    </sequence>
+  </complexType>
+  <complexType name="ttotalInfo_finByYearCUR_ITEM">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="publishYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="strGUID" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="currency" type="en:tPUR_OKVRefABC"/>
+      <element maxOccurs="1" minOccurs="0" name="curAmounts" type="en:tfinResources5"/>
+      <element maxOccurs="1" minOccurs="0" name="usdAmounts" type="en:tfinResources5"/>
+      <element maxOccurs="1" minOccurs="0" name="rurAmounts" type="en:tfinResources5"/>
+    </sequence>
+  </complexType>
+  <complexType name="ttotalInfo_finByKbk200_ITEM">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="KBK" type="en:tPUR_KBK_BP_formulars"/>
+      <element maxOccurs="1" minOccurs="0" name="rurAmounts" type="en:tfinResources5"/>
+    </sequence>
+  </complexType>
+  <complexType name="ttotalInfo_finByKbkCUR_ITEM">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="KBK" type="en:tPUR_KBK_BP_formulars"/>
+      <element maxOccurs="1" minOccurs="0" name="currency" type="en:tPUR_OKVRefABC"/>
+      <element maxOccurs="1" minOccurs="0" name="curAmounts" type="en:tfinResources5"/>
+      <element maxOccurs="1" minOccurs="0" name="usdAmounts" type="en:tfinResources5"/>
+      <element maxOccurs="1" minOccurs="0" name="rurAmounts" type="en:tfinResources5"/>
+    </sequence>
+  </complexType>
+  <complexType name="tRegulations_RegPurch">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="RegPurch_ITEM" type="self:tRegulations_RegPurch_ITEM"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinProvision_domestic_FinSourc200">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="FinSourc200_ITEM" type="self:tfinProvision_domestic_FinSourc200_ITEM"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinProvision_foreign_FinSourc200">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="FinSourc200_ITEM" type="self:tfinProvision_foreign_FinSourc200_ITEM"/>
+    </sequence>
+  </complexType>
+  <complexType name="ttotalInfo_finByYear200">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="finByYear200_ITEM" type="self:ttotalInfo_finByYear200_ITEM"/>
+    </sequence>
+  </complexType>
+  <complexType name="ttotalInfo_finByYearCUR">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="finByYearCUR_ITEM" type="self:ttotalInfo_finByYearCUR_ITEM"/>
+    </sequence>
+  </complexType>
+  <complexType name="ttotalInfo_finByKbk200">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="finByKbk200_ITEM" type="self:ttotalInfo_finByKbk200_ITEM"/>
+    </sequence>
+  </complexType>
+  <complexType name="ttotalInfo_finByKbkCUR">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="finByKbkCUR_ITEM" type="self:ttotalInfo_finByKbkCUR_ITEM"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_PlanPosition200">
+    <annotation>
+      <appinfo source="http://www.roskazna.ru/eb/domain/appinfo">
+        <eb:Type>Formular</eb:Type>
+      </appinfo>
+    </annotation>
+    <complexContent>
+      <extension base="cm:tFormular">
+        <sequence>
+          <element maxOccurs="1" minOccurs="0" name="customer_docNumber" type="app:tdocumentNumberType"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_createDate" type="app:tdateType"/>
+          <element name="customer_PlanPeriod" type="app:tlongText"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_ActualPlanPeriod" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_TypePurchase" type="app:tPUR_TypePurchaseComplex"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_versionNum" type="app:tdocumentNumberType"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_versCreateDate" type="app:tdateTimeType"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_UZNumber" type="app:tdocumentNumberType"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_branchName" type="app:tname500"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_branchCode" type="app:tstring30"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_UchrezhTypeCode" type="app:tstring1"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_OrgTypeCode" type="app:tstring2less"/>
+          <element name="UserOrganisation_UserOrgCode" type="app:tOrganisationID"/>
+          <element maxOccurs="1" minOccurs="0" name="UserOrganisation_UserOrgName" type="app:tlongText"/>
+          <element maxOccurs="1" minOccurs="0" name="UserOrganisation_UserOrgAddress" type="app:tlongText"/>
+          <element maxOccurs="1" minOccurs="0" name="UserOrganisation_UserOrgPhone" type="app:tname"/>
+          <element maxOccurs="1" minOccurs="0" name="UserOrganisation_UserOrgEmail" type="app:tname"/>
+          <element maxOccurs="1" minOccurs="0" name="UserOrganisation_SPZCode" type="app:tstring11DigE"/>
+          <element maxOccurs="1" minOccurs="0" name="base_purchaseObjectInfo" type="app:tlongText"/>
+          <element maxOccurs="1" minOccurs="0" name="base_severalOKPD" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="base_purchaseDescription" type="app:tlongText"/>
+          <element maxOccurs="1" minOccurs="0" name="base_hasComplexity" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="base_complexity" type="app:tlongText"/>
+          <element maxOccurs="1" minOccurs="0" name="base_publicDiscussion" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="base_periodicity" type="app:tname256"/>
+          <element maxOccurs="1" minOccurs="0" name="base_codePeriodicity" type="app:tstring5less"/>
+          <element maxOccurs="1" minOccurs="0" name="base_NameStateProgram" type="app:tstring2000Type"/>
+          <element maxOccurs="1" minOccurs="0" name="base_Purpose" type="app:tlongText"/>
+          <element maxOccurs="1" minOccurs="0" name="base_ExpectedResult" type="app:tlongText"/>
+          <element maxOccurs="1" minOccurs="0" name="base_foundation" type="app:tstring6000"/>
+          <element maxOccurs="1" minOccurs="0" name="base_NameIndex" type="app:tlongText"/>
+          <element maxOccurs="1" minOccurs="0" name="base_IndCode" type="app:tname10"/>
+          <element maxOccurs="1" minOccurs="0" name="base_term" type="app:tdateType"/>
+          <element maxOccurs="1" minOccurs="0" name="base_termTo" type="app:tdateType"/>
+          <element maxOccurs="1" minOccurs="0" name="base_termStr" type="app:tstring30"/>
+          <element maxOccurs="1" minOccurs="0" name="base_source" type="app:tPUR_SourceComplex"/>
+          <element maxOccurs="1" minOccurs="0" name="base_publishYear" type="app:tPublishYearComplex"/>
+          <element maxOccurs="1" minOccurs="0" name="base_ReasonForChange" type="app:tlongText"/>
+          <element maxOccurs="1" minOccurs="0" name="base_ReasonForChangeID" type="app:tstring6Dig"/>
+          <element name="base_Cancel" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="base_InfoAboutChange" type="app:tlongText"/>
+          <element name="base_PurType" type="app:tPUR_PurchTypeComplex"/>
+          <element maxOccurs="1" minOccurs="0" name="base_IdentifCodePur" type="app:tstring36"/>
+          <element maxOccurs="1" minOccurs="0" name="base_PosNumber" type="app:tstring5"/>
+          <element maxOccurs="1" minOccurs="0" name="base_StrNumberInPP" type="app:tstring10"/>
+          <element maxOccurs="1" minOccurs="0" name="base_extNumber" type="app:tstring15Dig"/>
+          <element maxOccurs="1" minOccurs="0" name="base_sortForPurType" type="app:tstring3less"/>
+          <element maxOccurs="1" minOccurs="0" name="base_EISPublishDate" type="app:tdateTimeType"/>
+          <element maxOccurs="1" minOccurs="0" name="base_EISPosNumber" type="app:tname50"/>
+          <element maxOccurs="1" minOccurs="0" name="base_SystemStateName" type="app:tstringStereotype255"/>
+          <element maxOccurs="1" minOccurs="0" name="base_sentOnEIS" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_foreignStaffPurchases" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_StaffPurchasesType" type="app:tstring6"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_ExpTypeIKZ" type="app:tBC_ExpenseType"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_ExpTypeNotIdentified" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="Indicators_IncludedP" type="app:tPUR_PosStateInPPComplex"/>
+          <element maxOccurs="1" minOccurs="0" name="Indicators_planStatus" type="app:tofferStatusComplex"/>
+          <element maxOccurs="1" minOccurs="0" name="Indicators_correctionNeeded" type="app:trequiresCorrectionPPZ_SFComplex"/>
+          <element maxOccurs="1" minOccurs="0" name="Indicators_isActual" type="app:tflag"/>
+          <element name="Indicators_wasPublisher" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="Indicators_wasIncludeInPZ" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="Indicators_inabilityToDelete" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="Indicators_createdPPG" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_BasicGUID" type="app:tUUIDType"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_ParentGUID" type="app:tUUIDType"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_CurrentGUID" type="app:tUUIDType"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_TechPPZGUID" type="app:tUUIDType"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_FoundationGUID" type="app:tUUIDType"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_planGUID" type="app:tUUIDType"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_kuzGUID" type="app:tUUIDType"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_kuzApproved" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_PlanRegNum" type="app:tdocumentNumberType"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_IncludedUZGUID" type="app:tUUIDType"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_planDocType" type="app:tname"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_OKPDforIKZ" type="app:tOKPDCode"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_deletedForCheck" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_ExpenseType" type="app:tstring3less"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_NextVersionNum" type="app:tstring5"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_ifFromKUZ" type="app:tname500"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_ifFromKUZCUR" type="app:tname500"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_ifFromKUZCURmass" type="app:tname500"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_isFromIntegration" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_integrationSystem" type="app:tname50"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_fillAgrListFromKUZ" type="app:tstring10"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_AddInfoP7ch7" type="app:tlongText"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_justImport" type="app:tname50"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_UZNumber" type="app:tdocumentNumberType"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_EISPDateTZ" type="app:tname500"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_isFromEIS" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_EISImportTemp" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_codeOKOPF_3" type="app:tstring3"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_IKZisFormed" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_PosNumberIsFormed" type="app:tflag"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_org" type="en:tstateCustomer"/>
+          <element maxOccurs="1" minOccurs="0" name="customer_DocType" type="en:tDocType"/>
+          <element maxOccurs="1" minOccurs="0" name="base_OKPD" type="en:tOKPDRef"/>
+          <element maxOccurs="1" minOccurs="0" name="base_PlanPeriod" type="en:tPlanPeriod"/>
+          <element name="base_CCUR" type="en:tPUR_OKVRefABC"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_totalAmounts" type="en:tfinResources5"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_financialResourcesTotalUZ" type="en:tfinancialResources"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_domestic_financialResourcesTotal" type="en:tfinResources5"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_domestic_financialResourcesTotalUZ" type="en:tfinancialResources"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_foreign_financialResourcesUSDTotal" type="en:tfinResources5"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_foreign_financialResourcesUSDTotalUZ" type="en:tfinancialResources"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_foreign_financialResourcesRUBTotal" type="en:tfinResources5"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_foreign_financialResourcesRUBTotalUZ" type="en:tfinancialResources"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_techFields" type="en:tPUR_TechFields"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_uzSettings" type="en:tPUR_UZ_Settings"/>
+          <element maxOccurs="1" minOccurs="0" name="techInfo_TimeZone" type="en:tPUR_TimeZone"/>
+          <element maxOccurs="1" minOccurs="0" name="Agr_Agr" type="en:tPUR_Agreement"/>
+          <element maxOccurs="1" minOccurs="0" name="Regulations_RegPurch" type="self:tRegulations_RegPurch"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_domestic_FinSourc200" type="self:tfinProvision_domestic_FinSourc200"/>
+          <element maxOccurs="1" minOccurs="0" name="finProvision_foreign_FinSourc200" type="self:tfinProvision_foreign_FinSourc200"/>
+          <element maxOccurs="1" minOccurs="0" name="totalInfo_finByYear200" type="self:ttotalInfo_finByYear200"/>
+          <element maxOccurs="1" minOccurs="0" name="totalInfo_finByYearCUR" type="self:ttotalInfo_finByYearCUR"/>
+          <element maxOccurs="1" minOccurs="0" name="totalInfo_finByKbk200" type="self:ttotalInfo_finByKbk200"/>
+          <element maxOccurs="1" minOccurs="0" name="totalInfo_finByKbkCUR" type="self:ttotalInfo_finByKbkCUR"/>
+          <element maxOccurs="1" minOccurs="0" name="DOC_BASE" type="self:tDOC_BASE"/>
+        </sequence>
+      </extension>
+    </complexContent>
+  </complexType>
+  <complexType name="tDOC_BASE">
+    <annotation>
+      <appinfo source="http://www.roskazna.ru/eb/domain/appinfo">
+        <eb:Type>Formular</eb:Type>
+      </appinfo>
+    </annotation>
+    <complexContent>
+      <extension base="cm:tFormular">
+        <sequence/>
+      </extension>
+    </complexContent>
+  </complexType>
+</schema>

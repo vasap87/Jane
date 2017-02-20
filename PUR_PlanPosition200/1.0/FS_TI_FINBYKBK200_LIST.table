@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctabledesc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/table" xsi:schemaLocation="http://www.otr.ru/sufd/document/table http://ufos.otr.ru/schema/document/table/v1/table.xsd">
+  <tables>
+    <tableform id="default">
+      <toolbar actionlist="tableActions"/>
+      <popup actionlist="popupLayout"/>
+    </tableform>
+  </tables>
+  <selectconditions>
+    <selectcondition id="alldocs"/>
+  </selectconditions>
+</doctabledesc>

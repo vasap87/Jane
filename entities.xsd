@@ -1,0 +1,1148 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<schema xmlns="http://www.w3.org/2001/XMLSchema" xmlns:app="http://www.roskazna.ru/eb/domain/common/applied" xmlns:cm="http://www.roskazna.ru/eb/domain/common" xmlns:eb="http://www.roskazna.ru/eb/domain/appinfo" xmlns:self="http://www.roskazna.ru/eb/domain/common/entity" targetNamespace="http://www.roskazna.ru/eb/domain/common/entity">
+  <import namespace="http://www.roskazna.ru/eb/domain/common/applied" schemaLocation="appliedTypes.xsd"/>
+  <import namespace="http://www.roskazna.ru/eb/domain/common" schemaLocation="common.xsd"/>
+  <complexType name="tLots_ITEM">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="LotGUID" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="LotNumber" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="ObjectName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="InitMaxPrice" type="app:tAmount20_2"/>
+      <element maxOccurs="1" minOccurs="0" name="StageProc" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PurGUID" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="ClassOKPD" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="GivenDemands" type="app:tstring50"/>
+      <element maxOccurs="1" minOccurs="0" name="OTCancelled" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="OTCancelledReasos" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="reasonCode" type="app:tstring20"/>
+      <element maxOccurs="1" minOccurs="0" name="reasonType" type="app:tstring2less"/>
+      <element maxOccurs="1" minOccurs="0" name="IdCode" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PurchCustomer" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PPGGuid" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="RightConclContr" type="app:tstring1000Type"/>
+      <element maxOccurs="1" minOccurs="0" name="CountContract" type="app:tint"/>
+      <element maxOccurs="1" minOccurs="0" name="CodeRightConcl" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="OldLotGUID" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="isIILExist" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="CodeOrgList" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="ProcGuid" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="InitMaxPriceRub" type="app:tAmount20_2"/>
+      <element maxOccurs="1" minOccurs="0" name="OKVCur" type="self:tPUR_OKVRefABC"/>
+    </sequence>
+  </complexType>
+  <complexType name="tLots">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="Lots_ITEM" type="self:tLots_ITEM"/>
+    </sequence>
+  </complexType>
+  <complexType name="tProcList_ITEM">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="InfoProc" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="StageProc" type="app:tname200"/>
+      <element maxOccurs="1" minOccurs="0" name="BidEndDateTime" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="OfferRevealDateTime" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="OfferEstimateDateTime" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="ProceduresGuid" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="isOffExtPlaced" type="app:tflag"/>
+    </sequence>
+  </complexType>
+  <complexType name="tProcList">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="ProcList_ITEM" type="self:tProcList_ITEM"/>
+    </sequence>
+  </complexType>
+  <complexType name="tAgrList_ITEM">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Curex" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="UserNote" type="app:tstring1000Type"/>
+      <element maxOccurs="1" minOccurs="0" name="UserGroup" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="PhaseOrder" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="UserNmInGroup" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="Resolution" type="app:tmatching_stateComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="ArgDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="Login" type="app:tname50"/>
+      <element maxOccurs="1" minOccurs="0" name="UserFIO" type="app:tname200"/>
+      <element maxOccurs="1" minOccurs="0" name="FwdDate" type="app:tdateTimeType"/>
+      <element name="AgrState" type="app:tPUR_AgreementComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="DeadLine" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="ReqVersion" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="UserPost" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tAgrList">
+    <sequence>
+      <element maxOccurs="unbounded" minOccurs="0" name="AgrList_ITEM" type="self:tAgrList_ITEM"/>
+    </sequence>
+  </complexType>
+  <complexType name="tzfcs_bankGuaranteeOrganizationType">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="regNum" type="app:tspzNumType"/>
+      <element maxOccurs="1" minOccurs="0" name="fullName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="shortName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="factAddress" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="inn" type="app:tinnOrganizationType"/>
+      <element maxOccurs="1" minOccurs="0" name="kpp" type="app:tkpp_"/>
+      <element maxOccurs="1" minOccurs="0" name="registryDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="legalForm" type="self:tOKOPFRef"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_OKVRef">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="OKV" type="app:tcurrancyCodeType"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tname"/>
+    </sequence>
+  </complexType>
+  <complexType name="torganizationRef">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="regNum" type="app:tspzNumType"/>
+      <element maxOccurs="1" minOccurs="0" name="fullName" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tparticipant">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="participantType" type="app:tzfcs_participantTypeEnumComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="inn" type="app:tinnOrganizationType"/>
+      <element maxOccurs="1" minOccurs="0" name="kpp" type="app:tkpp_"/>
+      <element maxOccurs="1" minOccurs="0" name="orgName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="registryDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="legalForm" type="self:tOKOPFRef"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOKPDRef">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="codOKPD" type="app:tOKPDCode"/>
+      <element maxOccurs="1" minOccurs="0" name="OKPD" type="app:tstring1000Type"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOKEIRef">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tOKEICode"/>
+      <element maxOccurs="1" minOccurs="0" name="nationalCode" type="app:tstring50Type"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOKOPFRef">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="codeOKPF" type="app:tOKOPFCode"/>
+      <element maxOccurs="1" minOccurs="0" name="singularName" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tpaymentInfo">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="guaranteeAmount" type="app:tmoneyType"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOKVEDRef">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="codOKVED" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="OKVED" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinancingType">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tfinancingCode"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tname"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinancing">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="amount" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="nonexecuted" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="unitprice" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="quantity" type="app:tdoubleType"/>
+      <element maxOccurs="1" minOccurs="0" name="OKEIRef" type="self:tOKEIRef"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinancialResources">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="sumCurrent" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="sumNext" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="sumFirst" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="sumSec" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="sumSubsec" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="sumTotal" type="app:tAmount20_1"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOKTMO">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="codOKTMO" type="app:tOKTMOCode"/>
+      <element maxOccurs="1" minOccurs="0" name="OKTMO" type="app:tstring1000Type"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_KBK">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tKBKCd"/>
+      <element maxOccurs="1" minOccurs="0" name="amount" type="app:tamount"/>
+    </sequence>
+  </complexType>
+  <complexType name="tKOSGU">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tkosguCode"/>
+      <element maxOccurs="1" minOccurs="0" name="amount" type="app:tamount"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinances">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="KBK" type="self:tPUR_KBK"/>
+      <element maxOccurs="1" minOccurs="0" name="KOSGU" type="self:tKOSGU"/>
+    </sequence>
+  </complexType>
+  <complexType name="tplacingWay">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tplacingWayCode"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tname500"/>
+    </sequence>
+  </complexType>
+  <complexType name="tjointBiddingOrganizer">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="regNum" type="app:tspzNumType"/>
+      <element maxOccurs="1" minOccurs="0" name="fullName" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tjointBiddingInfo">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="jointBidding" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="jointBiddingOrganizer" type="self:tjointBiddingOrganizer"/>
+    </sequence>
+  </complexType>
+  <complexType name="tchangeReason">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="id" type="app:tstring6Dig"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tstring1000Type"/>
+    </sequence>
+  </complexType>
+  <complexType name="tpositionModification">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="additionalInfo" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="sentOnEIS" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="changeReason" type="self:tchangeReason"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinCondition">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="procedure" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="amount" type="app:tamount"/>
+      <element maxOccurs="1" minOccurs="0" name="finShare" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="OKVRef" type="self:tPUR_OKVRef"/>
+    </sequence>
+  </complexType>
+  <complexType name="tstageType">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="month" type="app:tmonthType"/>
+      <element maxOccurs="1" minOccurs="0" name="year" type="app:tyearType"/>
+    </sequence>
+  </complexType>
+  <complexType name="tpurchaseType">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tname200"/>
+      <element name="Name" type="app:tname500"/>
+    </sequence>
+  </complexType>
+  <complexType name="treason">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:treasonCode"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPlanPeriod">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="CurYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="NextYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="FirstYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="SecondYear" type="app:tPublishYearComplex"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_PurchaseCard">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="CardRegisterNumber" type="app:tPurchaseCardID"/>
+      <element maxOccurs="1" minOccurs="0" name="GPSType" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="PlanPeriodCode" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="OrgCode" type="app:tOrganisationID"/>
+      <element maxOccurs="1" minOccurs="0" name="FullName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="CardInRegister" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="TotalFinCoverNextYear" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="TotalFinCoverFirstPlanYear" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="TotalFinCoverSecondPlanYear" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="ObjectName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="SetStatusDate" type="app:tDATE_"/>
+      <element maxOccurs="1" minOccurs="0" name="PlanPeriod" type="self:tPlanPeriod"/>
+    </sequence>
+  </complexType>
+  <complexType name="taddNote">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="flag" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="longText" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tNumberOfproductsForPeriods">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="numFirstYearPlanPeriod" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="numNextYearPlanPeriod" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="numSecYearPlanPeriod" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="numSubsecYearPlanPeriod" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="numTotalFinRes" type="app:tAmount20_1"/>
+    </sequence>
+  </complexType>
+  <complexType name="tFedCustomer">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="OrgCode" type="app:tOrganisationID"/>
+      <element maxOccurs="1" minOccurs="0" name="FullName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="INN" type="app:tinnOrganizationType"/>
+      <element maxOccurs="1" minOccurs="0" name="KPP" type="app:tkpp"/>
+      <element maxOccurs="1" minOccurs="0" name="OKOPF_Name" type="app:tname256"/>
+      <element maxOccurs="1" minOccurs="0" name="OKOPF_Code" type="app:tOKOPFCode"/>
+      <element maxOccurs="1" minOccurs="0" name="OKFS_Name" type="app:tname256"/>
+      <element maxOccurs="1" minOccurs="0" name="OKFS_Code" type="app:tOKFS"/>
+      <element maxOccurs="1" minOccurs="0" name="Address" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="OKTMO_Code" type="app:tOKTMOCode"/>
+      <element maxOccurs="1" minOccurs="0" name="GRBS_Name" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="GRBS_Code" type="app:tBC_ChapterCode"/>
+      <element maxOccurs="1" minOccurs="0" name="OGRN" type="app:tOGRN"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOveralOffers">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="OkpdKey" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="ObjName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PubYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="StrCode" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="AnalysCode" type="app:tkosguCode"/>
+      <element maxOccurs="1" minOccurs="0" name="IndName" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="StrType" type="app:tPUR_StrTypeComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="OKPD" type="self:tOKPDRef"/>
+      <element maxOccurs="1" minOccurs="0" name="KBK" type="self:tPUR_KBK_BP_formulars"/>
+      <element maxOccurs="1" minOccurs="0" name="FR" type="self:tfinancialResources"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOveralOffersCur">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="OkpdKey" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="ObjName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PubYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="StrCode" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="AnalysCode" type="app:tkosguCode"/>
+      <element maxOccurs="1" minOccurs="0" name="IndName" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="StrType" type="app:tPUR_StrTypeComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="OKPD" type="self:tOKPDRef"/>
+      <element maxOccurs="1" minOccurs="0" name="KBK" type="self:tPUR_KBK_BP_formulars"/>
+      <element maxOccurs="1" minOccurs="0" name="FR1" type="self:tfinancialResources"/>
+      <element maxOccurs="1" minOccurs="0" name="FR2" type="self:tfinancialResources"/>
+      <element maxOccurs="1" minOccurs="0" name="FR3" type="self:tfinancialResources"/>
+      <element maxOccurs="1" minOccurs="0" name="FR4" type="self:tfinancialResources"/>
+    </sequence>
+  </complexType>
+  <complexType name="tKBKCode">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Chapt" type="app:tchar3"/>
+      <element maxOccurs="1" minOccurs="0" name="Sect" type="app:tchar4"/>
+      <element maxOccurs="1" minOccurs="0" name="Progr" type="app:tchar2"/>
+      <element maxOccurs="1" minOccurs="0" name="Subprogr" type="app:tchar1"/>
+      <element maxOccurs="1" minOccurs="0" name="ExpDir" type="app:tchar4"/>
+      <element maxOccurs="1" minOccurs="0" name="ExpType" type="app:tchar3"/>
+      <element maxOccurs="1" minOccurs="0" name="KOSGU" type="app:tchar3"/>
+    </sequence>
+  </complexType>
+  <complexType name="tListOZ">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="GUIDOZ" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="ObjectName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="Descrition" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="Foundation" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="Complexity" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PublicDisscsn" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="term" type="app:tdateType"/>
+      <element maxOccurs="1" minOccurs="0" name="Periodicity" type="app:tstring50"/>
+      <element maxOccurs="1" minOccurs="0" name="Purpose" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PubYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="AnalysCode" type="app:tkosguCode"/>
+      <element maxOccurs="1" minOccurs="0" name="StrCode" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="StrType" type="app:tPUR_StrTypeComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="docNumber" type="app:tdocumentNumberType"/>
+      <element maxOccurs="1" minOccurs="0" name="versionNum" type="app:tdocumentNumberType"/>
+      <element maxOccurs="1" minOccurs="0" name="createDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="OKPDRef" type="self:tOKPDRef"/>
+      <element maxOccurs="1" minOccurs="0" name="KBK" type="self:tPUR_KBK_BP_formulars"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResources" type="self:tfinancialResources"/>
+    </sequence>
+  </complexType>
+  <complexType name="tListOZCur">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="GUIDOZ" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="ObjectName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="Descrition" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="Foundation" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="Complexity" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PublicDisscsn" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="term" type="app:tdateType"/>
+      <element maxOccurs="1" minOccurs="0" name="Periodicity" type="app:tstring50"/>
+      <element maxOccurs="1" minOccurs="0" name="Purpose" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PubYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="AnalysCode" type="app:tkosguCode"/>
+      <element maxOccurs="1" minOccurs="0" name="StrCode" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="StrType" type="app:tPUR_StrTypeComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="docNumber" type="app:tdocumentNumberType"/>
+      <element maxOccurs="1" minOccurs="0" name="versionNum" type="app:tdocumentNumberType"/>
+      <element maxOccurs="1" minOccurs="0" name="createDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="OKPDRef" type="self:tOKPDRef"/>
+      <element maxOccurs="1" minOccurs="0" name="KBK" type="self:tPUR_KBK_BP_formulars"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResourcesInCurr" type="self:tfinancialResources"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResourcesInDollar" type="self:tfinancialResources"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResourcesInRubEq" type="self:tfinancialResources"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinancialResourcesWithCurrentPeriod">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="financialResources" type="self:tfinancialResources"/>
+    </sequence>
+  </complexType>
+  <complexType name="tDocType">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="TypeName" type="app:tDocTypeNameComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="TypeCode" type="app:tDocTypeCodeComplex"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOfferInf">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="RegNum" type="app:tdocumentNumberType"/>
+      <element maxOccurs="1" minOccurs="0" name="VersionNum" type="app:tdocumentNumberType"/>
+      <element maxOccurs="1" minOccurs="0" name="OKEICode" type="app:tOKEICode"/>
+      <element maxOccurs="1" minOccurs="0" name="MeasureUnit" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="OfferType" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="PlanPeriod" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="SetSendDate" type="app:tDATE_"/>
+      <element maxOccurs="1" minOccurs="0" name="SetGetDate" type="app:tDATE_"/>
+      <element maxOccurs="1" minOccurs="0" name="cmnt" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="DateReceipt" type="app:tDATE_"/>
+      <element maxOccurs="1" minOccurs="0" name="DateCreate" type="app:tDATE_"/>
+      <element maxOccurs="1" minOccurs="0" name="isFilter" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="CustInf" type="self:tFedCustomer"/>
+      <element maxOccurs="1" minOccurs="0" name="DocType" type="self:tDocType"/>
+    </sequence>
+  </complexType>
+  <complexType name="trecipientCategory">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tstring1000Type"/>
+    </sequence>
+  </complexType>
+  <complexType name="tpublicCommitment">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tspr_Currency">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="OKVRef" type="self:tPUR_OKVRef"/>
+      <element maxOccurs="1" minOccurs="0" name="financialResources" type="self:tfinancialResourcesCurExchRateNew"/>
+    </sequence>
+  </complexType>
+  <complexType name="torganisation">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="OrgCode" type="app:tname200"/>
+      <element maxOccurs="1" minOccurs="0" name="OGRN" type="app:tOGRN"/>
+      <element maxOccurs="1" minOccurs="0" name="inn" type="app:tinnOrganizationType"/>
+      <element maxOccurs="1" minOccurs="0" name="kpp" type="app:tkpp_"/>
+      <element maxOccurs="1" minOccurs="0" name="shortOrgName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="fullOrgName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="registryDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="adress" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="OKPOCode" type="app:tOKPOCode"/>
+      <element maxOccurs="1" minOccurs="0" name="legalForm" type="self:tOKOPFRef"/>
+      <element maxOccurs="1" minOccurs="0" name="OKFSref" type="self:tOKFS"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOKFS">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="codeOKFS" type="app:tOKTMOCode"/>
+      <element maxOccurs="1" minOccurs="0" name="OKFS" type="app:tstring1000Type"/>
+    </sequence>
+  </complexType>
+  <complexType name="tstateCustomer">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="GLAVACode" type="app:tGLAVA"/>
+      <element maxOccurs="1" minOccurs="0" name="GRBSName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="organisationRef" type="self:torganisation"/>
+      <element maxOccurs="1" minOccurs="0" name="OKTMORef" type="self:tOKTMO"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinancialResourcesCurExchRate">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="exchRateCurrent" type="app:tExchRateType"/>
+      <element maxOccurs="1" minOccurs="0" name="exchRateNext" type="app:tExchRateType"/>
+      <element maxOccurs="1" minOccurs="0" name="exchRateFirst" type="app:tExchRateType"/>
+      <element maxOccurs="1" minOccurs="0" name="exchRateSec" type="app:tExchRateType"/>
+      <element maxOccurs="1" minOccurs="0" name="exchRateSubsec" type="app:tExchRateType"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinancialResourcesCurExchRateNew">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="exchRateCurrent" type="app:tExchRateType"/>
+      <element maxOccurs="1" minOccurs="0" name="exchRateNext" type="app:tExchRateType"/>
+      <element maxOccurs="1" minOccurs="0" name="exchRateFirst" type="app:tExchRateType"/>
+      <element maxOccurs="1" minOccurs="0" name="exchRateSec" type="app:tExchRateType"/>
+      <element maxOccurs="1" minOccurs="0" name="exchRateSubsec" type="app:tExchRateType"/>
+    </sequence>
+  </complexType>
+  <complexType name="tcurrentAndTwoPlannedYearsLBO">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="currentYearLBO" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="firstYearLBO" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="currentSecondLBO" type="app:tAmount20_1"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinReqAFSfromGRBS">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="reqCorrCurrent" type="app:tcorrectionRequirementComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="reqCorrNext" type="app:tcorrectionRequirementComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="reqCorrFirst" type="app:tcorrectionRequirementComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="reqCorrSec" type="app:tcorrectionRequirementComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="reqCorrSubsec" type="app:tcorrectionRequirementComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="reqCorrTotal" type="app:tcorrectionRequirementComplex"/>
+    </sequence>
+  </complexType>
+  <complexType name="tKBKsec">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Chapt" type="app:tBC_ChapterCode"/>
+      <element maxOccurs="1" minOccurs="0" name="Sect" type="app:tSectionAndSubsection"/>
+      <element maxOccurs="1" minOccurs="0" name="Progr" type="app:tRowCode2Dig"/>
+      <element maxOccurs="1" minOccurs="0" name="SubProgr" type="app:tSubrogram"/>
+      <element maxOccurs="1" minOccurs="0" name="ExpDir" type="app:tExpDirection"/>
+      <element maxOccurs="1" minOccurs="0" name="ExpType" type="app:tRowCode3Dig"/>
+      <element maxOccurs="1" minOccurs="0" name="KOSGU" type="app:tkosguCode"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_TechFields">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="LongTextField" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="Text50Field" type="app:tname50"/>
+      <element maxOccurs="1" minOccurs="0" name="IntegerField" type="app:tint"/>
+      <element maxOccurs="1" minOccurs="0" name="DecimalField" type="app:tAmount20_1"/>
+      <element maxOccurs="1" minOccurs="0" name="BooleanField" type="app:tBln"/>
+      <element maxOccurs="1" minOccurs="0" name="DateField" type="app:tdateType"/>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeField" type="app:tdateTimeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_KBK_BP_dict">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="grbs" type="app:tstring3DigE"/>
+      <element maxOccurs="1" minOccurs="0" name="section" type="app:tchar2"/>
+      <element maxOccurs="1" minOccurs="0" name="subsection" type="app:tchar2"/>
+      <element maxOccurs="1" minOccurs="0" name="pnde" type="app:tchar2"/>
+      <element maxOccurs="1" minOccurs="0" name="program" type="app:tchar1"/>
+      <element maxOccurs="1" minOccurs="0" name="action" type="app:tchar2"/>
+      <element maxOccurs="1" minOccurs="0" name="direction" type="app:tchar5"/>
+      <element maxOccurs="1" minOccurs="0" name="ExpType" type="app:tchar3"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_KBK_BP_formulars">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="grbs" type="app:tstring3DigE"/>
+      <element maxOccurs="1" minOccurs="0" name="section" type="app:tchar2"/>
+      <element maxOccurs="1" minOccurs="0" name="subsection" type="app:tchar2"/>
+      <element maxOccurs="1" minOccurs="0" name="pnde" type="app:tchar2"/>
+      <element maxOccurs="1" minOccurs="0" name="program" type="app:tchar1"/>
+      <element maxOccurs="1" minOccurs="0" name="action" type="app:tchar2"/>
+      <element maxOccurs="1" minOccurs="0" name="direction" type="app:tchar5"/>
+      <element maxOccurs="1" minOccurs="0" name="ExpType" type="app:tchar3"/>
+      <element maxOccurs="1" minOccurs="0" name="department" type="app:tchar2"/>
+      <element maxOccurs="1" minOccurs="0" name="KOSGU" type="app:tkosguCode"/>
+      <element maxOccurs="1" minOccurs="0" name="KBK" type="app:tname50"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOfficialsInfo">
+    <sequence>
+      <element name="authorName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="authorPost" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="authorPhone" type="app:tlongText"/>
+      <element name="approverName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="approverPost" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="approverPhone" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_corrReqGRBS">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Curr" type="app:tconditionRequiresCorrectionComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="Next" type="app:tconditionRequiresCorrectionComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="First" type="app:tconditionRequiresCorrectionComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="Sec" type="app:tconditionRequiresCorrectionComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="Subsec" type="app:tconditionRequiresCorrectionComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="Total" type="app:tconditionRequiresCorrectionComplex"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_UZ_Settings">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="OKPDLen" type="app:tstring2less"/>
+    </sequence>
+  </complexType>
+  <complexType name="tLocal_dictionaties">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="UserLogin" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="CardRegisterNumber" type="app:tPurchaseCardID"/>
+      <element maxOccurs="1" minOccurs="0" name="versionNum" type="app:tdocumentNumberType"/>
+      <element maxOccurs="1" minOccurs="0" name="OrgCode" type="app:tname200"/>
+      <element maxOccurs="1" minOccurs="0" name="DateAdd" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="DateUpdate" type="app:tdateTimeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="tContact">
+    <sequence>
+      <element name="OrgCode" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="SPZCode" type="app:tname"/>
+      <element name="OrgName" type="app:tstring1000Type"/>
+      <element maxOccurs="1" minOccurs="0" name="inn" type="app:tinnOrganizationType"/>
+      <element maxOccurs="1" minOccurs="0" name="kpp" type="app:tkpp_"/>
+      <element name="factAddress" type="app:tlongText"/>
+      <element name="PostAddress" type="app:tlongText"/>
+      <element name="Email" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="additionalInfo" type="app:tlongText"/>
+      <element name="PhoneNumber" type="app:tstring30"/>
+      <element maxOccurs="1" minOccurs="0" name="FaxNumber" type="app:tstring30"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOfficial">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="SecondName" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="FirstName" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="MiddleName" type="app:tname"/>
+    </sequence>
+  </complexType>
+  <complexType name="tTenderDoc">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="WaysRec" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeBidStart" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeBidEnd" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="BidSpot" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="BidMethod" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="LangDoc" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PayProv" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="PaymSize" type="app:tdoubleType"/>
+      <element maxOccurs="1" minOccurs="0" name="MethodPayment" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="CurrAcc" type="app:tCrntAcnt"/>
+      <element maxOccurs="1" minOccurs="0" name="AccNum" type="app:tstring30"/>
+      <element maxOccurs="1" minOccurs="0" name="BikBank" type="app:tBIKBnk"/>
+      <element maxOccurs="1" minOccurs="0" name="PaymDet" type="app:tname"/>
+    </sequence>
+  </complexType>
+  <complexType name="tIdAndIndic">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="AgreementInd" type="app:tAgreementIndComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="AprovementInd" type="app:tAprovementIndComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="VerificationInd" type="app:tPUR_Verfify5art99FZ44Complex"/>
+      <element maxOccurs="1" minOccurs="0" name="EISStatus" type="app:tPUR_TPStatusComplex"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_OT_ListLots">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Lots" type="self:tLots"/>
+    </sequence>
+  </complexType>
+  <complexType name="tGeneralInfo">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="NoticeNub" type="app:tMax19Text"/>
+      <element maxOccurs="1" minOccurs="0" name="PurchGUID" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="VendorChoice" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="PurchSubject" type="app:tstring1000Type"/>
+      <element maxOccurs="1" minOccurs="0" name="OTNum" type="app:tMax19Text"/>
+      <element maxOccurs="1" minOccurs="0" name="OrgGUID" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="NoticeNumOT" type="app:tMax19Text"/>
+      <element maxOccurs="1" minOccurs="0" name="RegNumDocEIS" type="app:tname"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_OT_InfoProcedures">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="ProcList" type="self:tProcList"/>
+    </sequence>
+  </complexType>
+  <complexType name="tDoc">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="DocumGUID" type="app:tidType"/>
+      <element maxOccurs="1" minOccurs="0" name="Name" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="CreateDate" type="app:tdateTimeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="tGranEpl">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeBidStart" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeBidEnd" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="BidMethod" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tContractProject">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="PositionPS" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="LotNumber" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="PurchaseCode" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="LotGUID" type="app:tUUIDType"/>
+    </sequence>
+  </complexType>
+  <complexType name="tInfoCustomer">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="CustomerId" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="SPZCode" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="OrgName" type="app:tstring1000Type"/>
+      <element maxOccurs="1" minOccurs="0" name="inn" type="app:tinnOrganizationType"/>
+      <element maxOccurs="1" minOccurs="0" name="kpp" type="app:tkpp_"/>
+      <element maxOccurs="1" minOccurs="0" name="factAddress" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PostAddress" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="shortName" type="app:tstring1000Type"/>
+      <element maxOccurs="1" minOccurs="0" name="ContractService" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tKBKOT">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Chapt" type="app:tstring3less"/>
+      <element maxOccurs="1" minOccurs="0" name="Sect" type="app:tNumDoc"/>
+      <element maxOccurs="1" minOccurs="0" name="Progr" type="app:tstring5less"/>
+      <element maxOccurs="1" minOccurs="0" name="ExpDir" type="app:tstring5less"/>
+      <element maxOccurs="1" minOccurs="0" name="ExpType" type="app:tstring3less"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinancialResourcesOT">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="sumCurrent" type="app:tAmount20_2"/>
+      <element maxOccurs="1" minOccurs="0" name="sumFirst" type="app:tAmount20_2"/>
+      <element maxOccurs="1" minOccurs="0" name="sumSec" type="app:tAmount20_2"/>
+      <element maxOccurs="1" minOccurs="0" name="sumSubsec" type="app:tAmount20_2"/>
+      <element maxOccurs="1" minOccurs="0" name="sumTotal" type="app:tAmount20_2"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOKPDTO">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="codOKPD" type="app:tOKPDCode"/>
+      <element maxOccurs="1" minOccurs="0" name="OKPD" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tDataState">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="CreateDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="UserIdCreateDoc" type="app:tname50"/>
+      <element maxOccurs="1" minOccurs="0" name="NameUserCreateDoc" type="app:tstring250max"/>
+      <element maxOccurs="1" minOccurs="0" name="CreateUpdate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="UserIdUpdateDoc" type="app:tname50"/>
+      <element maxOccurs="1" minOccurs="0" name="NameUserUpdateDoc" type="app:tstring250max"/>
+      <element maxOccurs="1" minOccurs="0" name="RegNum" type="app:tMax19Text"/>
+      <element maxOccurs="1" minOccurs="0" name="RegNumDocEIS" type="app:tname"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_OT_InfoOnProt">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="ProtocolName" type="app:tlongText"/>
+      <element name="OrganizationID" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="RoleOrganization" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="OrganizationIDRole" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="InfoOrganiz" type="self:tInfoCustomer"/>
+    </sequence>
+  </complexType>
+  <complexType name="tDocProtocol">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="FileDescription" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeAttachFile" type="app:tdateTimeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOfferInfo">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeBidStart" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeBidEnd" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="BidSpot" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="BidMethod" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_OT_OfferRevealInfo">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeOffersReveal" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="OffersRevealSpot" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="OffersRevealAddInfo" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tOffersEstimateInfo">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="EstimDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="EstimSpot" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="EstimPeriod" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPhoneNum">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="CountryCode" type="app:tstring10Dig"/>
+      <element maxOccurs="1" minOccurs="0" name="CityCode" type="app:tstring10Dig"/>
+      <element maxOccurs="1" minOccurs="0" name="PhoneNum" type="app:tstring10Dig"/>
+      <element maxOccurs="1" minOccurs="0" name="Additional" type="app:tstring10Dig"/>
+    </sequence>
+  </complexType>
+  <complexType name="tFax">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="CountryCode" type="app:tstring10Dig"/>
+      <element maxOccurs="1" minOccurs="0" name="CityCode" type="app:tstring10Dig"/>
+      <element maxOccurs="1" minOccurs="0" name="PhoneNum" type="app:tstring10Dig"/>
+      <element maxOccurs="1" minOccurs="0" name="Additional" type="app:tstring10Dig"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_OKEI">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tOKEICode"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tstring250max"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_Agreement">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="USERFLAG3" type="app:tname50"/>
+      <element maxOccurs="1" minOccurs="0" name="USERFLAG4" type="app:tname50"/>
+      <element maxOccurs="1" minOccurs="0" name="ApproverLogin" type="app:tname50"/>
+      <element maxOccurs="1" minOccurs="0" name="ApproverNote" type="app:tstring1000Type"/>
+      <element maxOccurs="1" minOccurs="0" name="SignDateTime" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="AppIncomeDT" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="CurrentUserName" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="NumOfApprovers" type="app:tint"/>
+      <element maxOccurs="1" minOccurs="0" name="IsAgreementNeed" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="ArgIncomeDT" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="OfficialsInfo" type="self:tOfficialsInfo"/>
+      <element maxOccurs="1" minOccurs="0" name="AgrList" type="self:tAgrList"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_PurchaseForLimits">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="PurchaseNumber" type="app:tPurchaseObjectID"/>
+      <element name="PurchaseGUID" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="PurchaseName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PublishYear" type="app:tPublishYearComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="FS" type="app:tAmount_25_5"/>
+      <element maxOccurs="1" minOccurs="0" name="Alarm" type="app:tconditionRequiresCorrectionComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="PurchPlanGUID" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="FSInRub" type="app:tAmount_30_2"/>
+      <element maxOccurs="1" minOccurs="0" name="CardOKPD" type="self:tOKPDRef"/>
+      <element name="KBKCode" type="self:tPUR_KBK_4segments"/>
+      <element maxOccurs="1" minOccurs="0" name="KBKFull" type="self:tPUR_KBK_BP_formulars"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_PurchaseFO">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="sumCurrent" type="app:tAmount20_5"/>
+      <element maxOccurs="1" minOccurs="0" name="sumFirst" type="app:tAmount20_5"/>
+      <element maxOccurs="1" minOccurs="0" name="sumSec" type="app:tAmount20_5"/>
+      <element maxOccurs="1" minOccurs="0" name="sumSubsec" type="app:tAmount20_5"/>
+      <element maxOccurs="1" minOccurs="0" name="sumTotal" type="app:tAmount20_5"/>
+    </sequence>
+  </complexType>
+  <complexType name="tKBKWF">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Chapt" type="app:tstring3less"/>
+      <element maxOccurs="1" minOccurs="0" name="Sect" type="app:tNumDoc"/>
+      <element maxOccurs="1" minOccurs="0" name="Progr" type="app:tstring5less"/>
+      <element maxOccurs="1" minOccurs="0" name="ExpDir" type="app:tstring5less"/>
+      <element maxOccurs="1" minOccurs="0" name="ExpType" type="app:tstring3less"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_QR_ContractInfo">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="ReConclusionPeriod" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="TermsOfAbrogation" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="oneSideRef" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="increaseNum" type="app:tflag"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_QR_OfferInfo">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeBidStart" type="app:tdateTimeType"/>
+      <element name="DateTimeBidEnd" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="BidSpot" type="app:tlongText"/>
+      <element name="BidMethod" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="BidForm" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_QR_CustomerPurchases">
+    <sequence>
+      <element name="MaxSum" type="app:tAmount20_2"/>
+      <element maxOccurs="1" minOccurs="0" name="PlaceDateOfDelivery" type="app:tlongText"/>
+      <element name="Customer" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="TenderPlanPosition" type="app:tlongText"/>
+      <element name="PurchaseGUID" type="app:tUUIDType"/>
+      <element name="Orgcode" type="app:tname"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_QR_ContractProject">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="PositionPS" type="app:tidType"/>
+      <element maxOccurs="1" minOccurs="0" name="PurchaseCode" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tBasicContact">
+    <sequence>
+      <element name="OrgCode" type="app:tname200"/>
+      <element name="SPZCode" type="app:tname"/>
+      <element name="OrgName" type="app:tstring1000Type"/>
+      <element name="PostAddress" type="app:tlongText"/>
+      <element name="factAddress" type="app:tlongText"/>
+      <element name="inn" type="app:tinnOrganizationType"/>
+      <element name="kpp" type="app:tkpp_"/>
+      <element maxOccurs="1" minOccurs="0" name="additionalInfo" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_KBK_4segments">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Chapt" type="app:tstring3DigE"/>
+      <element maxOccurs="1" minOccurs="0" name="Sect" type="app:tchar4"/>
+      <element maxOccurs="1" minOccurs="0" name="CSR" type="app:tstring10E"/>
+      <element maxOccurs="1" minOccurs="0" name="ExpType" type="app:tstring3DigE"/>
+    </sequence>
+  </complexType>
+  <complexType name="tfinResources5">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="sumCurrent" type="app:tAmount20_5"/>
+      <element maxOccurs="1" minOccurs="0" name="sumNext" type="app:tAmount20_5"/>
+      <element maxOccurs="1" minOccurs="0" name="sumFirst" type="app:tAmount20_5"/>
+      <element maxOccurs="1" minOccurs="0" name="sumSec" type="app:tAmount20_5"/>
+      <element maxOccurs="1" minOccurs="0" name="sumSubsec" type="app:tAmount20_5"/>
+      <element maxOccurs="1" minOccurs="0" name="sumTotal" type="app:tAmount20_5"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_PPO">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tstring11DigE"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_TOFK">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tstring4DigE"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_EA_MarketPlace">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Code" type="app:tstring20"/>
+      <element maxOccurs="1" minOccurs="0" name="Name" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="Adress" type="app:tstring1000Type"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_EA_OfferInfo">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeBidStart" type="app:tdateTimeType"/>
+      <element name="DateTimeBidEnd" type="app:tdateTimeType"/>
+      <element name="BidSpot" type="app:tlongText"/>
+      <element name="BidMethod" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_EA_ProcedureInfo">
+    <sequence>
+      <element name="DTFirstPartEnd" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="DTAuctionDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="AdditionalInfo" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_EA_CustomerPurchases">
+    <sequence>
+      <element name="MaxSum" type="app:tAmount20_2"/>
+      <element maxOccurs="1" minOccurs="0" name="PlaceDateOfDelivery" type="app:tlongText"/>
+      <element name="Customer" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="TenderPlanPosition" type="app:tlongText"/>
+      <element name="PurchaseGUID" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="Currency" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="IdCode" type="app:tstring36"/>
+      <element name="Orgcode" type="app:tname"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_EA_DocInfo">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Way" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeStart" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeEnd" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="BidSpot" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="BidMethod" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="Language" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_EA_ExplDoc">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeStart" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="DateTimeEnd" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="BidMethod" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_EA_ProcedureInfoAdd">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="ReConclusionPeriod" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="TermsOfAbrogation" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="oneSideRef" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_EA_ContractProject">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="PositionPS" type="app:tidType"/>
+      <element maxOccurs="1" minOccurs="0" name="PurchaseCode" type="app:tUUIDType"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_EA_InfoOnProt">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="ProtocolName" type="app:tlongText"/>
+      <element name="PNumber" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="PreviousNumber" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="BaseNumber" type="app:tname"/>
+      <element name="Place" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="CreateDate" type="app:tdateType"/>
+      <element maxOccurs="1" minOccurs="0" name="SignatureDate" type="app:tdateType"/>
+      <element maxOccurs="1" minOccurs="0" name="PublishDate" type="app:tdateType"/>
+      <element name="OrganizationID" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="RoleOrganization" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="OrganizationIDRole" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="HypLink" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="DocLink" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="PFSignature" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="NotificationGUID" type="app:tUUIDType"/>
+      <element maxOccurs="1" minOccurs="0" name="InfoOrganiz" type="self:tInfoCustomer"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_EA_AddOrgInfo">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="OKOPF_Name" type="app:tname256"/>
+      <element maxOccurs="1" minOccurs="0" name="OKOPF_Code" type="app:tOKOPFCode"/>
+      <element maxOccurs="1" minOccurs="0" name="ForeignOrgID" type="app:tstring50"/>
+      <element maxOccurs="1" minOccurs="0" name="AddForeignOrgID" type="app:tstring50"/>
+      <element maxOccurs="1" minOccurs="0" name="ProviderName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="OKSM_Code" type="app:tstring50"/>
+      <element maxOccurs="1" minOccurs="0" name="OKSM_Name" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="factAddress" type="app:tlongText"/>
+      <element name="PostAddress" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="ProviderState" type="app:tstring50"/>
+      <element maxOccurs="1" minOccurs="0" name="AdditInfo" type="app:tlongText"/>
+      <element name="ContactName" type="self:tOfficial"/>
+      <element name="PhoneNumber" type="self:tPhoneNum"/>
+      <element maxOccurs="1" minOccurs="0" name="Fax" type="self:tFax"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_corrReqPPZ">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Curr" type="app:trequiresCorrectionPPZComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="Next" type="app:trequiresCorrectionPPZComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="First" type="app:trequiresCorrectionPPZComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="Sec" type="app:trequiresCorrectionPPZComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="Subsec" type="app:trequiresCorrectionPPZComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="Total" type="app:trequiresCorrectionPPZComplex"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_OKVRefABC">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="OKV" type="app:tcurrancyCodeType"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="OKVABC" type="app:tcurrancyCodeType"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_RO_FinalReveal_Info">
+    <sequence>
+      <element name="DateTimeOffersReveal" type="app:tdateTimeType"/>
+      <element name="OffersRevealSpot" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="ROMethod" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPrequalify">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="PrequlifyDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="PrequlifySpot" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_SOP_ModeOfChange">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="Description" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="DecisionType" type="app:tPUR_SOP_DecisionTypesComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="ChangeMode" type="app:tstring5"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_SOP_ModifReason">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="DecisionDate" type="app:tdateType"/>
+      <element maxOccurs="1" minOccurs="0" name="AuthorityType" type="app:tPUR_SOP_AuthTypesComplex"/>
+      <element maxOccurs="1" minOccurs="0" name="AuthorityName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="AuthDocName" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="AuthDocDate" type="app:tdateTimeType"/>
+      <element maxOccurs="1" minOccurs="0" name="AuthDocNumber" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="NoPrescription" type="app:tflag"/>
+      <element maxOccurs="1" minOccurs="0" name="Prescription" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="PrescriptAuth" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="ControlNumber" type="app:tname256"/>
+      <element maxOccurs="1" minOccurs="0" name="JudicialAuth" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="JudDocName" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="JudAuthDocDate" type="app:tdateType"/>
+      <element maxOccurs="1" minOccurs="0" name="JudDocNumber" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="PublicDocName" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="PublicDocDate" type="app:tdateType"/>
+      <element maxOccurs="1" minOccurs="0" name="PublicDocNumber" type="app:tname500"/>
+      <element maxOccurs="1" minOccurs="0" name="AddInfo" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_SOP_OffersEstInfo">
+    <sequence>
+      <element name="DTOffersEst" type="app:tdateTimeType"/>
+      <element name="PlaceOffersEst" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="AdditionalInfo" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_TimeZone">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="IDTimeZone" type="app:tstring10"/>
+      <element maxOccurs="1" minOccurs="0" name="TimeZoneDesc" type="app:tstring2000Type"/>
+      <element maxOccurs="1" minOccurs="0" name="MSKDelta" type="app:tstring10"/>
+      <element maxOccurs="1" minOccurs="0" name="UTCDelta" type="app:tstring10"/>
+      <element maxOccurs="1" minOccurs="0" name="TimeZoneEName" type="app:tname500"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_OKEIwithNac">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="code" type="app:tOKEICode"/>
+      <element maxOccurs="1" minOccurs="0" name="name" type="app:tstring250max"/>
+      <element maxOccurs="1" minOccurs="0" name="nationalCode" type="app:tstring50Type"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_CT_Contact">
+    <sequence>
+      <element name="orgCode" type="app:tOrganisationConsRegID"/>
+      <element maxOccurs="1" minOccurs="0" name="SPZCode" type="app:tspzNumType"/>
+      <element name="OrgName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="inn" type="app:tinnOrganizationType"/>
+      <element maxOccurs="1" minOccurs="0" name="kpp" type="app:tkpp_"/>
+      <element name="factAddress" type="app:tlongText"/>
+      <element name="PostAddress" type="app:tlongText"/>
+      <element name="Email" type="app:tname"/>
+      <element maxOccurs="1" minOccurs="0" name="additionalInfo" type="app:tlongText"/>
+      <element name="Phone" type="app:tstring30"/>
+      <element maxOccurs="1" minOccurs="0" name="FaxNumber" type="app:tstring30"/>
+    </sequence>
+  </complexType>
+  <complexType name="tGeneralInfo_SOP">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="RegNumDocEIS" type="app:tMax19Text"/>
+      <element name="VendorChCode" type="app:tname10"/>
+      <element name="VendorChoiceWay" type="app:tname500"/>
+      <element name="RoleName" type="app:tstring1000Type"/>
+      <element name="RoleCode" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="DocType" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="DocTypeCode" type="app:tstring10"/>
+      <element maxOccurs="1" minOccurs="0" name="PurCode" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_TST_ProcList">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="ProcList" type="self:tProcList"/>
+    </sequence>
+  </complexType>
+  <complexType name="tPUR_ContactProtocol">
+    <sequence>
+      <element name="orgCode" type="app:tOrganisationConsRegID"/>
+      <element maxOccurs="1" minOccurs="0" name="SPZCode" type="app:tspzNumType"/>
+      <element name="OrgName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="inn" type="app:tinnOrganizationType"/>
+      <element maxOccurs="1" minOccurs="0" name="kpp" type="app:tkpp_"/>
+      <element name="factAddress" type="app:tlongText"/>
+    </sequence>
+  </complexType>
+  <complexType name="tGeneralInfo_Prot">
+    <sequence>
+      <element maxOccurs="1" minOccurs="0" name="RegNumDocEIS" type="app:tMax19Text"/>
+      <element name="VendorChCode" type="app:tname10"/>
+      <element name="VendorChoiceWay" type="app:tname500"/>
+      <element name="RoleName" type="app:tstring1000Type"/>
+      <element name="RoleCode" type="app:tname10"/>
+      <element maxOccurs="1" minOccurs="0" name="DocName" type="app:tlongText"/>
+      <element maxOccurs="1" minOccurs="0" name="DocTypeCode" type="app:tstring10"/>
+      <element maxOccurs="1" minOccurs="0" name="SubVendorChCode" type="app:tname10"/>
+    </sequence>
+  </complexType>
+</schema>

@@ -1,0 +1,165 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctabledesc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/table" xsi:schemaLocation="http://www.otr.ru/sufd/document/table http://ufos.otr.ru/schema/document/table/v1/table.xsd">
+  <tables>
+    <tableform id="default">
+      <popup actionlist="popupLayout"/>
+      <column default-hidden="true" default-width="88" field="DOC.CU_BRANCHCODE" name="Код филиала" tooltip="Код филиала"/>
+      <column default-width="200" field="DOC.CU_BRANCHNAME" name="Структурное подразделение / Филиал" tooltip="Структурное подразделение / Филиал"/>
+      <control-buttons/>
+    </tableform>
+    <tableform id="custom" title="Позиции плана закупок 200">
+      <toolbar actionlist="custom"/>
+      <popup actionlist="cust"/>
+      <column default-width="130" field="DOC.BI_IDENTIFCODEPUR" name="Идентификационный код закупки" tooltip="Порядок формирования идентификационного кода закупки (ИКЗ) формируется в соответствии с приказом Минэкономразвития России от 29.06.2015 N 422 &quot;Об утверждении Порядка формирования идентификационного кода закупки&quot;. Структура и состав идентификационного кода закупки представляют собой 36-значный цифровой код, в котором:1 - 2 разряды - последние две цифры года размещения извещения об осуществлении закупки, 3 - 22 разряды - идентификационный код заказчика; 23 - 26 разряды - номер закупки, включенной в сформированный (утвержденный) заказчиком на очередной финансовый год и плановый период план закупок (значения от 0001 до 9999); 27 - 29 разряды - номер закупки, включенной в сформированный (утвержденный) заказчиком на очередной финансовый год план-график закупок; 30 - 33 разряды - информация о коде объекта закупки по каталогу товаров, работ, услуг; 30 - 31 разряды - класс; 32 разряд - подкласс; 33 разряд - группа; 34 - 36 разряды - код вида расходов по бюджетной классификации Российской Федерации"/>
+      <column default-width="243" field="DOC.CU_DOCNUMBER" name="Номер позиции плана закупок" tooltip="Номер позиции плана закупок"/>
+      <column default-width="48" field="DOC.CU_VERSIONNUM" name="Версия" tooltip="Номер версии укрупненной закупки"/>
+      <column default-width="100" name="Состояние" tooltip="Статус документа" attrib="docState.name"/>
+      <column default-width="100" field="DOC.CU_CREATEDATE" name="Дата создания" tooltip="Дата создания"/>
+      <column default-width="150" name="Дата и время последнего изменения" tooltip="Дата и время последнего изменения" type="DATE" pattern="dd.MM.yyyy HH:mm:ss" attrib="lastModifyDate"/>
+      <column default-width="150" field="DOC.OI_AUTHORNAME" name="Автор" tooltip="Автор"/>
+      <column default-width="100" field="DOC.OKPD_CODOKPD" name="ОКПД" tooltip="Код товара работы или услуги"/>
+      <column default-width="100" field="DOC.TEI_EXPENSETYPE" name="Вид расходов" tooltip="Вид расходов"/>
+      <column default-width="237" field="DOC.BI_OBJECTINFO" name="Наименование объекта закупки (предмет контракта)" tooltip="Наименование объекта закупки"/>
+      <column default-width="100" field="DOC.BI_PUBLISHYEAR" name="Год размещения извещения" tooltip="Год извещения"/>
+      <column default-width="233" field="DOC.CU_UZNUMBER" name="Номер укрупненной закупки" tooltip="Номер документа"/>
+      <column alignment="RIGHT" default-width="169" field="DOC.TOT_SUMTOTAL" name="ФО всего" tooltip="Итоговая сумма финансового обеспечения в рублях" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="187" field="DOC.TOT_SUMNEXT" name="ФО на текущий финансовый год" tooltip="Сумма текущего года планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="187" field="DOC.TOT_SUMFIRST" name="ФО на первый год планового периода" tooltip="Сумма первого года планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="187" field="DOC.TOT_SUMSEC" name="ФО на второй год планового периода" tooltip="Сумма второго года планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="187" field="DOC.TOT_SUMSUBSEC" name="ФО на последующие годы" tooltip="Сумма последующих лет планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column default-width="163" field="DOC.BI_PURPOSE" name="Наименование мероприятия" tooltip="Наименование мероприятия"/>
+      <column default-width="206" field="DOC.BI_EXPECTEDRESULT" name="Ожидаемый результат" tooltip="Ожидаемый результат"/>
+      <column default-width="202" field="DOC.BI_DESCRIPTION" name="Описание закупки " tooltip="Описание закупки "/>
+      <column default-width="225" field="DOC.BI_COMPLEXITY" name="Сведения о технической сложности закупки" tooltip="Специальный характер укрупненной закупки"/>
+      <column default-width="100" field="DOC.BI_PUBLICDISCUSSION" name="Обязательное общественное обсуждение" tooltip="Обязательное общественное обсуждение"/>
+      <column default-width="250" field="DOC.BI_TERMSTR" name="Срок осуществления закупок" tooltip="Срок осуществления закупок"/>
+      <column default-width="235" field="DOC.BI_PERIODICITY" name="Периодичность осуществления закупки" tooltip="Периодичность"/>
+      <column default-width="100" field="DOC.BI_PURTYPE" name="Тип закупок" tooltip="ТипЗакупки"/>
+      <column default-width="100" field="DOC.CU_PLANPERIOD" name="Плановый период" tooltip="Плановый период"/>
+      <column default-width="100" field="DOC.TEI_PLANGUID" name="План закупок" tooltip="ГУИД плана закупок">
+        <renderer bean-name="documentViewLinkCellRowRenderer">
+          <parameter name="link-text" value="${fields.DOC.TEI_PLANREGNUM}"/>
+        </renderer>
+      </column>
+      <column default-width="100" field="DOC.IND_INCLUDEDP" name="Идентификатор включения" tooltip="Включено в план закупок">
+        <renderer bean-name="enumImageCellRenderer"/>
+      </column>
+      <column default-width="100" field="DOC.IND_WASPUBLISHER" name="Позиция была размещена в ЕИС" tooltip="Позиция была размещена в ЕИС"/>
+      <column default-width="150" field="DOC.BI_EISPOSNUMBER" name="Порядковый номер позиции в ЕИС" tooltip="Порядковый номер позиции в ЕИС"/>
+      <column default-width="250" field="DOC.TEI_EISPDATETZ" name="Дата и время размещения в ЕИС"/>
+      <column default-hidden="true" default-width="88" field="DOC.CU_BRANCHCODE" name="Код филиала" tooltip="Код филиала"/>
+      <column default-width="200" field="DOC.CU_BRANCHNAME" name="Структурное подразделение / Филиал" tooltip="Структурное подразделение / Филиал"/>
+      <control-buttons/>
+    </tableform>
+    <tableform id="Agreement" title="Согласование">
+      <toolbar actionlist="Agreement"/>
+      <popup actionlist="plAgreement"/>
+      <column default-width="130" field="DOC.BI_IDENTIFCODEPUR" name="Идентификационный код закупки" tooltip="Порядок формирования идентификационного кода закупки (ИКЗ) формируется в соответствии с приказом Минэкономразвития России от 29.06.2015 N 422 &quot;Об утверждении Порядка формирования идентификационного кода закупки&quot;. Структура и состав идентификационного кода закупки представляют собой 36-значный цифровой код, в котором:1 - 2 разряды - последние две цифры года размещения извещения об осуществлении закупки, 3 - 22 разряды - идентификационный код заказчика; 23 - 26 разряды - номер закупки, включенной в сформированный (утвержденный) заказчиком на очередной финансовый год и плановый период план закупок (значения от 0001 до 9999); 27 - 29 разряды - номер закупки, включенной в сформированный (утвержденный) заказчиком на очередной финансовый год план-график закупок; 30 - 33 разряды - информация о коде объекта закупки по каталогу товаров, работ, услуг; 30 - 31 разряды - класс; 32 разряд - подкласс; 33 разряд - группа; 34 - 36 разряды - код вида расходов по бюджетной классификации Российской Федерации"/>
+      <column default-width="243" field="DOC.CU_DOCNUMBER" name="Номер позиции плана закупок" tooltip="Номер позиции плана закупок"/>
+      <column default-width="51" field="DOC.CU_VERSIONNUM" name="Версия" tooltip="Номер версии укрупненной закупки"/>
+      <column default-width="100" name="Состояние" tooltip="Статус документа" attrib="docState.name"/>
+      <column default-width="100" field="DOC.CU_CREATEDATE" name="Дата создания" tooltip="Дата создания"/>
+      <column default-width="150" name="Дата и время последнего изменения" tooltip="Дата и время последнего изменения" type="DATE" pattern="dd.MM.yyyy HH:mm:ss" attrib="lastModifyDate"/>
+      <column default-width="150" field="DOC.OI_AUTHORNAME" name="Автор" tooltip="Автор"/>
+      <column default-width="100" field="DOC.OKPD_CODOKPD" name="ОКПД" tooltip="Код товара работы или услуги"/>
+      <column default-width="100" field="DOC.TEI_EXPENSETYPE" name="Вид расходов" tooltip="Вид расходов"/>
+      <column default-width="237" field="DOC.BI_OBJECTINFO" name="Наименование объекта закупки (предмет контракта)" tooltip="Наименование объекта закупки"/>
+      <column default-width="100" field="DOC.BI_PUBLISHYEAR" name="Год размещения извещения" tooltip="Год извещения"/>
+      <column default-width="218" field="DOC.CU_UZNUMBER" name="Номер укрупненной закупки" tooltip="Номер укрупненной закупки"/>
+      <column alignment="RIGHT" default-width="146" field="DOC.TOT_SUMTOTAL" name="ФО всего" tooltip="Итоговая сумма финансового обеспечения в рублях" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="146" field="DOC.TOT_SUMNEXT" name="ФО на текущий финансовый год" tooltip="Сумма текущего года планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="146" field="DOC.TOT_SUMFIRST" name="ФО на первый год планового периода" tooltip="Сумма первого года планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="146" field="DOC.TOT_SUMSEC" name="ФО на второй год планового периода" tooltip="Сумма второго года планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="146" field="DOC.TOT_SUMSUBSEC" name="ФО на последующие годы" tooltip="Сумма последующих лет планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column default-width="163" field="DOC.BI_PURPOSE" name="Наименование мероприятия" tooltip="Наименование мероприятия"/>
+      <column default-width="181" field="DOC.BI_EXPECTEDRESULT" name="Ожидаемый результат" tooltip="Ожидаемый результат"/>
+      <column default-width="202" field="DOC.BI_DESCRIPTION" name="Описание закупки " tooltip="Описание закупки "/>
+      <column default-width="225" field="DOC.BI_COMPLEXITY" name="Сведения о технической сложности закупки" tooltip="Специальный характер укрупненной закупки"/>
+      <column default-width="100" field="DOC.BI_PUBLICDISCUSSION" name="Обязательное общественное обсуждение" tooltip="Сведения об обязательном общественном обсуждении"/>
+      <column default-width="250" field="DOC.BI_TERMSTR" name="Срок осуществления закупок" tooltip="Срок осуществления закупок"/>
+      <column default-width="235" field="DOC.BI_PERIODICITY" name="Периодичность осуществления закупки" tooltip="Периодичность"/>
+      <column default-width="100" field="DOC.BI_PURTYPE" name="Тип закупки" tooltip="ТипЗакупки"/>
+      <column default-width="100" field="DOC.CU_PLANPERIOD" name="Плановый период" tooltip="Плановый период"/>
+      <column default-width="100" field="DOC.TEI_PLANGUID" name="План закупок" tooltip="Регистрационный номер плана закупок">
+        <renderer bean-name="documentViewLinkCellRowRenderer">
+          <parameter name="link-text" value="${fields.DOC.TEI_PLANREGNUM}"/>
+        </renderer>
+      </column>
+      <column default-width="100" field="DOC.IND_INCLUDEDP" name="Идентификатор включения" tooltip="Включено в план закупок">
+        <renderer bean-name="enumImageCellRenderer"/>
+      </column>
+      <column default-hidden="true" default-width="88" field="DOC.CU_BRANCHCODE" name="Код филиала" tooltip="Код филиала"/>
+      <column default-width="200" field="DOC.CU_BRANCHNAME" name="Структурное подразделение / Филиал" tooltip="Структурное подразделение / Филиал"/>
+      <control-buttons/>
+    </tableform>
+    <tableform id="Approve" title="Утверждение">
+      <toolbar actionlist="Approve"/>
+      <popup actionlist="plApprove"/>
+      <column default-width="130" field="DOC.BI_IDENTIFCODEPUR" name="Идентификационный код закупки" tooltip="Порядок формирования идентификационного кода закупки (ИКЗ) формируется в соответствии с приказом Минэкономразвития России от 29.06.2015 N 422 &quot;Об утверждении Порядка формирования идентификационного кода закупки&quot;. Структура и состав идентификационного кода закупки представляют собой 36-значный цифровой код, в котором:1 - 2 разряды - последние две цифры года размещения извещения об осуществлении закупки, 3 - 22 разряды - идентификационный код заказчика; 23 - 26 разряды - номер закупки, включенной в сформированный (утвержденный) заказчиком на очередной финансовый год и плановый период план закупок (значения от 0001 до 9999); 27 - 29 разряды - номер закупки, включенной в сформированный (утвержденный) заказчиком на очередной финансовый год план-график закупок; 30 - 33 разряды - информация о коде объекта закупки по каталогу товаров, работ, услуг; 30 - 31 разряды - класс; 32 разряд - подкласс; 33 разряд - группа; 34 - 36 разряды - код вида расходов по бюджетной классификации Российской Федерации"/>
+      <column default-width="243" field="DOC.CU_DOCNUMBER" name="Номер позиции плана закупок" tooltip="Номер позиции плана закупок"/>
+      <column default-width="65" field="DOC.CU_VERSIONNUM" name="Версия" tooltip="Номер версии укрупненной закупки"/>
+      <column default-width="100" name="Состояние" tooltip="Статус документа" attrib="docState.name"/>
+      <column default-width="100" field="DOC.CU_CREATEDATE" name="Дата создания" tooltip="Дата создания"/>
+      <column default-width="150" name="Дата и время последнего изменения" tooltip="Дата и время последнего изменения" type="DATE" pattern="dd.MM.yyyy HH:mm:ss" attrib="lastModifyDate"/>
+      <column default-width="150" field="DOC.OI_AUTHORNAME" name="Автор" tooltip="Автор"/>
+      <column default-width="100" field="DOC.OKPD_CODOKPD" name="ОКПД" tooltip="Код товара работы или услуги"/>
+      <column default-width="100" field="DOC.TEI_EXPENSETYPE" name="Вид расходов" tooltip="Вид расходов"/>
+      <column default-width="237" field="DOC.BI_OBJECTINFO" name="Наименование объекта закупки (предмет контракта)" tooltip="Наименование объекта закупки"/>
+      <column default-width="100" field="DOC.BI_PUBLISHYEAR" name="Год размещения извещения" tooltip="Год извещения"/>
+      <column default-width="239" field="DOC.CU_UZNUMBER" name="Номер укрупненной закупки" tooltip="Номер документа"/>
+      <column alignment="RIGHT" default-width="141" field="DOC.TOT_SUMTOTAL" name="ФО всего" tooltip="Итоговая сумма финансового обеспечения в рублях" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="141" field="DOC.TOT_SUMNEXT" name="ФО на текущий финансовый год" tooltip="Сумма текущего года планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="141" field="DOC.TOT_SUMFIRST" name="ФО на первый год планового периода" tooltip="Сумма первого года планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="141" field="DOC.TOT_SUMSEC" name="ФО на второй год планового периода" tooltip="Сумма второго года планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="141" field="DOC.TOT_SUMSUBSEC" name="ФО на последующие годы" tooltip="Сумма последующих лет планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column default-width="163" field="DOC.BI_PURPOSE" name="Наименование мероприятия" tooltip="Наименование мероприятия"/>
+      <column default-width="184" field="DOC.BI_EXPECTEDRESULT" name="Ожидаемый результат" tooltip="Ожидаемый результат"/>
+      <column default-width="202" field="DOC.BI_DESCRIPTION" name="Описание закупки " tooltip="Описание закупки "/>
+      <column default-width="225" field="DOC.BI_COMPLEXITY" name="Сведения о технической сложности закупки" tooltip="Специальный характер укрупненной закупки"/>
+      <column default-width="100" field="DOC.BI_PUBLICDISCUSSION" name="Обязательное общественное обсуждение" tooltip="Сведения об обязательном общественном обсуждении"/>
+      <column default-width="250" field="DOC.BI_TERMSTR" name="Срок осуществления закупок" tooltip="Срок осуществления закупок"/>
+      <column default-width="235" field="DOC.BI_PERIODICITY" name="Периодичность осуществления закупки" tooltip="Периодичность"/>
+      <column default-width="100" field="DOC.BI_PURTYPE" name="Тип закупки" tooltip="ТипЗакупки"/>
+      <column default-width="100" field="DOC.CU_PLANPERIOD" name="Плановый период" tooltip="Плановый период"/>
+      <column default-width="100" field="DOC.TEI_PLANGUID" name="План закупок" tooltip="Регистрационный номер плана закупок">
+        <renderer bean-name="documentViewLinkCellRowRenderer">
+          <parameter name="link-text" value="${fields.DOC.TEI_PLANREGNUM}"/>
+        </renderer>
+      </column>
+      <column default-width="100" field="DOC.IND_INCLUDEDP" name="Идентификатор включения" tooltip="Включено в план закупок">
+        <renderer bean-name="enumImageCellRenderer"/>
+      </column>
+      <column default-hidden="true" default-width="88" field="DOC.CU_BRANCHCODE" name="Код филиала" tooltip="Код филиала"/>
+      <column default-width="200" field="DOC.CU_BRANCHNAME" name="Структурное подразделение / Филиал" tooltip="Структурное подразделение / Филиал"/>
+      <control-buttons/>
+    </tableform>
+    <tableform id="createPurchase" title="Перечень позиций плана закупок">
+      <toolbar actionlist="PUR_PlanPosition200"/>
+      <column default-width="270" field="DOC.BI_IDENTIFCODEPUR" name="Идентификационный код закупки"/>
+      <column default-width="450" field="DOC.BI_OBJECTINFO" name="Наименование объекта закупки (предмет контракта)"/>
+      <column default-width="80" field="DOC.BI_PUBLISHYEAR" name="Год размещения извещения"/>
+      <column default-width="100" field="DOC.T_SUMTOTAL" name="ФО всего"/>
+      <column default-width="80" field="DOC.OKPD_CODOKPD" name="ОКПД"/>
+      <column default-width="170" field="DOC.CU_BRANCHNAME" name="Структурное подразделение / филиал"/>
+      <column default-width="160" field="DOC.BI_PURTYPE" name="Тип закупки"/>
+      <column default-width="250" field="DOC.BI_DESCRIPTION" name="Описание закупки (примечание)"/>
+      <column default-width="100" field="DOC.CU_PLANPERIOD" name="Плановый период"/>
+      <column default-width="100" field="DOC.T_SUMNEXT" name="ФО на текущий финансовый год"/>
+      <column default-width="100" field="DOC.T_SUMFIRST" name="ФО на первый год планового периода"/>
+      <column default-width="100" field="DOC.T_SUMSEC" name="ФО на второй год планового периода"/>
+      <column default-width="100" field="DOC.T_SUMSUBSEC" name="ФО на последующие годы"/>
+      <column default-width="200" field="DOC.IND_INCLUDEDP" name="Идентификатор включения"/>
+      <column default-width="90" field="DOC.BI_PUBLICDISCUSSION" name="Обязательное общественное обсуждение"/>
+      <column default-width="50" field="DOC.CU_VERSIONNUM" name="Версия"/>
+      <column default-width="70" name="Дата создания" type="DATE" pattern="dd.MM.yyyy" attrib="createDate"/>
+      <column default-width="120" name="Дата и время последнего изменения" type="DATE" pattern="dd.MM.yyyy HH:mm:ss" attrib="lastModifyDate"/>
+      <column default-width="170" field="DOC.OI_AUTHORNAME" name="Автор"/>
+      <column default-width="90" field="DOC.IND_WASPUBLISHER" name="Позиция была размещена в ЕИС"/>
+      <column default-width="250" field="DOC.CU_DOCNUMBER" name="Номер позиции плана закупок"/>
+      <control-buttons/>
+    </tableform>
+  </tables>
+  <selectconditions>
+    <selectcondition id="alldocs"/>
+  </selectconditions>
+</doctabledesc>

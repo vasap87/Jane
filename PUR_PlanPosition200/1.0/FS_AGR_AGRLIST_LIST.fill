@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<filling xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/filling" xsi:schemaLocation="http://www.otr.ru/sufd/document/filling http://ufos.otr.ru/schema/document/filling/v1/filling.xsd">
+  <defaultvalue field="AGRSTATE" startValue="RequiresAgreement"/>
+  <defaultvalue field="USERGROUP" startValue="1"/>
+  <defaultvalue field="PHASEORDER" startValue="1"/>
+  <defaultvalue field="RESOLUTION" startValue="requiresAgreement"/>
+</filling>

@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<editform xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/viewform" xsi:schemaLocation="http://www.otr.ru/sufd/document/viewform http://ufos.otr.ru/schema/document/edit/v1/edit.xsd" version="1">
+  <docinfo resizable="true" showTab="false" tabPlacement="TOP"/>
+  <conditions/>
+  <actions/>
+  <events/>
+  <content>
+    <panel>
+      <table-layout>
+        <columns>
+          <fixed-line size="550"/>
+        </columns>
+        <rows>
+          <component-line grow="true"/>
+        </rows>
+      </table-layout>
+    </panel>
+  </content>
+</editform>

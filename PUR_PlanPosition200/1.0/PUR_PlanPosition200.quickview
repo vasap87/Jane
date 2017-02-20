@@ -1,0 +1,585 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<quickview xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/viewform" xsi:schemaLocation="http://www.otr.ru/sufd/document/viewform http://ufos.otr.ru/schema/document/quick-view/v1/quick-view.xsd" version="1">
+  <tabs>
+    <hide-tabs>
+      <tab id="Transport history"/>
+      <tab id="Signs"/>
+    </hide-tabs>
+    <tab-content tabName="Версии">
+      <panel>
+        <table-layout>
+          <columns>
+            <component-line/>
+          </columns>
+          <rows>
+            <component-line/>
+          </rows>
+        </table-layout>
+        <table name="tbl_ds1" dataSource="ds1" table-form="default">
+          <table-position x="0" y="0"/>
+          <control-buttons/>
+        </table>
+      </panel>
+    </tab-content>
+    <tab-content tabName="Позиции плана-графика">
+      <panel>
+        <table-layout>
+          <columns>
+            <component-line/>
+          </columns>
+          <rows>
+            <component-line/>
+            <component-line/>
+          </rows>
+        </table-layout>
+        <panel name="p16">
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="0"/>
+          <table name="tbl_ds2" dataSource="ds2" table-form="default">
+            <table-position x="0" y="0"/>
+            <control-buttons/>
+          </table>
+        </panel>
+        <panel name="p17">
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="1"/>
+          <table name="tbl_ds3" dataSource="ds3" table-form="default">
+            <table-position x="0" y="0"/>
+            <control-buttons/>
+          </table>
+        </panel>
+      </panel>
+    </tab-content>
+    <tab-content tabName="Характеристика финансового обеспечения">
+      <panel>
+        <table-layout>
+          <columns>
+            <component-line/>
+          </columns>
+          <rows>
+            <component-line/>
+            <component-line/>
+          </rows>
+        </table-layout>
+        <panel name="panel_fo">
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <fixed-line size="300"/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="0"/>
+          <table name="tbl_fs_rub_finsourc200_list" toolTip="Источники финансирования" docField="FS_RUB_FINSOURC200_LIST" table-form="default">
+            <table-position x="0" y="0"/>
+            <control-buttons/>
+          </table>
+        </panel>
+        <panel name="panel_fo_for">
+          <table-layout>
+            <columns>
+              <component-line/>
+            </columns>
+            <rows>
+              <fixed-line size="300"/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="1"/>
+          <table name="tbl_fs_cur_finsourc200_list" toolTip="Источники финансового обеспечения для зарубежного аппарата" docField="FS_CUR_FINSOURC200_LIST" table-form="default">
+            <table-position x="0" y="0"/>
+            <control-buttons/>
+          </table>
+        </panel>
+      </panel>
+    </tab-content>
+  </tabs>
+  <content>
+    <panel>
+      <table-layout>
+        <columns>
+          <component-line/>
+        </columns>
+        <rows>
+          <component-line grow="true"/>
+          <component-line/>
+          <component-line/>
+          <component-line/>
+        </rows>
+      </table-layout>
+      <panel>
+        <table-layout>
+          <columns>
+            <fixed-line size="200"/>
+            <fixed-line size="230"/>
+            <fixed-line size="9"/>
+            <fixed-line size="60"/>
+            <fixed-line size="165"/>
+            <fixed-line size="110"/>
+            <fixed-line size="140"/>
+          </columns>
+          <rows>
+            <component-line/>
+            <component-line/>
+            <component-line/>
+          </rows>
+        </table-layout>
+        <table-position x="0" y="0"/>
+        <titled-border title="Общая информация о закупке"/>
+        <label>
+          <table-position x="0" y="0"/>
+          <text>Номер позиции плана закупок</text>
+        </label>
+        <text-field enabled="false" name="tf_doc_cu_docnumber" docField="DOC.CU_DOCNUMBER" editable="false" columns="30" max-length="100">
+          <alignment vertical="BOTTOM"/>
+          <table-position height="1" width="1" x="1" y="0"/>
+          <events/>
+        </text-field>
+        <label name="lbl_dot">
+          <alignment horizontal="CENTER" vertical="BOTTOM"/>
+          <table-position x="2" y="0"/>
+          <text>.</text>
+        </label>
+        <text-field enabled="false" name="tf_doc_cu_versionnum" toolTip="Номер версии" docField="DOC.CU_VERSIONNUM" editable="false" columns="30" max-length="100">
+          <alignment vertical="BOTTOM"/>
+          <table-position x="3" y="0"/>
+          <events/>
+        </text-field>
+        <label>
+          <table-position x="4" y="0"/>
+          <text></text>
+        </label>
+        <label>
+          <alignment vertical="BOTTOM"/>
+          <table-position x="5" y="0"/>
+          <text>Статус</text>
+        </label>
+        <text-field enabled="false" name="tf_docstate_name" docAttrib="docState.name" editable="false" columns="10" max-length="100">
+          <alignment vertical="BOTTOM"/>
+          <table-position x="6" y="0"/>
+          <events/>
+        </text-field>
+        <label>
+          <table-position x="0" y="1"/>
+          <text>Номер укрупненной закупки</text>
+        </label>
+        <text-field name="tf_doc_cu_uznumber" docField="DOC.CU_UZNUMBER" editable="false" columns="30" max-length="100">
+          <table-position width="3" x="1" y="1"/>
+        </text-field>
+        <label>
+          <table-position x="4" y="1"/>
+          <text></text>
+        </label>
+        <label>
+          <table-position x="5" y="1"/>
+          <text>Дата создания</text>
+        </label>
+        <date-field name="dtf_doc_cu_createdate" toolTip="Дата укрупненной закупки" docField="DOC.CU_CREATEDATE" editable="false" format-pattern="dd.MM.yyyy">
+          <alignment vertical="BOTTOM"/>
+          <table-position x="6" y="1"/>
+          <events/>
+        </date-field>
+        <label>
+          <table-position x="0" y="2"/>
+          <text>Идентификационный код закупки</text>
+        </label>
+        <text-field enabled="false" name="tf_doc_bi_identifcodepur" docField="DOC.BI_IDENTIFCODEPUR" columns="30" max-length="44">
+          <table-position width="3" x="1" y="2"/>
+        </text-field>
+        <label>
+          <table-position x="4" y="2"/>
+          <text></text>
+        </label>
+        <label>
+          <table-position x="5" y="2"/>
+          <text>Дата утверждения</text>
+        </label>
+        <date-field name="dtf_doc_agr_signdatetime" toolTip="Дата, когда решение было принято" docField="DOC.AGR_SIGNDATETIME" editable="false" format-pattern="dd.MM.yyyy">
+          <table-position x="6" y="2"/>
+        </date-field>
+      </panel>
+      <panel>
+        <table-layout>
+          <columns>
+            <fixed-line size="960"/>
+          </columns>
+          <rows>
+            <component-line/>
+            <component-line/>
+          </rows>
+        </table-layout>
+        <table-position x="0" y="1"/>
+        <titled-border title="Сведения о государственном заказчике"/>
+        <panel>
+          <table-layout>
+            <columns>
+              <fixed-line size="200"/>
+              <fixed-line size="719"/>
+            </columns>
+            <rows>
+              <component-line/>
+              <component-line/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="0"/>
+          <label name="lbl_doc_cu_fullname" toolTip="Полное наименование государственного (муниципального) заказчика, бюджетного, автономного учреждения или государственного (муниципального) унитарного предприятия">
+            <table-position x="0" y="1"/>
+            <text>Заказчик</text>
+          </label>
+          <text-area name="ta_doc_org_fullorgname" docField="DOC.ORG_FULLORGNAME" editable="false" columns="30" max-length="2000" rows="4">
+            <table-position width="1" x="1" y="1"/>
+            <events/>
+          </text-area>
+        </panel>
+        <panel>
+          <table-layout>
+            <columns>
+              <fixed-line size="221"/>
+              <fixed-line size="130"/>
+              <fixed-line size="110"/>
+              <fixed-line size="51"/>
+              <fixed-line size="133"/>
+              <fixed-line size="105"/>
+              <fixed-line size="51"/>
+              <fixed-line size="134"/>
+            </columns>
+            <rows>
+              <component-line/>
+              <component-line/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="1"/>
+          <label name="lbl_doc_cu_inn">
+            <alignment/>
+            <table-position x="0" y="0"/>
+            <text>ИНН</text>
+          </label>
+          <text-field name="tf_doc_org_inn" docField="DOC.ORG_INN" editable="false" columns="12" max-length="12">
+            <table-position x="1" y="0"/>
+          </text-field>
+          <label>
+            <table-position x="2" y="0"/>
+            <text></text>
+          </label>
+          <label name="lbl_doc_cu_kpp">
+            <alignment/>
+            <table-position x="3" y="0"/>
+            <text>КПП</text>
+          </label>
+          <text-field name="tf_doc_org_kpp" docField="DOC.ORG_KPP" editable="false" columns="9" max-length="9">
+            <table-position x="4" y="0"/>
+          </text-field>
+          <label>
+            <table-position x="5" y="0"/>
+            <text></text>
+          </label>
+          <label name="lbl_doc_org_ogrn">
+            <alignment/>
+            <table-position x="6" y="0"/>
+            <text>ОГРН</text>
+          </label>
+          <text-field name="tf_doc_org_ogrn" docField="DOC.ORG_OGRN" editable="false" columns="13" max-length="13">
+            <table-position x="7" y="0"/>
+          </text-field>
+          <label name="lbl_doc_cu_branchname">
+            <table-position x="0" y="1"/>
+            <text>Структурное подразделение / Филиал</text>
+          </label>
+          <text-field name="tf_doc_cu_branchname" docField="DOC.CU_BRANCHNAME" columns="30" max-length="500">
+            <table-position width="7" x="1" y="1"/>
+          </text-field>
+        </panel>
+      </panel>
+      <panel>
+        <table-layout>
+          <columns>
+            <fixed-line size="960"/>
+          </columns>
+          <rows>
+            <component-line/>
+            <component-line/>
+            <component-line/>
+            <component-line/>
+            <component-line/>
+            <component-line/>
+            <component-line/>
+          </rows>
+        </table-layout>
+        <table-position x="0" y="2"/>
+        <titled-border title=" Сведения о закупках государственного заказчика"/>
+        <panel>
+          <table-layout>
+            <columns>
+              <fixed-line size="200"/>
+              <fixed-line size="719"/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="0"/>
+          <label>
+            <table-position x="0" y="0"/>
+            <text>Тип закупки</text>
+          </label>
+          <enum-field name="efl_doc_bi_purtype" docField="DOC.BI_PURTYPE" enum-id="PUR_PurchType" columns="30" max-length="250">
+            <table-position width="1" x="1" y="0"/>
+          </enum-field>
+        </panel>
+        <panel>
+          <table-layout>
+            <columns>
+              <fixed-line size="200"/>
+              <fixed-line size="719"/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="1"/>
+          <label name="Наименование объекта закупки" toolTip="Наименование объекта закупки">
+            <table-position width="1" x="0" y="0"/>
+            <text>Наименование объекта закупки *</text>
+          </label>
+          <text-field name="tf_doc_bi_objectinfo" docField="DOC.BI_OBJECTINFO" columns="30" max-length="2000">
+            <table-position width="1" x="1" y="0"/>
+            <events/>
+          </text-field>
+        </panel>
+        <panel>
+          <table-layout>
+            <columns>
+              <fixed-line size="200"/>
+              <fixed-line size="719"/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="2"/>
+          <label name="Кодтовараработыилиуслуги" toolTip="Код товара работы или услуги">
+            <table-position width="1" x="0" y="0"/>
+            <text>ОКПД *</text>
+          </label>
+          <text-field name="tf_doc_okpd_code" docField="DOC.OKPD_CODOKPD" editable="false" columns="20" max-length="20">
+            <table-position width="1" x="1" y="0"/>
+            <events/>
+          </text-field>
+        </panel>
+        <panel>
+          <table-layout>
+            <columns>
+              <fixed-line size="200"/>
+              <fixed-line size="719"/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="3"/>
+          <label name="lbl_doc_okpd_name">
+            <table-position width="1" x="0" y="0"/>
+            <text>Наименование кода товара (работы, услуги) по ОКПД</text>
+          </label>
+          <text-area name="ta_doc_okpd_name" docField="DOC.OKPD_OKPD" editable="false" columns="30" max-length="1000" rows="4">
+            <alignment vertical="TOP"/>
+            <table-position height="1" width="1" x="1" y="0"/>
+            <events/>
+          </text-area>
+        </panel>
+        <panel>
+          <table-layout>
+            <columns>
+              <fixed-line size="915"/>
+              <fixed-line size="4"/>
+            </columns>
+            <rows>
+              <component-line/>
+              <component-line/>
+              <component-line/>
+              <component-line/>
+              <component-line/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="4"/>
+          <label>
+            <table-position x="0" y="0"/>
+            <text>Описание позиции плана закупок</text>
+          </label>
+          <text-area name="ta_doc_bi_description" docField="DOC.BI_DESCRIPTION" columns="30" max-length="2000" rows="4">
+            <table-position x="0" y="1"/>
+          </text-area>
+          <check-button name="chb_doc_bi_hascomplexity_copy" docField="DOC.BI_HASCOMPLEXITY" text="Сведения о технической сложности, инновационности и специальном характере укрупненной закупки  ">
+            <table-position width="1" x="0" y="2"/>
+          </check-button>
+          <text-area name="ta_doc_bi_complexity" docField="DOC.BI_COMPLEXITY" editable="false" columns="30" max-length="1996" rows="6">
+            <table-position height="1" width="1" x="0" y="3"/>
+          </text-area>
+          <check-button name="chb_doc_bi_publicdiscussion_copy" toolTip="В соответствие с п.1.4 Приказа Минэкономразвития от 10.10.2013 г. № 578 «Об утверждении Порядка обязательного общественного обсуждения закупок товаров, работ, услуг для обеспечения государственных и муниципальных нужд в случае, если начальная (максимальная) цена контракта либо цена контракта, заключаемого с единственным поставщиком (подрядчиком, исполнителем), превышает один миллиард рублей» общественное обсуждение не проводится для закупок:&#x9;1)с применением закрытых способов определения поставщиков (подрядчиков, исполнителей);&#x9;2)вооружения, военной и специальной техники в рамках государственного оборонного заказа;&#x9;3)у единственного поставщика (подрядчика, исполнителя) в соответствии с п. 2 части 1 статьи 93 Федерального закона.»" docField="DOC.BI_PUBLICDISCUSSION" text="Требуется общественное обсуждение">
+            <table-position width="1" x="0" y="4"/>
+          </check-button>
+        </panel>
+        <panel name="term_and_periodicity_panel">
+          <table-layout>
+            <columns>
+              <fixed-line size="182"/>
+              <fixed-line size="16"/>
+              <fixed-line size="93"/>
+              <fixed-line size="10"/>
+              <fixed-line size="18"/>
+              <fixed-line size="93"/>
+              <fixed-line size="25"/>
+              <fixed-line size="241"/>
+              <fixed-line size="223"/>
+            </columns>
+            <rows>
+              <component-line/>
+            </rows>
+          </table-layout>
+          <table-position x="0" y="5"/>
+          <label name="lbl_doc_bi_enddate">
+            <table-position x="0" y="0"/>
+            <text>Срок осуществления закупки</text>
+          </label>
+          <label>
+            <table-position x="1" y="0"/>
+            <text>с</text>
+          </label>
+          <date-field name="dtf_doc_bi_term" docField="DOC.BI_TERM" editable="false" format-pattern="dd.MM.yyyy">
+            <table-position x="2" y="0"/>
+          </date-field>
+          <label>
+            <table-position x="3" y="0"/>
+            <text></text>
+          </label>
+          <label>
+            <table-position x="4" y="0"/>
+            <text>по</text>
+          </label>
+          <date-field name="dtf_doc_bi_termto" docField="DOC.BI_TERMTO" editable="false" format-pattern="dd.MM.yyyy">
+            <table-position x="5" y="0"/>
+          </date-field>
+          <label>
+            <table-position x="6" y="0"/>
+            <text></text>
+          </label>
+          <label>
+            <alignment/>
+            <table-position width="1" x="7" y="0"/>
+            <text>Периодичность осуществления закупки</text>
+          </label>
+          <text-field name="tf_doc_bi_periodicity" docField="DOC.BI_PERIODICITY" editable="false" columns="30" max-length="256">
+            <table-position x="8" y="0"/>
+          </text-field>
+        </panel>
+      </panel>
+      <panel name="pnl_changeReason">
+        <table-layout>
+          <columns>
+            <fixed-line size="230"/>
+            <fixed-line size="320"/>
+            <fixed-line size="25"/>
+            <fixed-line size="30"/>
+            <fixed-line size="345"/>
+          </columns>
+          <rows>
+            <component-line/>
+            <component-line/>
+            <component-line/>
+          </rows>
+        </table-layout>
+        <table-position x="0" y="3"/>
+        <titled-border title="Обоснование внесения изменений"/>
+        <label name="lbl_doc_bi_reasonforchange" visible="false">
+          <table-position x="0" y="0"/>
+          <text>Обоснование внесения изменений *</text>
+        </label>
+        <label name="lbl_doc_bi_reasonforchange_firstVersion">
+          <table-position x="0" y="0"/>
+          <text>Обоснование внесения изменений</text>
+        </label>
+        <text-field name="tf_doc_bi_reasonforchange" docField="DOC.BI_REASONFORCHANGE" editable="false" columns="30" max-length="2000">
+          <table-position x="1" y="0"/>
+        </text-field>
+        <check-button enabled="false" name="chb_doc_bi_cancel" docField="DOC.BI_CANCEL" text="Отменить в рамках размещенного в ЕИС плана закупок">
+          <table-position x="4" y="0"/>
+        </check-button>
+        <label>
+          <table-position height="1" x="0" y="1"/>
+          <text>Дополнительная информация</text>
+        </label>
+        <text-area name="ta_doc_bi_infoaboutchange" toolTip="Укажите обоснование внесения изменений" docField="DOC.BI_INFOABOUTCHANGE" editable="false" columns="30" max-length="2000" rows="4">
+          <table-position height="1" width="4" x="1" y="1"/>
+        </text-area>
+      </panel>
+    </panel>
+  </content>
+  <conditions>
+    <condition>
+      <eq name="DOC.BI_PURTYPE" value="P"/>
+      <actions>
+        <show component="term_and_periodicity_panel"/>
+        <show component="chb_doc_bi_hascomplexity_copy"/>
+        <show component="ta_doc_bi_complexity"/>
+        <show component="chb_doc_bi_publicdiscussion_copy"/>
+        <show component="pnl_changeReason"/>
+      </actions>
+    </condition>
+    <condition>
+      <not>
+        <eq name="DOC.BI_PURTYPE" value="P"/>
+      </not>
+      <actions>
+        <hide component="term_and_periodicity_panel"/>
+        <hide component="chb_doc_bi_hascomplexity_copy"/>
+        <hide component="ta_doc_bi_complexity"/>
+        <hide component="chb_doc_bi_publicdiscussion_copy"/>
+        <hide component="pnl_changeReason"/>
+      </actions>
+    </condition>
+    <condition>
+      <eq name="DOC.FP_FOREIGNSTAFFPURCHASES" value="true" type="BOOLEAN"/>
+      <actions>
+        <hide component="panel_fo"/>
+        <show component="panel_fo_for"/>
+      </actions>
+    </condition>
+    <condition>
+      <eq name="DOC.FP_FOREIGNSTAFFPURCHASES" value="false" type="BOOLEAN"/>
+      <actions>
+        <hide component="panel_fo_for"/>
+        <show component="panel_fo"/>
+      </actions>
+    </condition>
+    <condition>
+      <not>
+        <eq name="DOC.CU_PLANPERIOD" value="2016-2018"/>
+      </not>
+      <actions>
+        <show component="p17"/>
+        <hide component="p16"/>
+      </actions>
+    </condition>
+    <condition>
+      <eq name="DOC.CU_PLANPERIOD" value="2016-2018"/>
+      <actions>
+        <show component="p16"/>
+        <hide component="p17"/>
+      </actions>
+    </condition>
+  </conditions>
+</quickview>

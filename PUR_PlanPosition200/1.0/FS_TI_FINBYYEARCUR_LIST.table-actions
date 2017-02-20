@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<tableActions xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/table-actions" xsi:schemaLocation="http://www.otr.ru/sufd/document/table-actions http://ufos.otr.ru/schema/document/table-actions/v1/table-actions.xsd">
+  <actionList id="tableActions">
+    <separator/>
+    <stdactionref id="add"/>
+    <stdactionref id="copy"/>
+    <stdactionref id="delete"/>
+    <stdactionref id="edit"/>
+    <stdactionref id="view"/>
+    <stdactionref id="setColumns"/>
+    <stdactionref id="find"/>
+    <stdactionref id="applyFilter"/>
+    <stdactionref id="resetFilter"/>
+    <stdactionref id="print"/>
+  </actionList>
+  <actionList id="popupLayout">
+    <separator/>
+    <stdactionref id="add"/>
+    <stdactionref id="copy"/>
+    <stdactionref id="delete"/>
+    <stdactionref id="edit"/>
+    <stdactionref id="view"/>
+    <stdactionref id="setColumns"/>
+    <stdactionref id="find"/>
+    <stdactionref id="applyFilter"/>
+    <stdactionref id="resetFilter"/>
+    <stdactionref id="print"/>
+  </actionList>
+  <actionList id="fs_ti_financebyyearscur_list">
+    <stdactionref id="add"/>
+    <stdactionref id="delete"/>
+    <stdactionref id="moveUp"/>
+    <stdactionref id="moveDown"/>
+    <stdactionref id="copy"/>
+  </actionList>
+  <common-disable-conditions/>
+  <specific-disable-conditions/>
+</tableActions>

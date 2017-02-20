@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<doctabledesc xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/table" xsi:schemaLocation="http://www.otr.ru/sufd/document/table http://ufos.otr.ru/schema/document/table/v1/table.xsd">
+  <tables>
+    <tableform id="default">
+      <toolbar actionlist="&lt;absent>"/>
+      <popup actionlist="popupLayout"/>
+      <column default-width="48" field="KS_GRBS" name="Глава" tooltip="Код главы БК"/>
+      <column default-width="31" field="KS_SECTION" name="Р" tooltip="Раздел"/>
+      <column default-width="39" field="KS_SUBSECTION" name="ПР" tooltip="Подраздел"/>
+      <column default-width="39" field="KS_PNDE" name="ПН" tooltip="Программное или непрограммное направление расходов"/>
+      <column default-width="30" field="KS_PROGRAM" name="П" tooltip="Программа ФЦП"/>
+      <column default-width="37" field="KS_ACTION" name="ОМ" tooltip="Основное мероприятие"/>
+      <column default-width="27" field="KS_DIRECTION" name="НР" tooltip="Направление расходов"/>
+      <column default-width="40" field="KS_EXPTYPE" name="КВР" tooltip="Вид расходов"/>
+      <column default-width="35" field="KS_DEPARTMENT" name="КД" tooltip="Код департамента"/>
+      <column default-width="100" field="ADDITIONALFEATURECODE" name="Дополнительный аналитический признак" tooltip="Код дополнительного признака"/>
+      <column alignment="RIGHT" default-width="180" field="RUR_SUMTOTAL" name="ФО Всего" tooltip="ФО Всего" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="180" field="RUR_SUMNEXT" name="ФО на очередной финансовый год" tooltip="ФО на очередной финансовый год" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="180" field="RUR_SUMFIRST" name="ФО на первый год планового периода" tooltip="ФО на первый год планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="180" field="RUR_SUMSEC" name="ФО на второй год планового периода" tooltip="ФО на второй год планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <column alignment="RIGHT" default-width="180" field="RUR_SUMSUBSEC" name="ФО на последующие годы" tooltip="Сумма последующих лет планового периода" type="DECIMAL" pattern="#,###,##0.00000"/>
+      <control-buttons/>
+    </tableform>
+  </tables>
+  <selectconditions>
+    <selectcondition id="alldocs"/>
+  </selectconditions>
+</doctabledesc>

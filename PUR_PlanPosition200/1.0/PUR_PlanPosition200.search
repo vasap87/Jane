@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<search xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns="http://www.otr.ru/sufd/document/search" xsi:schemaLocation="http://www.otr.ru/sufd/document/search http://ufos.otr.ru/schema/document/search/v1/search.xsd">
+  <index id="default">
+    <full-text>
+      <fields/>
+    </full-text>
+  </index>
+</search>
