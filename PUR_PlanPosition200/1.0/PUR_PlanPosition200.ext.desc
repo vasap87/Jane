@@ -543,6 +543,229 @@
       <field desc="ФИО утверждающего документ" id="OI_APPROVERNAME" length="2000" type="STRING"/>
       <field desc="Должность утверждающего документ" id="OI_APPROVERPOST" length="2000" type="STRING"/>
       <field desc="Телефон утверждающего документ" id="OI_APPROVERPHONE" length="2000" type="STRING"/>
+      <field desc="Номер документа" id="CU_DOCNUMBER" length="100" type="STRING"/>
+      <field desc="Дата укрупненной закупки" id="CU_CREATEDATE" type="DATE"/>
+      <field desc="Плановый период" id="CU_PLANPERIOD" length="2000" type="STRING"/>
+      <field desc="Актуальный плановый период" id="CU_ACTUALPLANPERIOD" type="BOOLEAN"/>
+      <field desc="Тип укрупненной закупки" id="CU_TYPEPURCHASE" length="250" type="ENUM">
+        <param name="enumeration-id" value="PUR_TypePurchase"/>
+      </field>
+      <field desc="Номер версии укрупненной закупки" id="CU_VERSIONNUM" length="100" type="STRING"/>
+      <field desc="Дата и время создания версии документа" id="CU_VERSCREATEDATE" type="DATETIME"/>
+      <field desc="Код организации" id="ORG_ORGCODE" length="200" type="STRING"/>
+      <field desc="ОГРН" id="ORG_OGRN" length="13" type="STRING"/>
+      <field desc="ИНН" id="ORG_INN" length="10" type="STRING"/>
+      <field desc="КПП" id="ORG_KPP" length="9" type="STRING"/>
+      <field desc="Краткое наименование организации" id="ORG_SHORTORGNAME" length="2000" type="STRING"/>
+      <field desc="Полное наименование организации" id="ORG_FULLORGNAME" length="2000" type="STRING"/>
+      <field desc="Дата постановки на учет в налоговом органе" id="ORG_REGISTRYDATE" type="DATETIME"/>
+      <field desc="Код ОКОПФ" id="LFO_CODEOKPF" length="5" type="STRING"/>
+      <field desc="Наименование ОКОПФ" id="LFO_SNAME" length="2000" type="STRING"/>
+      <field desc="Код по ОКФС" id="ORG_OKFSREF_CODEOKFS" length="11" type="STRING"/>
+      <field desc="Наименвоание ОКФС" id="ORG_OKFSREF_OKFS" length="1000" type="STRING"/>
+      <field desc="Адрес" id="ORG_ADRESS" length="2000" type="STRING"/>
+      <field desc="Код ОКПО" id="ORG_OKPOCODE" length="10" type="STRING"/>
+      <field desc="Код главы по БК" id="SC_GLAVACODE" length="3" type="STRING"/>
+      <field desc="Наименование ГРБС" id="SC_GRBSNAME" length="2000" type="STRING"/>
+      <field desc="Код по ОКТМО" id="TMO_CODOKTMO" length="11" type="STRING"/>
+      <field desc="Полное наименование" id="TMO_OKTMO" length="1000" type="STRING"/>
+      <field desc="Наименование вида документа" id="CU_DOCTYPE_TYPENAME" length="250" type="ENUM">
+        <param name="enumeration-id" value="DocTypeName"/>
+      </field>
+      <field desc="Код вида документа" id="CU_DOCTYPE_TYPECODE" length="250" type="ENUM">
+        <param name="enumeration-id" value="DocTypeCode"/>
+      </field>
+      <field desc="Номер документаУкрупненной закупки" id="CU_UZNUMBER" length="100" type="STRING"/>
+      <field desc="Сокращенное наименование филиала" id="CU_BRANCHNAME" length="500" type="STRING"/>
+      <field desc="Код филиала" id="CU_BRANCHCODE" length="30" type="STRING"/>
+      <field desc="Код типа учереждения" id="CU_UCHREZHTYPECODE" length="1" type="STRING"/>
+      <field desc="Код типа организации" id="CU_ORGTYPECODE" length="2" type="STRING"/>
+      <field desc="Код организации пользователя" id="ORG_USERORGCODE" length="200" type="STRING"/>
+      <field desc="Полное наименование организации пользователя" id="ORG_USERORGNAME" length="2000" type="STRING"/>
+      <field desc="Адрес организации пользователя" id="ORG_USERORGADDRESS" length="2000" type="STRING"/>
+      <field desc="Телефон организации пользователя" id="ORG_USERORGPHONE" length="100" type="STRING"/>
+      <field desc="Емэйл организации пользователя" id="ORG_USERORGEMAIL" length="100" type="STRING"/>
+      <field desc="Код СПЗ пользователя" id="ORG_SPZ" length="11" type="STRING"/>
+      <field desc="Наименование объекта закупки" id="BI_OBJECTINFO" length="2000" type="STRING"/>
+      <field desc="Код товара работы или услуги" id="OKPD_CODOKPD" length="20" type="STRING"/>
+      <field desc="Наименование товара работы или услуги" id="OKPD_OKPD" length="1000" type="STRING"/>
+      <field desc="Закупка содержит несколько ОКПД2" id="BI_SEVERALOKPD" type="BOOLEAN"/>
+      <field desc="Описание закупки " id="BI_DESCRIPTION" length="2000" type="STRING"/>
+      <field desc="Есть техническая сложность" id="BI_HASCOMPLEXITY" type="BOOLEAN"/>
+      <field desc="Специальный характер укрупненной закупки" id="BI_COMPLEXITY" length="2000" type="STRING"/>
+      <field desc="Сведения об обязательном общественном обсуждении" id="BI_PUBLICDISCUSSION" type="BOOLEAN"/>
+      <field desc="Периодичность" id="BI_PERIODICITY" length="256" type="STRING"/>
+      <field desc="Код периодичности" id="BI_CODEPERIODICITY" length="5" type="STRING"/>
+      <field desc="Наименование государственной программы" id="BI_NAMESTATEPROGRAM" length="2000" type="STRING"/>
+      <field desc="Наименование мероприятия государственной программы" id="BI_PURPOSE" length="2000" type="STRING"/>
+      <field desc="Ожидаемый результат реализации мероприятия" id="BI_EXPECTEDRESULT" length="2000" type="STRING"/>
+      <field desc="Обоснование соответствия" id="BI_FOUNDATION" type="TEXT"/>
+      <field desc="Текущий финансовый год" id="BI_PLANPERIOD_CURYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Очередной финансовый год" id="BI_PLANPERIOD_NEXTYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Первый плановый год" id="BI_PLANPERIOD_FIRSTYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Второй плановый год" id="BI_PLANPERIOD_SECONDYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Наименование показателя" id="BI_NAMEINDEX" length="2000" type="STRING"/>
+      <field desc="Код показателя" id="BI_INDCODE" length="10" type="STRING"/>
+      <field desc="Срок осуществления закупок (от)" id="BI_TERM" type="DATE"/>
+      <field desc="Срок осуществления закупок (до)" id="BI_TERMTO" type="DATE"/>
+      <field desc="Срок" id="BI_TERMSTR" length="30" type="STRING"/>
+      <field desc="Источник" id="BI_SOURCE" length="250" type="ENUM">
+        <param name="enumeration-id" value="PUR_Source"/>
+      </field>
+      <field desc="Год извещения" id="BI_PUBLISHYEAR" length="250" type="ENUM">
+        <param name="enumeration-id" value="PublishYear"/>
+      </field>
+      <field desc="Обоснование изменения" id="BI_REASONFORCHANGE" length="2000" type="STRING"/>
+      <field desc="Идентификатор обоснования изменений" id="BI_REASONFORCHANGEID" length="6" type="STRING"/>
+      <field desc="Отменить в рамках размещенного в ЕИС ПГ" id="BI_CANCEL" type="BOOLEAN"/>
+      <field desc="Дополнительная информация" id="BI_INFOABOUTCHANGE" length="2000" type="STRING"/>
+      <field desc="ТипЗакупки" id="BI_PURTYPE" length="250" type="ENUM">
+        <param name="enumeration-id" value="PUR_PurchType"/>
+      </field>
+      <field desc="Идентификационный код укрупненной закупки" id="BI_IDENTIFCODEPUR" length="36" type="STRING"/>
+      <field desc="Порядковы номер позиции" id="BI_POSNUMBER" length="5" type="STRING"/>
+      <field desc="Номер строки в таблице плана закупок" id="BI_STRNUMBERINPP" length="10" type="STRING"/>
+      <field desc="Внешний номера позиции на ЕИС" id="BI_EXTNUMBER" length="15" type="STRING"/>
+      <field desc="Код  валюты" id="CCUR_CODE" length="3" type="STRING"/>
+      <field desc="Наименование валюты" id="CCUR_NAME" length="100" type="STRING"/>
+      <field desc="Код валюты буквенный" id="CCUR_CODEABC" length="3" type="STRING"/>
+      <field desc="Сортировка по статье" id="BI_SORTFORPURTYPE" length="3" type="STRING"/>
+      <field desc="Дата размещения в ЕИС" id="BI_EISPUBLISHDATE" type="DATETIME"/>
+      <field desc="Порядковы номер позиции в ЕИС" id="BI_EISPOSNUMBER" length="50" type="STRING"/>
+      <field desc="Признак необходимости обновления" id="BI_SENTONEIS" type="BOOLEAN"/>
+      <field desc="Закупки зарубежного аппарата" id="FP_FOREIGNSTAFFPURCHASES" type="BOOLEAN"/>
+      <field desc="Тип закупки зарубежного или отечественного аппарата" id="FP_STAFFPURCHASESTYPE" length="6" type="STRING"/>
+      <field desc="Сумма текущего года планового периода" id="T_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="T_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="T_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="T_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="T_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="T_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TUSD_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TUSD_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TUSD_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TUSD_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TUSD_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TUSD_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TUUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TUUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TUUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TUUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TUUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TUUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TRUR_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TRUR_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TRUR_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TRUR_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TRUR_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TRUR_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TRUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TRUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TRUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TRUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TRUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TRUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TOT_SUMCURRENT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TOT_SUMNEXT" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TOT_SUMFIRST" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TOT_SUMSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TOT_SUMSUBSEC" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TOT_SUMTOTAL" length="20" scale="5" type="DECIMAL"/>
+      <field desc="Сумма текущего года планового периода" id="TOUZ_SUMCURRENT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма очередного года планового периода" id="TOUZ_SUMNEXT" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма первого года планового периода" id="TOUZ_SUMFIRST" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма второго года планового периода" id="TOUZ_SUMSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Сумма последующих лет планового периода" id="TOUZ_SUMSUBSEC" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Итоговая сумма финансового обеспечения" id="TOUZ_SUMTOTAL" length="20" scale="1" type="DECIMAL"/>
+      <field desc="КВР для ИКЗ" id="FP_EXPTYPEIKZ" length="3" type="STRING"/>
+      <field desc="КВР не определен " id="FP_EXPTYPENOTIDENTIFIED" type="BOOLEAN"/>
+      <field desc="Включено в план закупок" id="IND_INCLUDEDP" length="250" type="ENUM">
+        <param name="enumeration-id" value="PUR_PosStateInPP"/>
+      </field>
+      <field desc="Состояние связанного плана графика" id="IND_PLANSTATUS" length="250" type="ENUM">
+        <param name="enumeration-id" value="offerStatus"/>
+      </field>
+      <field desc="Состояние требует корректировки" id="IND_CORRECTIONNEEDED" length="250" type="ENUM">
+        <param name="enumeration-id" value="requiresCorrectionPPZ_SF"/>
+      </field>
+      <field desc="Является актуальной версией" id="IND_ISACTUAL" type="BOOLEAN"/>
+      <field desc="Позиция была размещена в ЕИС" id="IND_WASPUBLISHER" type="BOOLEAN"/>
+      <field desc="Позиция была включена в ПЗ" id="IND_WASINCLUDEINPZ" type="BOOLEAN"/>
+      <field desc="Невозможность удаления из ПЗ" id="IND_INABILITYTODELETE" type="BOOLEAN"/>
+      <field desc="Создана ППГ" id="IND_CREATEDPPG" type="BOOLEAN"/>
+      <field desc="ГУИДБазисного документа" id="TEI_BASICGUID" length="36" type="UUID"/>
+      <field desc="ГУИД Родителя" id="TEI_PARENTGUID" length="36" type="UUID"/>
+      <field desc="ГУИД текущего документа" id="TEI_CURRENTGUID" length="36" type="UUID"/>
+      <field desc="ГУИД технической ППЗ" id="TEI_TECHPPZGUID" length="36" type="UUID"/>
+      <field desc="ГУИД документа основы" id="TEI_FOUNDATIONGUID" length="36" type="UUID"/>
+      <field desc="ГУИД плана закупок" id="TEI_PLANGUID" length="36" type="UUID"/>
+      <field desc="ГУИД плановой укрупненной закупки" id="TEI_KUZGUID" length="36" type="UUID"/>
+      <field desc="Исходная КУЗ утверждена" id="TEI_KUZAPPROVED" type="BOOLEAN"/>
+      <field desc="Регистрационный номер плана закупок" id="TEI_PLANREGNUM" length="100" type="STRING"/>
+      <field desc="ГУИД версии УЗ, включенного в предложение" id="TEI_INCLUDEDUZGUID" length="36" type="UUID"/>
+      <field desc="Тип формуляра плана закупок" id="TEI_PLANDOCTYPE" length="100" type="STRING"/>
+      <field desc="Код ОКПД для расчета ИКЗ" id="TEI_OKPDFORIKZ" length="20" type="STRING"/>
+      <field desc="Признак удаления" id="TEI_DELETEDFORCHECK" type="BOOLEAN"/>
+      <field desc="Длинный текст" id="TF_LONGTEXTFIELD" length="2000" type="STRING"/>
+      <field desc="Текст 50 символов" id="TF_TEXT50FIELD" length="50" type="STRING"/>
+      <field desc="Целое число" id="TF_INTEGERFIELD" length="20" type="LONG"/>
+      <field desc="Вещественное число" id="TF_DECIMALFIELD" length="20" scale="1" type="DECIMAL"/>
+      <field desc="Логическое поле" id="TF_BOOLEANFIELD" type="BOOLEAN"/>
+      <field desc="Поле даты" id="TF_DATEFIELD" type="DATE"/>
+      <field desc="Поле даты и времени" id="TF_DATETIMEFIELD" type="DATETIME"/>
+      <field desc="Вид расходов" id="TEI_EXPENSETYPE" length="3" type="STRING"/>
+      <field desc="Длина ОКПД" id="TEI_UZSETTINGS_OKPDLEN" length="2" type="STRING"/>
+      <field desc="Номер следующей версии" id="TEI_NEXTVERSIONNUM" length="5" type="STRING"/>
+      <field desc="Для заполнения рублевого ФО из КУЗ" id="TEI_IFFROMKUZ" length="500" type="STRING"/>
+      <field desc="Для заполнения валютного ФО из КУЗ" id="TEI_IFFROMKUZCUR" length="500" type="STRING"/>
+      <field desc="Для заполнения валютного ФО из КУЗ массовый метод" id="TEI_IFFROMKUZCURMASS" length="500" type="STRING"/>
+      <field desc="Признак создания по интеграции" id="TEI_ISFROMINTEGRATION" type="BOOLEAN"/>
+      <field desc="Система-источник" id="TEI_INTEGRATIONSYSTEM" length="50" type="STRING"/>
+      <field desc="Заполнить лист согласования из КУЗ" id="TEI_FILLAGRLISTFROMKUZ" length="10" type="STRING"/>
+      <field desc="Дополнительная информация в соответстии с пунктом 7 части 2 статьи 17 Закона 44-ФЗ" id="TEI_ADDINFOP7CH7" length="2000" type="STRING"/>
+      <field desc="Доступен только импорт документов" id="TEI_JUSTIMPORT" length="50" type="STRING"/>
+      <field desc="Номер будущего документа КУЗ" id="TEI_UZNUMBER" length="100" type="STRING"/>
+      <field desc="Код связки " id="TZ_IDTIMEZONE" length="10" type="STRING"/>
+      <field desc="Описание тайм зоны" id="TZ_TIMEZONEDESC" length="2000" type="STRING"/>
+      <field desc="Дельта к МСК" id="TZ_MSKDELTA" length="10" type="STRING"/>
+      <field desc="Дельта к ЮТС" id="TZ_UTCDELTA" length="10" type="STRING"/>
+      <field desc="АнглТаймЗона" id="TZ_TIMEZONEENAME" length="500" type="STRING"/>
+      <field desc="Дата размещения в ЕИС с тайм зоной" id="TEI_EISPDATETZ" length="500" type="STRING"/>
+      <field desc="Признак импорта из ЕИС" id="TEI_ISFROMEIS" type="BOOLEAN"/>
+      <field desc="Признак процесса загрузки из ЕИС" id="TEI_EISIMPORTTEMP" type="BOOLEAN"/>
+      <field desc="Код ОКОПФ 3 символа" id="TEI_CODEOKOPF_3" length="3" type="STRING"/>
+      <field desc="ИКЗ сформировано" id="TEI_IKZISFORMED" type="BOOLEAN"/>
+      <field desc="Порядковый номер ИКЗ для особой закупки уже сформирован" id="TEI_POSNUMBERISFORMED" type="BOOLEAN"/>
+      <field desc="Для процесса согласования флаг 3" id="AGR_USERFLAG3" length="50" type="STRING"/>
+      <field desc="Для процесса согласования флаг 4" id="AGR_USERFLAG4" length="50" type="STRING"/>
+      <field desc="Системное имя подписанта" id="AGR_APPROVERLOGIN" length="50" type="STRING"/>
+      <field desc="Заметка подписанта" id="AGR_APPROVERNOTE" length="1000" type="STRING"/>
+      <field desc="Дата и время подписи" id="AGR_SIGNDATETIME" type="DATETIME"/>
+      <field desc="Дата и время отправки на утверждение" id="AGR_APPINCOMEDT" type="DATETIME"/>
+      <field desc="Имя текущего пользователя" id="AGR_CURRENTUSERNAME" length="100" type="STRING"/>
+      <field desc="Число согласующих" id="AGR_NUMOFAPPROVERS" length="20" type="LONG"/>
+      <field desc="Необходимость согласования" id="AGR_ISAGREEMENTNEED" type="BOOLEAN"/>
+      <field desc="Дата и время отправки на согласование" id="AGR_ARGINCOMEDT" type="DATETIME"/>
+      <field desc="ФИО автора документа" id="OI_AUTHORNAME" length="2000" type="STRING"/>
+      <field desc="Должность автора документа" id="OI_AUTHORPOST" length="2000" type="STRING"/>
+      <field desc="Телефон автора документа" id="OI_AUTHORPHONE" length="2000" type="STRING"/>
+      <field desc="ФИО утверждающего документ" id="OI_APPROVERNAME" length="2000" type="STRING"/>
+      <field desc="Должность утверждающего документ" id="OI_APPROVERPOST" length="2000" type="STRING"/>
+      <field desc="Телефон утверждающего документ" id="OI_APPROVERPHONE" length="2000" type="STRING"/>
     </nested-fieldset>
   </content>
   <virtual>

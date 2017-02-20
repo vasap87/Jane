@@ -34,6 +34,7 @@
     <field column="AGR_SIGNDATETIME" header="Код ОКОПФ 3 символа" length="3" name="DOC.TEI_CODEOKOPF_3" type="STRING"/>
     <field column="AGR_APPINCOMEDT" header="ИКЗ сформировано" name="DOC.TEI_IKZISFORMED" type="BOOLEAN"/>
     <field column="AGR_CURRENTUSERNAME" header="Порядковый номер ИКЗ для особой закупки уже сформирован" name="DOC.TEI_POSNUMBERISFORMED" type="BOOLEAN"/>
+    <field column="AGR_USERFLAG3" header="Для процесса согласования флаг 3" length="50" name="DOC.AGR_USERFLAG3" type="STRING"/>
     <field column="AGR_NUMOFAPPROVERS" header="Для процесса согласования флаг 4" length="50" name="DOC.AGR_USERFLAG4" type="STRING"/>
     <field column="AGR_ISAGREEMENTNEED" header="Системное имя подписанта" length="50" name="DOC.AGR_APPROVERLOGIN" type="STRING"/>
     <field column="AGR_ARGINCOMEDT" header="Заметка подписанта" length="1000" name="DOC.AGR_APPROVERNOTE" type="STRING"/>
